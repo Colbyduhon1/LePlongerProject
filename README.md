@@ -5,7 +5,7 @@
 ## Team
 
   - John Iaconnis
-  - Coldy Duhon
+  - Colby Duhon
   - Aly Tamboura
   - Jackson Carter
 
