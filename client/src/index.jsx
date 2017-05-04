@@ -6,7 +6,6 @@ import $ from 'jquery';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -15,7 +14,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>UP AND RUNNING</h1>
+      <h1> hfkdkdjdkfj</h1>
       </div>
     )
   }
