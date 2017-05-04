@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 8080;
-const path = require('path');
 
 app.use(express.static(__dirname + '../client/dist'));
 
