@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 /*--Landing Page Weather/Wave Components--*/
-import LandingInfoNorth from './components/LandingInfoNorth.jsx';
-import LandingInfoCentral from './components/LandingInfoCentral.jsx';
-import LandingInfoSouth from './components/LandingInfoSouth.jsx';
+import LandingInfoContainer from './components/LandingInfoContainer.jsx';
+/*--Map and subsequent components--*/
+import DiveMap from './components/DiveMap.jsx';
 
 
 class App extends React.Component {
@@ -13,6 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
   }
 
   render () {
@@ -29,19 +30,10 @@ class App extends React.Component {
 
         <div className='row'>
 
-          <div className='col-md-3'>
-            {/* transfer to top ocean component */}
-            <LandingInfoNorth />
-            {/* transfer to top ocean component */}
-            <LandingInfoCentral />
-            {/* transfer to top ocean component */}
-            <LandingInfoSouth />
-          </div>{/* end left col */}
-
+          
+          <LandingInfoContainer />
           {/* transfer to map component */}
-          <div className='col-md-6 map-section'>
-            <h1>map section</h1>
-          </div>
+          <DiveMap />
 
           {/* transfer to reviews component */}
           <div className='col-md-3 reviews-section'>
