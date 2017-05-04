@@ -1,7 +1,10 @@
-
-var connection = require('../db');
-
+var connection = require('./config.js');
 
 
-module.exports = {};
+
+module.exports = {
+	users: 
+	dive_sites: 
+	comments: 
+};
 
