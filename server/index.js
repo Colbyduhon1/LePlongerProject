@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/dist/index"));
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   //res.end('hello world');
 })
 
