@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function(req, res){
-  res.sendStatus(200);
+  res.send(express.static(__dirname + '/../client/dist'));
 });
 
 
