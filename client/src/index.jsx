@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+/*--Landing Page Weather/Wave Components--*/
+import LandingInfoNorth from './components/LandingInfoNorth.jsx';
+import LandingInfoCentral from './components/LandingInfoCentral.jsx';
+import LandingInfoSouth from './components/LandingInfoSouth.jsx';
 
 
 class App extends React.Component {
@@ -26,22 +30,12 @@ class App extends React.Component {
         <div className='row'>
 
           <div className='col-md-3'>
-
             {/* transfer to top ocean component */}
-            <div className='col-md-12 weather-section' >
-             <h1>norcal ocean map</h1>
-            </div>
-
+            <LandingInfoNorth />
             {/* transfer to top ocean component */}
-            <div className='col-md-12 weather-section'>
-             <h1>centeral ocean map</h1>
-            </div>
-
+            <LandingInfoCentral />
             {/* transfer to top ocean component */}
-            <div className='col-md-12 weather-section'>
-             <h1>socal ocean map</h1>
-            </div>
-
+            <LandingInfoSouth />
           </div>{/* end left col */}
 
           {/* transfer to map component */}
