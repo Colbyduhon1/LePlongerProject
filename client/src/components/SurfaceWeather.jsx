@@ -6,5 +6,4 @@ const SurfaceWeather = (props) => {
   </div>
 }
 
-
 export default SurfaceWeather;
