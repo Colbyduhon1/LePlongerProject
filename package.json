@@ -29,6 +29,7 @@
     "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-google-maps": "^6.3.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0"
   },
