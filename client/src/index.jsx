@@ -4,6 +4,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
+import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
 
@@ -11,10 +12,26 @@ import DiveMap from './components/Map/DiveMap.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      diveview: true,
+    }
+    this.toggleView = this.toggleView.bind(this);
   }
 
   componentDidMount() {
 
+  }
+
+  toggleView() {
+    if (this.state.diveview) {
+      this.setState({
+        diveview: false,
+      })
+    } else {
+      this.setState({
+        diveview: true,
+      })
+    }
   }
 
   render () {
@@ -32,7 +49,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          <LandingInfoContainer />
+          {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer />}
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>
@@ -50,6 +67,10 @@ class App extends React.Component {
             <h1>reviews section</h1>
           </div>
 
+        </div>
+      {/* use for dev remove for production*/}
+        <div className='col-md-12'>
+          <button onClick={this.toggleView} className='btn btn-info'>TogggleView</button>
         </div>
       </div>
     )

@@ -1,4 +1,4 @@
-var connection = require('../db/database');
+var connection = require('../db');
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
