@@ -7,7 +7,7 @@ module.exports = {
   users: {
     get: (user) => {
       return connection.queryAsync(
-      //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION 
+      //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION
       );
     },
     post: (new_user) => {

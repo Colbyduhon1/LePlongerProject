@@ -31,7 +31,7 @@ class App extends React.Component {
 
         <div className='row'>
 
-          
+
           <LandingInfoContainer />
           {/* transfer to map component */}
           <DiveMap
