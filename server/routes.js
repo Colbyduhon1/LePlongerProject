@@ -1,6 +1,6 @@
-const controller = require('./controllers/controller.js');
+const controller = require('./controllers');
 
-const router = rqeuire('express').Router();
+const router = require('express').Router();
 
 router.route('/dives')
   .get(controller.dives.get)

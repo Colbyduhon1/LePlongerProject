@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
+
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -21,7 +22,7 @@ const router = require('./routes.js');
 app.use(express.static(path.join(__dirname, '../client/dist/')));
 
 //routes
-//these may have to be broken up, but i think that if we keep
+//this may have to be broken up, but i think that if we keep
 //the route as '/', it will use the router for every request
 //the databases sprint used one router for every endpoint
 //the technical assessment used different routers depending on the endpoint
@@ -49,7 +50,7 @@ app.listen(port, function () {
 
 
 /*
-THIS IS THE ORIGINAL SET OF ROUTES YOU MADE, KEEPING THEM HERE
+THIS IS THE ORIGINAL SET OF ROUTES COLBY+JACKSON MADE, KEEPING THEM HERE
 TEMPORARILY INCASE ROUTER DOESN'T WORK OR CAUSES TOO MANY ISSUES TO FIX
 
 app.get('/', function(req, res) {

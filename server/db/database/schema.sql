@@ -17,9 +17,9 @@ DROP TABLE IF EXISTS users;
 		
 CREATE TABLE users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  Name varchar(255) NOT NULL DEFAULT 'NOT NULL',
-  password varchar(255) NULL DEFAULT 'NOT NULL',
-  salt  varchar(255) NULL
+  Name VARCHAR(64) NOT NULL DEFAULT 'NOT NULL',
+  password VARCHAR(64) NULL DEFAULT 'NOT NULL',
+  salt  VARCHAR(64) NULL
 );
 
 -- ---

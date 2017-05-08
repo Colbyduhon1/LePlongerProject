@@ -1,6 +1,8 @@
 var connection = require('../db/database');
 
-
+//I(John) think these should be named relating to what theyre doing
+//this is the interface that interacts with the database, abstracting to get or post
+//isn't clear, in my opinion
 module.exports = {
   users: {
     get: (user) => {
@@ -18,7 +20,7 @@ module.exports = {
   dive_sites: {
     get: (sites) => {
       return connection.queryAsync(
-        `SELECT * FROM dives;`;
+        `SELECT * FROM dives;`
       );
     },
     post: (new_sites) => {
