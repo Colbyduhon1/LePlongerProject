@@ -13,16 +13,7 @@ const DiveMap = withGoogleMap(props => (
    {props.markers.map( (marker, index) => (
        <MarkerContainer marker={marker} key={index} />
    ))}
-
    </GoogleMap>
 ));
 
 export default DiveMap;
-
-
-   // {props.markers.map((marker, index) => (
-   //     <Marker
-   //     {...marker}
-   //     onRightClick={() => props.onMarkerRightClick(index)}
-   //     />
-   // ))}
