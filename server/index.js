@@ -7,7 +7,6 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8080;
 
-
 //middleware
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,7 +26,7 @@ app.use(express.static(path.join(__dirname, '../client/dist/')));
 //the databases sprint used one router for every endpoint
 //the technical assessment used different routers depending on the endpoint
 
-//I personally would say lets aim to use one router, so long as we don't 
+//I personally would say lets aim to use one router, so long as we don't
 //exceed XX limit of lines in the router file
 app.use('/', router);
 
@@ -62,11 +61,11 @@ app.get('/dives', (req, res) =>{
 });
 
 app.get('/users', (req, res) =>{
-  
+
 });
 
 app.get('/comments', (req, res) =>{
-  
+
 });
 
 app.post('/new_sites', (req, res) => {

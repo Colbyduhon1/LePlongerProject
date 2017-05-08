@@ -1,4 +1,6 @@
-var connection = require('../db/database');
+
+var connection = require('../db');
+
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -7,7 +9,7 @@ module.exports = {
   users: {
     get: (user) => {
       return connection.queryAsync(
-      //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION 
+      //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION
       );
     },
     post: (new_user) => {
