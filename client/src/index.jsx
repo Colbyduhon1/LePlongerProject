@@ -12,7 +12,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      site: []
+      sites: [{position: {lat: 37.780, lng: -122.44}, 
+                key: 'a', 
+                defaultAnimation: 2}, 
+              {position: {lat: 37.795, lng: -122.452},
+                key: 'b',
+                defaultAnimation: 2}]
     }
   }
 
@@ -44,7 +49,7 @@ class App extends React.Component {
           }
           onMapLoad={_.noop}
           onMapClick={_.noop}
-          markers={_.noop}
+          markers={this.state.sites}
           onMarkerRightClick={_.noop}
           />
 
