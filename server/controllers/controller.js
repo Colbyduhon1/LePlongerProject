@@ -1,35 +1,58 @@
-	var model = require('../models/dB_model_methods.js');
+	var model = require('../models');
 
 	module.exports = {
 		dives: {
-			get: function(req, res){
+			get: (req, res) => {
 				model.dive_sites.get(sites){
 					res.json(sites);
 				}
-			}
-			post: function(req, res){
+			},
+			post: (req, res) => {
 				model.dive_sites.post(req.body){
 					res.sendStatus(201);
 				}
 			}
-		}
+		},
 
 		users: {
-			get: function(req, res){
+			get: (req, res) => {
 				model.users.get(sites){
 				res.json(sites);
 				}
 			}
-			post: function(req, res){
+			post: (req, res) => {
 				model.users.post(req.body){
 				res.sendStatus(201);
 				}
 			}
+		},
+
+		comments: {
+			get: (req, res) => {
+
+			},
+			post: (req, res) => {
+
+			}
+		},
+
+		new_sites: {
+			get: (req, res) => {
+
+			},
+			post: (req, res) => {
+
+			}
+		},
+
+		new_users: {
+			get: (req, res) => {
+
+			},
+			post: (req, res) => {
+				
+			}
 		}
-
-
-
-
 
 
 	}
