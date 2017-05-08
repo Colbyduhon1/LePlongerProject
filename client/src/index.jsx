@@ -4,7 +4,7 @@ import $ from 'jquery';
 /*--Landing Page Weather/Wave Components--*/
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
 /*--Map and subsequent components--*/
-import DiveMap from './components/DiveMap.jsx';
+import DiveMap from './components/Map/DiveMap.jsx';
 
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='container-fluid'>
         <div className='row'>
 
          {/*transfer to search component*/}
