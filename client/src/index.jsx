@@ -14,13 +14,28 @@ class App extends React.Component {
     this.state = {
       diveview: false,
     }
+    this.toggleView = this.toggleView.bind(this);
   }
 
   componentDidMount() {
 
   }
 
+  //toggles the view on the left side of index.html
+  toggleView () {
+    if(this.state.diveview) {
+      this.setState({
+        diveview: false,
+      })
+    } else {
+      this.setState({
+        diveview: true,
+      })
+    }
+  }
+
   render () {
+
     return (
       <div className='container-fluid'>
         <div className='row'>
@@ -28,7 +43,6 @@ class App extends React.Component {
          {/*transfer to search component*/}
           <div className='col-md-12'>
             <h1>search component</h1>
-            <button className='btn btn-danger'>submit</button>
           </div>
 
         </div>{/* end first row */}
@@ -37,6 +51,7 @@ class App extends React.Component {
 
 
           {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer />}
+
           {/* transfer to map component */}
           <DiveMap />
 
@@ -45,6 +60,10 @@ class App extends React.Component {
             <h1>reviews section</h1>
           </div>
 
+        </div>
+        {/* for developement only */}
+        <div className='col-md-12'>
+          <button onClick={this.toggleView}className='btn btn-danger'>submit</button>
         </div>
       </div>
     )

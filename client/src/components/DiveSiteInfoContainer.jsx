@@ -13,5 +13,4 @@ const DiveSiteInfoContainer = (props) => {
 	)
 }
 
-
 export default DiveSiteInfoContainer;
