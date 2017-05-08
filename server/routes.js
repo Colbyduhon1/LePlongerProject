@@ -14,6 +14,9 @@ router.route('/comments')
   .get(controller.comments.get)
   .post(controller.comments.post)
 
+
+//JI: we only have user,dive,commment tables
+//these routes would probably be part of one of the above endpoints
 router.route('/new_sites')
   .get(controller.new_sites.get)
   .post(controller.new_sites.post)

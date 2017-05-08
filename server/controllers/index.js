@@ -13,7 +13,7 @@ module.exports = {
 			//pass it into the model method(below)
 			models.dive_sites.get(sites)
 			//in theory, if this is a promise
-			//we can call .then()
+			//we can call .then() with the results back from the database
 				.then( (result) => {
 					/*...*/
 				});
