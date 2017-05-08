@@ -11,6 +11,9 @@ import DiveMap from './components/Map/DiveMap.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      site: []
+    }
   }
 
   componentDidMount() {
