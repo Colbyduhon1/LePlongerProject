@@ -38,7 +38,6 @@ class App extends React.Component {
           {/* transfer to reviews component */}
           <div className='col-md-3 reviews-section'>
             <h1>reviews section</h1>
-            <button className='btn btn-danger'>submit</button>
           </div>
 
         </div>
