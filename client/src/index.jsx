@@ -13,11 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       diveview: true,
-=======
-      diveview: false,
->>>>>>> master
     }
     this.toggleView = this.toggleView.bind(this);
   }
@@ -26,14 +22,10 @@ class App extends React.Component {
 
   }
 
-<<<<<<< HEAD
-  toggleView() {
-    if (this.state.diveview) {
-=======
+
   //toggles the view on the left side of index.html
   toggleView () {
     if(this.state.diveview) {
->>>>>>> master
       this.setState({
         diveview: false,
       })
@@ -61,10 +53,7 @@ class App extends React.Component {
 
 
           {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer />}
-<<<<<<< HEAD
-=======
 
->>>>>>> master
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>
@@ -83,15 +72,10 @@ class App extends React.Component {
           </div>
 
         </div>
-<<<<<<< HEAD
       {/* use for dev remove for production*/}
         <div className='col-md-12'>
           <button onClick={this.toggleView} className='btn btn-info'>TogggleView</button>
-=======
-        {/* for developement only */}
-        <div className='col-md-12'>
-          <button onClick={this.toggleView}className='btn btn-danger'>submit</button>
->>>>>>> master
+
         </div>
       </div>
     )

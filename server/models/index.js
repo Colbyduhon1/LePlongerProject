@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 var connection = require('../db');
-=======
-var connection = require('../db/');
->>>>>>> master
+
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
