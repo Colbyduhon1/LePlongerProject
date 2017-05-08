@@ -1,12 +1,60 @@
 import React from 'react';
 import keys from '../../../../keys.js';
+import {withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
-const DiveMap = (props) => (
-  <div id="map" className='col-md-6 map-section'>
-    <h3>map section</h3>
-  </div>
-);
 
+// class DiveMap extends React.Component {
+//   render() {
+//     const mapContainer = <div id="map" className='col-md-6 map-section'></div>
+
+//     return (
+//       <withGoogleMap
+//         containerElement = { mapContainer }
+//         googleMapElement = {
+//           <GoogleMap
+//               defaultZoom={7}
+//               defaultCenter={{lat: 37.787, lng: -122.458}}
+//               options={{streetViewControl: false, mapTypeControl: false}}>
+//           </GoogleMap>
+//         } />
+//     )
+//   }
+// }
+
+const DiveMap = withGoogleMap(props => (
+  <GoogleMap
+    ref={props.onMapLoad}
+    defaultZoom={7}
+    defaultCenter={{lat: 37.787, lng: -122.458}}
+    onClick={props.onMapClick}
+  >
+    {/*props.markers.map((marker, index) => (
+      <Marker
+      {...marker}
+      onRightClick={() => props.onMarkerRightClick(index)}
+      />
+    ))*/}
+    </GoogleMap>
+));
+
+// render(
+//   <DiveMap
+//   containerElement={<div id="map" className='col-md-6 map-section'></div>
+//   }
+//   mapElement={<div id="map" className='col-md-6 map-section'></div>
+//   }
+//   onMapLoad={_.noop}
+//   onMapClick={_.noop}
+//   markers={_.noop}
+//   onMarkerRightClick={_.noop}
+//   />,
+//   document.getElementById('map')
+// );
+
+
+
+
+export default DiveMap;
 // class DiveMap extends React.Component {
 //   constructor(props) {
 //     super(props); 
@@ -45,7 +93,7 @@ const DiveMap = (props) => (
 //   }
 // }
 
-export default DiveMap;
+
 
 
 

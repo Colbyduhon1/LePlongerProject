@@ -33,6 +33,15 @@ CENTRAL MAP
 .map-section {
 	min-height: 600px;
   height: 100%;
+  padding: 0;
+}
+
+#map {
+  background-color: red;
+}
+
+.map-container {
+  padding: 0;
 }
 
 
