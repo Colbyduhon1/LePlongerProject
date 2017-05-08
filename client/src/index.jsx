@@ -173,7 +173,7 @@ class App extends React.Component {
           }
           onMapLoad={_.noop}
           onMapClick={_.noop}
-          markers={_.noop}
+          markers={this.state.sites}
           onMarkerRightClick={_.noop}
           />
 
