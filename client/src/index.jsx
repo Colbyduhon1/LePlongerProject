@@ -31,6 +31,7 @@ class App extends React.Component {
              name: 'DivePlace',
              description: 'Very fun dives',
              defaultAnimation: 2}]
+
     }
     //console.log('this is the sample data ', SampleData);
     this.toggleView = this.toggleView.bind(this);
@@ -131,6 +132,7 @@ class App extends React.Component {
 
 
   //toggles the view on the left side of index.html
+  //JI: rename this
   toggleView () {
     if(this.state.diveview) {
       this.setState({
