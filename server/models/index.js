@@ -16,10 +16,17 @@ module.exports = {
       );
     },
     post: (new_user) => {
-      return connection.queryAsync(
-        `INSERT INTO users (Name, password, salt) VALUES ('${new_user.name}', '${new_user.password}',
-        '${new_user.salt}');`
-      );
+      var user = [new_user.id, new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skilllevel];
+      var queryString = 'INSERT INTO dives(id, name, password, email, salt, age, skill ) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      connection.query(queryString, user, function(err, data) {
+        if (err) {
+          console.log('could not post dive-sites to database');
+          callback(err, null);
+        } else {
+          console.log('posted dive-sites to database');
+          callback(null, data);
+        }
+      })
     }
   },
   dive_sites: {
