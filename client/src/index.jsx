@@ -33,7 +33,7 @@ class App extends React.Component {
              defaultAnimation: 2}]
 
     }
-    this.toggleView = this.toggleView.bind(this);
+    this.showConditions = this.showConditions.bind(this);
     this.getWeatherData = this.getWeatherData.bind(this);
   }
   
@@ -110,7 +110,6 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('mounted');
-    //this.getWeatherData();
   }
 
   getWeatherData() {
@@ -125,15 +124,14 @@ class App extends React.Component {
         })
       },
       error: (err) => {
-        console.log('could not get data from server');
+        console.log('could not get data from server: ', err);
       }
     })
   }
 
 
   //toggles the view on the left side of index.html
-  //JI: rename this
-  toggleView () {
+  showConditions () {
     if(this.state.diveview) {
       this.setState({
         diveview: false,
@@ -177,6 +175,7 @@ class App extends React.Component {
           onMapClick={_.noop}
           markers={this.state.sites}
           onMarkerRightClick={_.noop}
+          showConditions={this.showConditions}
           />
 
           {/* transfer to reviews component */}
@@ -187,7 +186,6 @@ class App extends React.Component {
         </div>
       {/* use for dev remove for production*/}
         <div className='col-md-12'>
-          <button onClick={this.toggleView} className='btn btn-info'>TogggleView</button>
 
         </div>
       </div>

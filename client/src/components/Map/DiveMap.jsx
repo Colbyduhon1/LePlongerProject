@@ -11,7 +11,7 @@ const DiveMap = withGoogleMap(props => (
    onClick={props.onMapClick}
  >
    {props.markers.map( (marker, index) => (
-       <MarkerContainer marker={marker} key={index} />
+       <MarkerContainer showConditions={props.showConditions} marker={marker} key={index} />
    ))}
 
    </GoogleMap>
