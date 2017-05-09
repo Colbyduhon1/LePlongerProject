@@ -18,6 +18,7 @@ class MarkerContainer extends React.Component {
    this.setState({
      showingInfoWindow: !this.state.showingInfoWindow
    });
+   this.props.toggleInfoWindow()
    // const context = this;
    // setTimeout(() => {
    //   context.setState({

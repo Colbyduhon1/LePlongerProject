@@ -19,7 +19,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      diveview: true,
+      diveview: false,
+      openInfoWindow: false,
       weatherdata: SampleData,
       sites: [{position: {lat: 37.780, lng: -122.44},
              key: 'a',
@@ -35,6 +36,7 @@ class App extends React.Component {
     }
     this.showConditions = this.showConditions.bind(this);
     this.getWeatherData = this.getWeatherData.bind(this);
+    this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
   }
   
   logIn (user, pass) {
@@ -132,15 +134,17 @@ class App extends React.Component {
 
   //toggles the view on the left side of index.html
   showConditions () {
-    if(this.state.diveview) {
-      this.setState({
-        diveview: false,
-      })
-    } else {
-      this.setState({
-        diveview: true,
-      })
-    }
+    console.log('changing diveview from ', this.state.diveview, ' to ', !this.state.diveview);
+    this.setState({
+      diveview: !this.state.diveview
+    });
+  }
+
+  toggleInfoWindow() {
+    console.log('changing toggleInfoWindow from ', this.state.openInfoWindow, ' to ', !this.state.openInfoWindow);
+    this.setState({
+      openInfoWindow: !this.state.openInfoWindow
+    })
   }
 
 
@@ -163,7 +167,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer weatherdata={this.state.weatherdata} />}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer weatherdata={this.state.weatherdata} /> : <LandingInfoContainer />}
 
           {/* transfer to map component */}
           <DiveMap
@@ -176,6 +180,7 @@ class App extends React.Component {
           markers={this.state.sites}
           onMarkerRightClick={_.noop}
           showConditions={this.showConditions}
+          toggleInfoWindow={this.toggleInfoWindow}
           />
 
           {/* transfer to reviews component */}
