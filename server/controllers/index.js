@@ -3,7 +3,7 @@ const models = require('../models');
 //that way the interaction with the database will occure
 //THEN with that info we send response to the client.
 
-//if we can't figure it out, we can always pass along 
+//if we can't figure it out, we can always pass along
 //res to the model
 
 module.exports = {
@@ -70,6 +70,18 @@ module.exports = {
 		post: (req, res) => {
 			model.new_users.post()
 			.then()
+		}
+	},
+	weather: {
+		get: (req, res) => {
+			console.log('weather route called')
+      models.weather.get((err, data) => {
+      	if (err) {
+      		console.log('Cannot get weather data', err);
+      	} else {
+      		res.end(data)
+      	}
+      })
 		}
 	}
 };
