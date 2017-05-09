@@ -15,11 +15,18 @@ module.exports = {
       //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION
       );
     },
-    post: (new_user) => {
-      return connection.queryAsync(
-        `INSERT INTO users (Name, password, salt) VALUES ('${new_user.name}', '${new_user.password}',
-        '${new_user.salt}');`
-      );
+    post: (new_user, callback) => {
+      var user = [new_user.id, new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skill];
+      var queryString = 'INSERT INTO users(id, name, password, email, salt, age, skill ) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      connection.query(queryString, user, function(err, data) {
+        if (err) {
+          console.log('could not post user to database');
+          callback(err, null);
+        } else {
+          console.log('posted users to database');
+          callback(null, data);
+        }
+      })
     }
   },
   dive_sites: {
