@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SurfaceWeather = (props) => {
-		console.log('in divecontainer',props)
 	return (
 		 <div className='col-md-12 weather-section'>
 			 <img src={props.weatherdata.current_observation.icon_url} />
