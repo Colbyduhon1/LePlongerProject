@@ -14,6 +14,9 @@ router.route('/comments')
   .get(controller.comments.get)
   .post(controller.comments.post)
 
+router.route('/weather')
+   .get(controller.weather.get)
+
 
 //JI: we only have user,dive,commment tables
 //these routes would probably be part of one of the above endpoints

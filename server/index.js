@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const rout = require('./routes');
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Router
 const router = require('./routes.js');
+app.use('/weather', router);
 
 
 //Serve static files

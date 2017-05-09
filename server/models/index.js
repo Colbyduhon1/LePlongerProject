@@ -1,6 +1,7 @@
 
 var connection = require('../db');
-
+var request = require('request');
+var Api = require('../../keys');
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -38,6 +39,20 @@ module.exports = {
       return connection.queryAsync(
         `SELECT * FROM comments;`
       );
+    }
+  },
+  weather: {
+    get: (callback) => {
+      request('http://api.wunderground.com/api/' + Api.weatherUnderground  + '/geolookup/conditions/q/36.52167,-121.95361.json', function (err, response, body) {
+        if (err) {
+          console.log('err:', err);
+          callback(err, null)
+        } else {
+          console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+          console.log(body)
+          callback(null, body)
+        }
+      });
     }
   }
 };
