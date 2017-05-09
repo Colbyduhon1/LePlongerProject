@@ -10,11 +10,11 @@ USE dive_team;
 
 -- ---
 -- Table 'Users'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS users;
-		
+
 CREATE TABLE users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   Name VARCHAR(64) NOT NULL DEFAULT 'NOT NULL',
@@ -24,28 +24,28 @@ CREATE TABLE users (
 
 -- ---
 -- Table 'Dives'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS dives;
-		
+
 CREATE TABLE dives (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  name MEDIUMTEXT NULL DEFAULT NULL,
-  longitude DECIMAL(11, 8) NOT NULL,
-  lattitude DECIMAL(10, 8) NOT NULL,
-  rating INT NULL DEFAULT NULL,
-  description MEDIUMTEXT NULL DEFAULT NULL,
+  name CHAR(40),
+  longitude DECIMAL(10, 5) NOT NULL,
+  latitude DECIMAL(10, 5) NOT NULL,
+  rating CHAR(255),
+  description TEXT NULL DEFAULT NULL,
   user_dive INT NULL DEFAULT NULL
 );
 
 -- ---
 -- Table 'comments'
--- 
+--
 -- ---
 
 DROP TABLE IF EXISTS comments;
-		
+
 CREATE TABLE comments (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   diveSite_id INTEGER NULL DEFAULT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE comments (
 );
 
 -- ---
--- Foreign Keys 
+-- Foreign Keys
 -- ---
 
 -- ALTER TABLE `Dives` ADD FOREIGN KEY (user_dive) REFERENCES `Users` (`id`);
