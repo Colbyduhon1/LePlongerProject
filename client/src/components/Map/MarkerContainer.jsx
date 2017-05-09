@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'underscore';
 import {withGoogleMap, GoogleMap, Marker, InfoWindow} from 'react-google-maps';
 
+
 class MarkerContainer extends React.Component {
  constructor(props) {
    super(props);
@@ -58,6 +59,7 @@ class MarkerContainer extends React.Component {
      );
    }
  }
+
 }
 
 

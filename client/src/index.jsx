@@ -22,6 +22,7 @@ class App extends React.Component {
       diveview: true,
       weatherdata: SampleData,
       sites: [{position: {lat: 37.780, lng: -122.44},
+<<<<<<< HEAD
              key: 'a',
              name: 'Diveland',
              description: 'Very cool dives',
@@ -32,6 +33,15 @@ class App extends React.Component {
              description: 'Very fun dives',
              defaultAnimation: 2}]
 
+=======
+              key: 'a',
+              name: 'Diveland',
+              defaultAnimation: 2},
+             {position: {lat: 37.795, lng: -122.452},
+              key: 'b',
+              name: 'DivePlace',
+              defaultAnimation: 2}]
+>>>>>>> Info windows now hide correctly when close button is clicked
     }
     //console.log('this is the sample data ', SampleData);
     this.toggleView = this.toggleView.bind(this);
