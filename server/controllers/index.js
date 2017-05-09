@@ -75,16 +75,15 @@ module.exports = {
 		}
 	},
 	weather: {
-		get: (req, res) => {
-			console.log('weather route called')
-      models.weather.get((err, data) => {
+		get: models.weather.get
+      /*models.weather.get((err, data) => {
       	if (err) {
       		console.log('Cannot get weather data', err);
       	} else {
       		res.end(data)
       	}
-      })
-		}
+      })*/
+		
 	}
 };
 

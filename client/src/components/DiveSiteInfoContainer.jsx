@@ -8,7 +8,7 @@ const DiveSiteInfoContainer = (props) => {
 	  <div className='col-md-3'>
 	    <OceanWeather />
 	    <SurfaceWeather weatherdata={props.weatherdata} />
-	    <SiteDescription />
+	    <SiteDescription description={props.description}/>
 	  </div>
 	)
 }
