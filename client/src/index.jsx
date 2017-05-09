@@ -21,8 +21,18 @@ class App extends React.Component {
     this.state = {
       diveview: true,
       weatherdata: SampleData,
+      sites: [{position: {lat: 37.780, lng: -122.44},
+             key: 'a',
+             name: 'Diveland',
+             description: 'Very cool dives',
+             defaultAnimation: 2},
+            {position: {lat: 37.795, lng: -122.452},
+             key: 'b',
+             name: 'DivePlace',
+             description: 'Very fun dives',
+             defaultAnimation: 2}]
+
     }
-    //console.log('this is the sample data ', SampleData);
     this.toggleView = this.toggleView.bind(this);
     this.getWeatherData = this.getWeatherData.bind(this);
   }
@@ -95,12 +105,14 @@ class App extends React.Component {
         console.log(err1, err2, err3);
       }
     }) 
+
   }
 
   componentDidMount() {
+    console.log('mounted');
     //this.getWeatherData();
-
   }
+
   getWeatherData() {
     $.ajax({
       url: '/weather',
@@ -120,6 +132,7 @@ class App extends React.Component {
 
 
   //toggles the view on the left side of index.html
+  //JI: rename this
   toggleView () {
     if(this.state.diveview) {
       this.setState({
@@ -162,7 +175,7 @@ class App extends React.Component {
           }
           onMapLoad={_.noop}
           onMapClick={_.noop}
-          markers={_.noop}
+          markers={this.state.sites}
           onMarkerRightClick={_.noop}
           />
 
