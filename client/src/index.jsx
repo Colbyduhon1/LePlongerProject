@@ -165,7 +165,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer />}
+          {this.state.diveview ? <LandingInfoContainer /> : <DiveSiteInfoContainer weatherdata={this.state.weatherdata} />}
 
           {/* transfer to map component */}
           <DiveMap
