@@ -1,4 +1,7 @@
 const axios = require('axios');
+const seedWeatherData = require('../../server/db/sampledata/weather.js');
+const seedDiveData = require('../../server/db/sampledata/divesites.js');
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -13,7 +16,6 @@ import Signup from './components/Signup.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
 
-var SampleData = require('../../server/db/sampledata/weather.js');
 
 class App extends React.Component {
   constructor(props) {
@@ -21,8 +23,8 @@ class App extends React.Component {
     this.state = {
       diveview: false,
       openInfoWindow: false,
-      weatherdata: SampleData,
-      sites: [{position: {lat: 37.780, lng: -122.44},
+      weatherdata: seedWeatherData,
+      sites: seedDiveData.divesites/*[{position: {lat: 37.780, lng: -122.44},
              key: 'a',
              name: 'Diveland',
              description: 'Very cool dives',
@@ -31,7 +33,7 @@ class App extends React.Component {
              key: 'b',
              name: 'DivePlace',
              description: 'Very fun dives',
-             defaultAnimation: 2}]
+             defaultAnimation: 2}]*/
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -187,10 +189,10 @@ class App extends React.Component {
           }
           mapElement={<div id="map" className='col-md-12 map-section'></div>
           }
-          onMapLoad={_.noop}
-          onMapClick={_.noop}
+          onMapLoad={_.noop}//can probably remove
+          onMapClick={_.noop}//can probably remove
           markers={this.state.sites}
-          onMarkerRightClick={_.noop}
+          onMarkerRightClick={_.noop}//can probably remove
           showConditions={this.showConditions.bind(this)}
           toggleInfoWindow={this.toggleInfoWindow}
           getWeather={this.getDiveSiteWeather.bind(this)}

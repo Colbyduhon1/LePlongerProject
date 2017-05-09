@@ -15,7 +15,6 @@ class MarkerContainer extends React.Component {
  }
 
  displayInfoWindow() {
-  console.log('...');
    this.setState({
      showingInfoWindow: !this.state.showingInfoWindow
    });
