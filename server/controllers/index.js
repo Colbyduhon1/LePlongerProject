@@ -71,6 +71,7 @@ module.exports = {
 			console.log(req.body)
 			res.send('New User Recieved')
 			
+
 		}
 	},
 	weather: {
