@@ -1,10 +1,10 @@
+const axios = require('axios');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
-
 import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
 
 
@@ -35,8 +35,9 @@ class App extends React.Component {
 
     }
     this.showConditions = this.showConditions.bind(this);
-    this.getWeatherData = this.getWeatherData.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
+    this.getWeatherData = this.getWeatherData.bind(this);
+    this.getDiveSiteWeather = this.getDiveSiteWeather.bind(this);
   }
   
   logIn (user, pass) {
@@ -131,6 +132,19 @@ class App extends React.Component {
     })
   }
 
+  getDiveSiteWeather(site) {
+    console.log('getting weather info for ', site);
+    axios.post('/weather', {location: site})
+      .then( (response) => {
+        this.setState({
+          weatherdata: response.data
+        })
+      })
+      .catch( (err) => {
+        console.log('error retrieving weather from api: ', err);
+      })
+  }
+
 
   //toggles the view on the left side of index.html
   showConditions () {
@@ -177,8 +191,9 @@ class App extends React.Component {
           onMapClick={_.noop}
           markers={this.state.sites}
           onMarkerRightClick={_.noop}
-          showConditions={this.showConditions}
+          showConditions={this.showConditions.bind(this)}
           toggleInfoWindow={this.toggleInfoWindow}
+          getWeather={this.getDiveSiteWeather.bind(this)}
           />
 
           {/* transfer to reviews component */}

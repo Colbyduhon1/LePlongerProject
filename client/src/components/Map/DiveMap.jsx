@@ -12,6 +12,7 @@ const DiveMap = withGoogleMap(props => (
  >
    {props.markers.map( (marker, index) => (
        <MarkerContainer 
+       getWeather={props.getWeather}
        toggleInfoWindow={props.toggleInfoWindow} 
        showConditions={props.showConditions} 
        marker={marker} key={index} />
