@@ -19,10 +19,10 @@ CREATE TABLE users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(64) NOT NULL DEFAULT 'NOT NULL',
   password VARCHAR(64) NULL DEFAULT 'NOT NULL',
-  email VARCHAR(15)
+  email VARCHAR(64),
   salt  VARCHAR(64) NULL,
   age INTEGER,
-  skill VARCHAR(64),
+  skill VARCHAR(64)
 );
 
 -- ---

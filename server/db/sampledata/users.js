@@ -3,55 +3,55 @@ var users = [
   	id: null,
   	name: 'Chuck Tribolet',
   	password: 12345,
-  	email: 'triblet@garlic.com'
+  	email: 'triblet@garlic.com',
   	salt: null,
   	age: 60,
-  	skilllevel: 'Advanced',
+  	skill: 'Advanced',
   },
   {
   	id: null,
   	name: 'Aly Tamboura',
   	password: 12345,
-  	email: 'alytamboura7370@gmail.com'
+  	email: 'alytamboura7370@gmail.com',
   	salt: null,
   	age: 50,
-  	skilllevel: 'Advanced',
+  	skill: 'Advanced',
   },
   {
   	id: null,
   	name: 'Rich Neimic',
   	password: 12345,
-  	email: 'alytamboura7370@gmail.com'
+  	email: 'alytamboura7370@gmail.com',
   	salt: null,
   	age: 50,
-  	skilllevel: 'Advanced',
+  	skill: 'Advanced',
   },
   {
   	id: null,
   	name: 'Steve Pierre',
   	password: 12345,
   	email: 'stevenpierre@sbcglobal.net',
-  	salt: null
+  	salt: null,
   	age: 41,
-  	skilllevel: 'Intermediate',
+  	skill: 'Intermediate',
   },
   {
   	id: null,
   	name: 'Bubba Gump',
   	password: 12345,
-  	email: 'bgump@gmail.com'
+  	email: 'bgump@gmail.com',
   	salt: null,
   	age: 50,
-  	skilllevel: 'Novice',
+  	skill: 'Novice',
   },
   {
   	id: null,
   	name: 'John Icoisn',
   	password: 12345,
-  	email: 'some@gmail.com'
+  	email: 'some@gmail.com',
   	salt: null,
   	age: 25,
-  	skilllevel: 'Advanced',
+  	skill: 'Advanced',
   },
 
 ]
