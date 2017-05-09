@@ -135,9 +135,9 @@ class App extends React.Component {
   }
 
   getDiveSiteWeather(site) {
-    console.log('getting weather info for ', site);
     axios.post('/weather', {location: site})
       .then( (response) => {
+        console.log('received weather for site: ', response);
         this.setState({
           weatherdata: response.data
         })
