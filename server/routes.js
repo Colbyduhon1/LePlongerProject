@@ -16,6 +16,7 @@ router.route('/comments')
 
 router.route('/weather')
    .get(controller.weather.get)
+   .post(controller.weather.get)
 
 
 //JI: we only have user,dive,commment tables
