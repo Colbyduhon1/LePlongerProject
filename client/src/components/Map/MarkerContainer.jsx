@@ -15,10 +15,15 @@ class MarkerContainer extends React.Component {
  }
 
  displayInfoWindow() {
+  console.log('...');
    this.setState({
      showingInfoWindow: !this.state.showingInfoWindow
    });
    this.props.toggleInfoWindow()
+
+   if (!this.state.showingInfoWindow) {
+    this.props.showConditions();
+   }
    // const context = this;
    // setTimeout(() => {
    //   context.setState({
@@ -38,7 +43,7 @@ class MarkerContainer extends React.Component {
          <InfoWindow
          visible={this.state.showingInfoWindow}
          position={this.props.marker.position}
-         onCloseClick={this.displayInfoWindow} >
+         onCloseClick={this.displayInfoWindow}>
            <div>
              <p>{this.props.marker.name}</p>
              <p>{this.props.marker.position.lat}</p>
