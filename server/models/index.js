@@ -1,7 +1,9 @@
 
-var connection = require('../db');
-var request = require('request');
-var Api = require('../../keys');
+const connection = require('../db');
+const request = require('request');
+const Api = require('../../keys');
+const Promise = require('bluebird');
+
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -26,12 +28,18 @@ module.exports = {
         `SELECT * FROM dives;`
       );
     },
-    post: (new_sites) => {
-      return connection.queryAsync(
-        `INSERT INTO dives (name, longitude, latitude, rating, description)
-         VALUES ('${new_sites.name}', '${new_sites.longitude}', '${new_sites.latitude}',
-          '${new_sites.rating}, '${new_sites.description}');`
-      );
+    post: (new_sites, callback) => {
+      var diveSite = [new_sites.id, new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description, new_sites.user_dive];
+      var queryString = 'INSERT INTO dives(id, name, longitude, latitude, rating, description, user_dive ) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      connection.query(queryString, diveSite, function(err, data) {
+        if (err) {
+          console.log('could not post dive-sites to database');
+          callback(err, null);
+        } else {
+          console.log('posted dive-sites to database');
+          callback(null, data);
+        }
+      })
     }
   },
   comments: {

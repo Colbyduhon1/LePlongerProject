@@ -9,7 +9,8 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "seed-data" : "node server/db/worker.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
