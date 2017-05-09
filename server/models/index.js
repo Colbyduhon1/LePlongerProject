@@ -50,9 +50,10 @@ module.exports = {
     }
   },
   weather: {
+    //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
-      const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
+      // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
       console.log('url: ', url);
 
       axios.get(url)
@@ -63,18 +64,7 @@ module.exports = {
         .catch( (err) => {
           console.log('error from weather api: ', err.message);
         })
-    }/* (callback) => {
-      request('http://api.wunderground.com/api/' + Api.weatherUnderground  + '/geolookup/conditions/q/36.52167,-121.95361.json', function (err, response, body) {
-        if (err) {
-          console.log('err:', err);
-          callback(err, null)
-        } else {
-          console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-          console.log(body)
-          callback(null, body)
-        }
-      });
-    }*/
+    }
   }
 };
 
