@@ -134,14 +134,12 @@ class App extends React.Component {
 
   //toggles the view on the left side of index.html
   showConditions () {
-    console.log('changing diveview from ', this.state.diveview, ' to ', !this.state.diveview);
     this.setState({
       diveview: !this.state.diveview
     });
   }
 
   toggleInfoWindow() {
-    console.log('changing toggleInfoWindow from ', this.state.openInfoWindow, ' to ', !this.state.openInfoWindow);
     this.setState({
       openInfoWindow: !this.state.openInfoWindow
     })
