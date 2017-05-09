@@ -46,10 +46,9 @@ class MarkerContainer extends React.Component {
            <div>
              <p>{this.props.marker.name}</p>
              <p>{this.props.marker.position.lat}</p>
-             <p>{this.props.marker.description}</p>
              <p onClick={() => {
               this.props.showConditions();
-              this.props.getWeather(this.props.marker.position);
+              this.props.getWeather(this.props.marker);
 
               }}>See Conditions</p>
            </div>
