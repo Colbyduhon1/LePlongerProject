@@ -21,6 +21,16 @@ class App extends React.Component {
     this.state = {
       diveview: true,
       weatherdata: SampleData,
+      sites: [{position: {lat: 37.780, lng: -122.44},
+             key: 'a',
+             name: 'Diveland',
+             description: 'Very cool dives',
+             defaultAnimation: 2},
+            {position: {lat: 37.795, lng: -122.452},
+             key: 'b',
+             name: 'DivePlace',
+             description: 'Very fun dives',
+             defaultAnimation: 2}]
     }
     //console.log('this is the sample data ', SampleData);
     this.toggleView = this.toggleView.bind(this);
@@ -98,9 +108,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log('mounted');
     //this.getWeatherData();
-
   }
+
   getWeatherData() {
     $.ajax({
       url: '/weather',
