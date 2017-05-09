@@ -21,10 +21,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      sites: seedDiveData.divesites,
+      
       diveview: false,
       openInfoWindow: false,
+
       weatherdata: seedWeatherData,
-      sites: seedDiveData.divesites,
       siteDescription: ''
 
     }
@@ -127,7 +129,8 @@ class App extends React.Component {
   }
 
   getDiveSiteWeather(site) {
-    axios.post('/weather', {location: site})
+    console.log(site.description);
+    axios.post('/weather', {location: site.position})
       .then( (response) => {
         console.log('received weather for site: ', response);
         this.setState({
@@ -136,6 +139,10 @@ class App extends React.Component {
       })
       .catch( (err) => {
         console.log('error retrieving weather from api: ', err);
+      })
+
+      this.setState({
+        siteDescription: site.description
       })
   }
 
