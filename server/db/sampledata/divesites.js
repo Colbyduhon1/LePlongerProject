@@ -1,4 +1,4 @@
-var divesites = [
+const divesites = [
 		{
 			id: null,
 			name: 'Carmel Point',
@@ -6,7 +6,7 @@ var divesites = [
 			latitude: 36.52417,
 			rating: 'Experienced',
 			description: 'Offshore boat accessible',
-			user_dive: 1
+			user_dive: 1,
 		},
 		{
 			id: null,
@@ -118,6 +118,8 @@ var divesites = [
 		},
 ];
 
+
 module.exports = {
 	divesites: divesites,
+
 }

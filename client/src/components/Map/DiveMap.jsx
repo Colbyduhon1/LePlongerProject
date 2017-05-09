@@ -6,17 +6,20 @@ import MarkerContainer from './MarkerContainer.jsx';
 const DiveMap = withGoogleMap(props => (
  <GoogleMap
    ref={props.onMapLoad}
-   defaultZoom={14}
+   defaultZoom={6}
    defaultCenter={{lat: 37.787, lng: -122.458}}
    onClick={props.onMapClick}
  >
-   {props.markers.map( (marker, index) => (
-       <MarkerContainer 
-       getWeather={props.getWeather}
-       toggleInfoWindow={props.toggleInfoWindow} 
-       showConditions={props.showConditions} 
-       marker={marker} key={index} />
-   ))}
+   {props.markers.map( (marker, index) => {
+    const formattedMarker = marker;
+    formattedMarker['position'] = {lat: marker.latitude, lng: marker.longitude}
+    return (
+      <MarkerContainer 
+      getWeather={props.getWeather}
+      toggleInfoWindow={props.toggleInfoWindow} 
+      showConditions={props.showConditions} 
+      marker={formattedMarker} key={index} /> );
+   })}
 
    </GoogleMap>
 ));
