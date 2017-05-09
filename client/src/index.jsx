@@ -169,7 +169,7 @@ class App extends React.Component {
 
 
          {/*transfer to search component*/}
-          <div className='col-md-12'>
+          <div class="container">
           <h2> Search Component </h2> 
             <Login logIn={this.logIn.bind(this)} 
             new_users={this.new_users.bind(this)} />    

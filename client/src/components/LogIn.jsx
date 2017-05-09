@@ -60,7 +60,8 @@ class Login extends React.Component {
           type="password"
           value={this.state.password} 
           onChange={this.handlePassword} 
-          /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>Sign In </button></p>:null}        
+          /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>Sign In </button></p>:null}               
+
         <span onClick={this.handleSignIn}><em><strong> Sign Up </strong></em></span> 
         {this.state.signup ? <Signup new_users={this.props.new_users} /> : null}        
       </form>
