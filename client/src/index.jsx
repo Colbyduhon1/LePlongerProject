@@ -8,16 +8,16 @@ import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
 
-import SampleData from '../../server/db/Sampledata/weather.js'
+var SampleData = require('../../server/db/sampledata/weather.js');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       diveview: true,
-      weatherdata: null,
+      weatherdata: SampleData,
     }
-    console.log('this is the sample data ', SampleData);
+    //console.log('this is the sample data ', SampleData);
     this.toggleView = this.toggleView.bind(this);
     this.getWeatherData = this.getWeatherData.bind(this);
   }

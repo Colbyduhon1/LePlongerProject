@@ -450,4 +450,4 @@ var weather = {
   }
 }
 
-module.exports.weater;
+module.exports = weather;
