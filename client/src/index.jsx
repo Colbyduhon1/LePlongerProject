@@ -24,16 +24,8 @@ class App extends React.Component {
       diveview: false,
       openInfoWindow: false,
       weatherdata: seedWeatherData,
-      sites: seedDiveData.divesites/*[{position: {lat: 37.780, lng: -122.44},
-             key: 'a',
-             name: 'Diveland',
-             description: 'Very cool dives',
-             defaultAnimation: 2},
-            {position: {lat: 37.795, lng: -122.452},
-             key: 'b',
-             name: 'DivePlace',
-             description: 'Very fun dives',
-             defaultAnimation: 2}]*/
+      sites: seedDiveData.divesites,
+      siteDescription: ''
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -135,9 +127,9 @@ class App extends React.Component {
   }
 
   getDiveSiteWeather(site) {
-    console.log('getting weather info for ', site);
     axios.post('/weather', {location: site})
       .then( (response) => {
+        console.log('received weather for site: ', response);
         this.setState({
           weatherdata: response.data
         })
@@ -181,7 +173,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer weatherdata={this.state.weatherdata} /> : <LandingInfoContainer />}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer />}
 
           {/* transfer to map component */}
           <DiveMap

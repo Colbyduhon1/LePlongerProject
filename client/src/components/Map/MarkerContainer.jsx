@@ -36,7 +36,7 @@ class MarkerContainer extends React.Component {
      return(
        <div>
          <Marker
-         onMouseOver={this.displayInfoWindow}
+         onClick={this.displayInfoWindow}
          {...this.props.marker}
          />
          <InfoWindow
@@ -61,7 +61,7 @@ class MarkerContainer extends React.Component {
      return (
        <div>
          <Marker
-         onMouseOver={this.displayInfoWindow}
+         onClick={this.displayInfoWindow}
          {...this.props.marker}
          />
        </div>
