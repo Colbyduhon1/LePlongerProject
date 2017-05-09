@@ -33,9 +33,9 @@ module.exports = {
 			// }
 		},
 		post: (req, res) => {
-			// model.users.post(req.body){
-			// res.sendStatus(201);
-			// }
+			console.log(req.body)
+			res.send("User Login working")
+			//next will be to seed the DB with the user and retrieve their info to populate the site
 		}
 	},
 
@@ -68,8 +68,9 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			model.new_users.post()
-			.then()
+			console.log(req.body)
+			res.send('New User Recieved')
+			
 		}
 	}
 };
