@@ -1,6 +1,6 @@
 const divesites = [
 		{
-			id: null,
+			id: 1,
 			name: 'Carmel Point',
 			longitude: -121.95361,
 			latitude: 36.52417,
@@ -9,7 +9,7 @@ const divesites = [
 			user_dive: 1,
 		},
 		{
-			id: null,
+			id: 2,
 			name: ' Eric\'s Pinnacle',
 			longitude: -121.91835,
 			latitude: 36.63407 ,
