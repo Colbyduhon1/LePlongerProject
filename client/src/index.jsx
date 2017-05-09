@@ -45,7 +45,7 @@ class App extends React.Component {
         "pass": `${pass}`
       },
       success: (data) => {
-        console.log(data);
+        console.log(data)
       }, 
       error: (err1, err2, err3) => {
         console.log(err1, err2, err3);
@@ -70,23 +70,7 @@ class App extends React.Component {
       }
     }) 
   }
-  
-  logIn (user, pass) {
-    $.ajax({
-      url: '/users',
-      method: 'POST',
-      data: {
-        "user": `${user}`, 
-        "pass": `${pass}`
-      },
-      success: (data) => {
-        console.log(data);
-      }, 
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    })
-  }
+
 
   new_users (username, password, repeatedPassword) {
     $.ajax({
@@ -170,9 +154,10 @@ class App extends React.Component {
 
          {/*transfer to search component*/}
           <div class="container">
-          <h2> Search Component </h2> 
+          
+            <h2>{this.state.users}</h2>   
             <Login logIn={this.logIn.bind(this)} 
-            new_users={this.new_users.bind(this)} />    
+            new_users={this.new_users.bind(this)} />  
           </div>
 
         </div>{/* end first row */}

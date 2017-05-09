@@ -8,9 +8,16 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       value: '',
       password: '',
       signup: false,
+=======
+      
+    	value: '',
+    	password: '',
+    	signup: false,
+>>>>>>> Added salt and sha1 password encryption
       login: false
     };
 
@@ -40,12 +47,15 @@ class Login extends React.Component {
     e.preventDefault()
     this.setState(prevState => ({
       signup: !prevState.signup
+
     }));
   }
 
   render() {
     return (
+
       <form className="loginForm">
+      
       <span onClick={this.handleClick}>     
         <em><strong> Login </strong></em></span> <span> / </span>
         {this.state.login ? 

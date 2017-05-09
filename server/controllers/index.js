@@ -1,4 +1,7 @@
-	const models = require('../models');
+
+const models = require('../models');
+const sha1 = require('sha1');
+
 //I'm not sure but i think this needs to be promisified
 //that way the interaction with the database will occure
 //THEN with that info we send response to the client.
@@ -34,8 +37,7 @@ module.exports = {
 		},
 		post: (req, res) => {
 			console.log(req.body)
-			res.send("User Login working")
-			//next will be to seed the DB with the user and retrieve their info to populate the site
+			res.send('I am here')
 		}
 	},
 
@@ -68,10 +70,18 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			console.log(req.body)
-			res.send('New User Recieved')
+			console.log(req.body);
+			var fuel = Math.random() * 2343453479543;
+			console.log(req.body.pass + fuel);
 			
+			var newUser = {
+				name: req.body.user,
+				salt: fuel,
+				password: sha1(req.body.pass + fuel),
+			}
 
+			models.users.post(newUser)
+			.then(res.send('New User Recieved'));
 		}
 	},
 	weather: {
