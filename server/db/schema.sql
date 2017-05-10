@@ -37,7 +37,7 @@ CREATE TABLE dives (
   name CHAR(40),
   longitude DECIMAL(10, 5) NOT NULL,
   latitude DECIMAL(10, 5) NOT NULL,
-  rating CHAR(255),
+  rating CHAR(20),
   description TEXT NULL DEFAULT NULL,
   user_dive INT NULL DEFAULT NULL
 );
@@ -51,9 +51,10 @@ DROP TABLE IF EXISTS comments;
 
 CREATE TABLE comments (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  diveSite_id INTEGER NULL DEFAULT NULL,
-  message  INTEGER NULL DEFAULT NULL,
-  user_id INT NULL DEFAULT NULL
+  diveSite_id INTEGER,
+  message  CHAR(255),
+  user_id INT,
+  date_1 DATETIME
 );
 
 -- ---
