@@ -19,7 +19,7 @@ router.route('/weather')
   .post(controller.weather.get)
 
 router.route('/weather/home')
-  .get(controller.weather.get);
+  .get(controller.weather.home);
 
 
 //JI: we only have user,dive,commment tables

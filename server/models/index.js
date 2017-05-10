@@ -85,7 +85,7 @@ module.exports = {
           console.log('error from weather api: ', err.message);
         })
     },
-    home: (res) => {
+    home: (req, res) => {
       let homeWeather = [];
       const norCalCoordinates = 'x,y';
       const centralCalCoordinates = 'x,y';
@@ -109,7 +109,7 @@ module.exports = {
           console.log('Error retrieving home page weather: ', err.message);
         })
         //remove this when using real api
-        res.sendStatus(200);
+        res.send(200);
     }
   }
 };
