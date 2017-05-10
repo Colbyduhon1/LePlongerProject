@@ -56,8 +56,15 @@ module.exports = {
       );
     },
     post: (new_comment, callback) => {
+<<<<<<< HEAD
+
+      var NewComment = [new_comment.id, new_comment.diveSite_id, new_comment.message, new_comment.user_id, new_comment.date_1];
+      var queryString = 'INSERT INTO comments(id, diveSite_id, message, user_id, date_1) VALUES(?,?,?,?,?)';
+
+=======
       var NewComment = [new_comment.id, new_comment.diveSite_id, new_comment.message, new_comment.user_id];
       var queryString = 'INSERT INTO comments(id, diveSite_id, message, user_id) VALUES(?,?,?,?)'
+>>>>>>> Implemented route and api calls for landing page weather(?) info
       connection.query(queryString, NewComment ,function(err, data){
         if (err){
           console.log('could not post comment to database');
@@ -91,6 +98,10 @@ module.exports = {
       const centralCalCoordinates = 'x,y';
       const southCalCoordinates = 'x,y';
       
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 435e758368462803b60f40fb26f9708521a8492b
       //remove XXXXX for this to work
       axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${norCalCoordinates}.json`)
         .then( (result) => {
@@ -110,7 +121,37 @@ module.exports = {
         })
         //remove this when using real api
         res.sendStatus(200);
+<<<<<<< HEAD
+=======
+      // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${norCalCoordinates}.json`)
+        .then( (result) => {
+          homeWeather.push(result.data)
+          // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${centralCalCoordinates}.json`)
+            
+            .then( (result) => {
+              homeWeather.push(result.data);
+              // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${southCalCoordinates}.json`)
+                
+                .then( (result) => {
+                  homeWeather.push(result.data);
+                  // res.json(homeWeather);
+                })
+                .catch( (err) => {
+                  console.log('Error retrieving home page weather: ', err.message);
+                })
+            })
+            .catch( (err) => {
+              console.log('Error retrieving home page weather: ', err.message);    
+            })
+        })
+        .catch( (err) => {
+          console.log('Error retrieving home page weather: ', err.message);
+          //remove this when using real api
+          res.sendStatus(200);
+        })
+>>>>>>> Implemented route and api calls for landing page weather(?) info
+=======
+>>>>>>> 435e758368462803b60f40fb26f9708521a8492b
     }
   }
 };
-
