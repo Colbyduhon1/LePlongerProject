@@ -2,7 +2,6 @@ const models = require('../models/index.js');
 const user = require('./sampledata/users.js');
 const dive_data = require('./sampledata/divesites.js');
 const comment_data = require('./sampledata/comments.js');
-const axios = require('axios');
 
 //saves seed data to database
 dive_data.divesites.forEach(function (site) {
