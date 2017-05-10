@@ -71,26 +71,6 @@ class App extends React.Component {
     }) 
   }
 
-
-  new_users (username, password, repeatedPassword) {
-    $.ajax({
-      url: '/new_users',
-      method: 'POST',
-      data: {
-        "user": `${username}`, 
-        "pass": `${password}`, 
-        "repeatedPassword": `${repeatedPassword}`
-      },
-      success: (data) => {
-        console.log(data);
-      }, 
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    }) 
-
-  }
-
   componentDidMount() {
     console.log('mounted');
   }
