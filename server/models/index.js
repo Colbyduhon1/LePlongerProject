@@ -61,7 +61,6 @@ module.exports = {
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
       // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
-      console.log('url: ', url);
 
       axios.get(url)
         .then( (result) => {
@@ -70,6 +69,39 @@ module.exports = {
         })
         .catch( (err) => {
           console.log('error from weather api: ', err.message);
+        })
+    },
+    home: (res) => {
+      let homeWeather = [];
+      const norCalCoordinates = 'x,y';
+      const centralCalCoordinates = 'x,y';
+      const southCalCoordinates = 'x,y';
+      
+      // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${norCalCoordinates}.json`)
+        .then( (result) => {
+          homeWeather.push(result.data)
+          // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${centralCalCoordinates}.json`)
+            
+            .then( (result) => {
+              homeWeather.push(result.data);
+              // axios.get(`http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${southCalCoordinates}.json`)
+                
+                .then( (result) => {
+                  homeWeather.push(result.data);
+                  // res.json(homeWeather);
+                })
+                .catch( (err) => {
+                  console.log('Error retrieving home page weather: ', err.message);
+                })
+            })
+            .catch( (err) => {
+              console.log('Error retrieving home page weather: ', err.message);    
+            })
+        })
+        .catch( (err) => {
+          console.log('Error retrieving home page weather: ', err.message);
+          //remove this when using real api
+          res.sendStatus(200);
         })
     }
   }

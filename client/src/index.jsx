@@ -22,12 +22,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       sites: seedDiveData.divesites,
-      
+
       diveview: false,
       openInfoWindow: false,
 
       weatherdata: seedWeatherData,
-      siteDescription: ''
+      siteDescription: '',
+
+      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData]
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -108,7 +110,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mounted');
+    console.log('grabbing weather data for landing page container');
+    //theoretically, this would make 3 api requests to weather underground
+    //send back the data in an array which will get passed to the container componenet
+    axios.get('/weather/home')
+      .then( (response) => {
+        console.log('received landing page weather: ');
+        this.setState({
+          homeWeather: response.data
+        })
+      })
+      .catch( (err) => {
+        console.log('Could not retrieve landing page data ', err)
+      })
   }
 
   getWeatherData() {
@@ -180,7 +194,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer />}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
 
           {/* transfer to map component */}
           <DiveMap
