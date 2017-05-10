@@ -1,4 +1,3 @@
-
 const connection = require('../db');
 const request = require('request');
 const Api = require('../../keys');
@@ -57,8 +56,10 @@ module.exports = {
       );
     },
     post: (new_comment, callback) => {
+
       var NewComment = [new_comment.id, new_comment.diveSite_id, new_comment.message, new_comment.user_id, new_comment.date_1];
       var queryString = 'INSERT INTO comments(id, diveSite_id, message, user_id, date_1) VALUES(?,?,?,?,?)';
+
       connection.query(queryString, NewComment ,function(err, data){
         if (err){
           console.log('could not post comment to database');
@@ -89,4 +90,3 @@ module.exports = {
     }
   }
 };
-
