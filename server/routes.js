@@ -16,7 +16,7 @@ router.route('/comments')
 
 router.route('/weather')
   .get(controller.weather.get)
-  .post(controller.weather.get)
+  .post(controller.weather.home)
 
 router.route('/weather/home')
   .get(controller.weather.home);

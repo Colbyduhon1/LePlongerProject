@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sites: seedDiveData.divesites,
+      sites: /*seedDiveData.divesites*/[],
 
       diveview: false,
       openInfoWindow: false,
@@ -79,6 +79,18 @@ class App extends React.Component {
     console.log('grabbing weather data for landing page container');
     //theoretically, this would make 3 api requests to weather underground
     //send back the data in an array which will get passed to the container componenet
+    axios.get('/dives')
+      .then( (response) => {
+        console.log('receieved sites from db: ', response);
+        this.setState({
+          sites: response.data
+        })
+      })
+      .catch( (err) => {
+        console.log('Could not retrieve dive sites from DB: ', err);
+      })
+
+
     axios.get('/weather/home')
       .then( (response) => {
         console.log('received landing page weather: ');

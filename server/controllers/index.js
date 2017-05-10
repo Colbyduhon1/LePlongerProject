@@ -13,16 +13,7 @@ const Promise = require('bluebird');
 
 module.exports = {
 	dives: {
-		get: (req, res) => {
-			//extract info from request here
-			//pass it into the model method(below)
-			models.dive_sites.get(sites)
-			//in theory, if this is a promise
-			//we can call .then() with the results back from the database
-				.then( (result) => {
-					/*...*/
-				});
-		},
+		get: models.dive_sites.get,
 		post: (req, res) => {
 			models.dive_sites.post(req.body)
 				.then( (result) => {
