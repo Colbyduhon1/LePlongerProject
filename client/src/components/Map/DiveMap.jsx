@@ -7,6 +7,7 @@ const DiveMap = withGoogleMap(props => (
  <GoogleMap
    ref={props.onMapLoad}
    defaultZoom={6}
+   mapTypeId={google.maps.MapTypeId.SATELLITE}
    defaultCenter={{lat: 37.787, lng: -122.458}}
    onClick={props.onMapClick}
  >
@@ -14,10 +15,10 @@ const DiveMap = withGoogleMap(props => (
     const formattedMarker = marker;
     formattedMarker['position'] = {lat: marker.latitude, lng: marker.longitude}
     return (
-      <MarkerContainer 
+      <MarkerContainer
       getWeather={props.getWeather}
-      toggleInfoWindow={props.toggleInfoWindow} 
-      showConditions={props.showConditions} 
+      toggleInfoWindow={props.toggleInfoWindow}
+      showConditions={props.showConditions}
       marker={formattedMarker} key={index} /> );
    })}
 

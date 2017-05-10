@@ -1,20 +1,27 @@
 var comments = [
 	{
-		id:1,
+		id: null,
 		divesite_id: 1 ,
 		message: 'Carmel Point is like super amazing',
-		user__id: 2
+		user_id: 1,
+		date_1: new Date()
 	},
 	{
-		id:2,
-		divesite_id: 1 ,
-		message: 'Carmel Point is terrible!',
-		user__id: 1
+		id: null,
+		divesite_id: 2 ,
+		message: 'Carmel Point had terrible viability!',
+		user_id: 2,
+		date_1: new Date()
 	},
 	{
-		id:3,
+		id: null,
 		divesite_id:2,
-		message: 'Eric\'s Pinnacle is the bomb' 
-		user__id: 2
+		message: 'Eric\'s Pinnacle is the was great',
+		user_id: 3,
+		date_1: new Date()
 	}
-]
+];
+
+module.exports = {
+	comments: comments,
+};
