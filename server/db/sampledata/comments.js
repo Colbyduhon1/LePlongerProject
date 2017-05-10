@@ -246,7 +246,7 @@ var comments = [
 	},
 	{
 		id: null,
-		divesite_id: 12
+		divesite_id: 12,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
 		user_id: 3,
 		date_1: new Date()
