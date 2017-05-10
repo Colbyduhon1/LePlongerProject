@@ -12,7 +12,7 @@ router.route('/users')
 
 router.route('/comments')
   .get(controller.comments.get)
-  .post(controller.comments.post)
+  .post(controller.comments.get)
 
 router.route('/weather')
   .get(controller.weather.get)

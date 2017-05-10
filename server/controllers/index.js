@@ -49,13 +49,15 @@ module.exports = {
 
 	comments: {
 		get: (req, res) => {
-			model.comments.get()
-			.then()
-
+			console.log(req.body);
+			models.comments.get(req)
+		.then((response) => {
+			res.json(response)
+			});
 		},
 		post: (req, res) => {
-			model.comments.post()
-			.then()
+		models.comments.post()
+		.then()
 		}
 	},
 
