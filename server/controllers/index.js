@@ -73,9 +73,7 @@ module.exports = {
 		},
 		post: (req, res) => {
 			console.log(req.body);
-			var fuel = Math.random() * 2343453479543;
-			
-			
+			var fuel = Math.random() * 2343453479543;			
 			var newUser = {
 				name: req.body.user,
 				salt: fuel,
@@ -84,9 +82,13 @@ module.exports = {
 				email: req.body.email,
 				skill: req.body.skill
 			}
-
-			models.users.post(newUser)
-			.then(res.send('New User Recieved'));
+			models.users.post(newUser, function(err, data) {
+				if (err) {
+					console.log('could not save user');
+				} else {
+					console.log('data');
+				}
+			})
 		}
 	},
 	weather: {

@@ -17,8 +17,7 @@ module.exports = {
     },
     post: (new_user, callback) => {
        var user = [new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skill];
-       var queryString = `INSERT INTO users( name, password, email, salt, age, skill ) VALUES (
-       '${user[0]}', '${user[1]}', '${user[2]}', '${user[3]}', '${user[4]}', '${user[5]}');`
+       var queryString = `INSERT INTO users( name, password, email, salt, age, skill ) VALUES (?, ?, ?, ?, ?, ?);`
        connection.query(queryString, user, (err, data) => {
          if (err) {
            console.log(err);
