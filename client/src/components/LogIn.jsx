@@ -7,17 +7,10 @@ import Signup from './Signup.jsx';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-<<<<<<< HEAD
-      value: '',
-      password: '',
-      signup: false,
-=======
-      
+    this.state = {     
     	value: '',
     	password: '',
     	signup: false,
->>>>>>> Added salt and sha1 password encryption
       login: false
     };
 
