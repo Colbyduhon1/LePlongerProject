@@ -8,6 +8,10 @@ div {
   border: 1px solid black;
 }
 
+body {
+  height: 100%;
+}
+
 /*.container {
   width: 100%;
 }*/
@@ -21,13 +25,14 @@ WEATHER BOXES
 */
 .weather-section {
 	min-height: 200px;
+  overflow: auto;
 }
 .pannel img {
   width: 60px;
 }
 .forecast {
   font-size: 1.7rem;
-  padding: 0px 0px 0px 0px;
+  padding: 0;
   margin-bottom: 0px;
 }
 .temp {
