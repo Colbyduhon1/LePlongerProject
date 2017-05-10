@@ -1,4 +1,9 @@
-	const models = require('../models');
+
+const models = require('../models');
+const sha1 = require('sha1');
+const Promise = require('bluebird');
+
+
 //I'm not sure but i think this needs to be promisified
 //that way the interaction with the database will occure
 //THEN with that info we send response to the client.
@@ -33,9 +38,8 @@ module.exports = {
 			// }
 		},
 		post: (req, res) => {
-			console.log(req.body)
-			res.send("User Login working")
-			//next will be to seed the DB with the user and retrieve their info to populate the site
+			console.log('OK')
+			res.send("I am from users post")
 		}
 	},
 
@@ -68,10 +72,23 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			console.log(req.body)
-			res.send('New User Recieved')
-			
-
+			console.log(req.body);
+			var fuel = Math.random() * 2343453479543;			
+			var newUser = {
+				name: req.body.user,
+				salt: fuel,
+				password: sha1(req.body.pass + fuel),
+				age: req.body.age,
+				email: req.body.email,
+				skill: req.body.skill
+			}
+			models.users.post(newUser, function(err, data) {
+				if (err) {
+					console.log('could not save user');
+				} else {
+					console.log('data');
+				}
+			})
 		}
 	},
 	weather: {

@@ -45,7 +45,7 @@ class App extends React.Component {
         "pass": `${pass}`
       },
       success: (data) => {
-        console.log(data);
+        console.log(data)
       }, 
       error: (err1, err2, err3) => {
         console.log(err1, err2, err3);
@@ -53,14 +53,17 @@ class App extends React.Component {
     })
   }
 
-  new_users (username, password, repeatedPassword) {
+  new_users (username, password, repeatedPassword, skill, age, email) {
     $.ajax({
       url: '/new_users',
       method: 'POST',
       data: {
         "user": `${username}`, 
         "pass": `${password}`, 
-        "repeatedPassword": `${repeatedPassword}`
+        "repeatedPassword": `${repeatedPassword}`,
+        "skill": `${skill}`,
+        "age": `${age}`,
+        "email": `${email}`
       },
       success: (data) => {
         console.log(data);
@@ -69,42 +72,6 @@ class App extends React.Component {
         console.log(err1, err2, err3);
       }
     }) 
-  }
-  
-  logIn (user, pass) {
-    $.ajax({
-      url: '/users',
-      method: 'POST',
-      data: {
-        "user": `${user}`, 
-        "pass": `${pass}`
-      },
-      success: (data) => {
-        console.log(data);
-      }, 
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    })
-  }
-
-  new_users (username, password, repeatedPassword) {
-    $.ajax({
-      url: '/new_users',
-      method: 'POST',
-      data: {
-        "user": `${username}`, 
-        "pass": `${password}`, 
-        "repeatedPassword": `${repeatedPassword}`
-      },
-      success: (data) => {
-        console.log(data);
-      }, 
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    }) 
-
   }
 
   componentDidMount() {
@@ -169,10 +136,11 @@ class App extends React.Component {
 
 
          {/*transfer to search component*/}
-          <div className='col-md-12'>
-          <h2> Search Component </h2> 
+          <div class="container">
+          
+            <h2>{this.state.users}</h2>   
             <Login logIn={this.logIn.bind(this)} 
-            new_users={this.new_users.bind(this)} />    
+            new_users={this.new_users.bind(this)} />  
           </div>
 
         </div>{/* end first row */}

@@ -7,10 +7,10 @@ import Signup from './Signup.jsx';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: '',
-      password: '',
-      signup: false,
+    this.state = {     
+    	value: '',
+    	password: '',
+    	signup: false,
       login: false
     };
 
@@ -40,12 +40,15 @@ class Login extends React.Component {
     e.preventDefault()
     this.setState(prevState => ({
       signup: !prevState.signup
+
     }));
   }
 
   render() {
     return (
+
       <form className="loginForm">
+      
       <span onClick={this.handleClick}>     
         <em><strong> Login </strong></em></span> <span> / </span>
         {this.state.login ? 
@@ -60,7 +63,8 @@ class Login extends React.Component {
           type="password"
           value={this.state.password} 
           onChange={this.handlePassword} 
-          /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>Sign In </button></p>:null}        
+          /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>Sign In </button></p>:null}               
+
         <span onClick={this.handleSignIn}><em><strong> Sign Up </strong></em></span> 
         {this.state.signup ? <Signup new_users={this.props.new_users} /> : null}        
       </form>
