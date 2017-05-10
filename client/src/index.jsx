@@ -119,7 +119,16 @@ class App extends React.Component {
       this.setState({
         siteDescription: site.description
       })
+
+    axios.post('/comments',{diveSite_id : site.id})
+      .then((response) => {
+        console.log('received comment data: ', response);
+      })
+      .catch( (err) => {
+        console.log('error retrieving comments from db: ', err);
+    })
   }
+
 
 
   //toggles the view on the left side of index.html
