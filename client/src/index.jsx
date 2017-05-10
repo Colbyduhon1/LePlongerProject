@@ -34,7 +34,6 @@ class App extends React.Component {
     }
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
-    this.getWeatherData = this.getWeatherData.bind(this);
     this.getDiveSiteWeather = this.getDiveSiteWeather.bind(this);
   }
 
@@ -90,23 +89,6 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('Could not retrieve landing page data ', err)
       })
-  }
-
-  getWeatherData() {
-    $.ajax({
-      url: '/weather',
-      type: 'GET',
-      contentType: 'application/json',
-      success: (data, message) => {
-        console.log(data);
-        this.setState({
-          weatherdata: data,
-        })
-      },
-      error: (err) => {
-        console.log('could not get data from server: ', err);
-      }
-    })
   }
 
   getDiveSiteWeather(site) {

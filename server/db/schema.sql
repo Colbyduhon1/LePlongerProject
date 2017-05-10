@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   divesite_id INTEGER,
-  message  CHAR(255),
+  message  TEXT,
   user_id INT,
   date_1 DATETIME
 );
