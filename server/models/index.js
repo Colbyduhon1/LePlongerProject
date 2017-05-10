@@ -39,10 +39,16 @@ module.exports = {
     }
   },
   dive_sites: {
-    get: (sites) => {
-      return connection.queryAsync(
-        `SELECT * FROM dives;`
-      );
+    get: (req, res) => {
+      connection.query('SELECT * FROM dives', (err, data) => {
+        if (!err) {
+          console.log('retrieved all dives from db');
+          res.send(data);
+        } else {
+          console.log('Error retrieving dive sites: ', err.message);
+          res.send(404);
+        }
+      })
     },
     post: (new_sites, callback) => {
       var diveSite = [ new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description, new_sites.user_dive];
