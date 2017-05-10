@@ -23,12 +23,7 @@ class MarkerContainer extends React.Component {
    if (!this.state.showingInfoWindow) {
     this.props.showConditions();
    }
-   // const context = this;
-   // setTimeout(() => {
-   //   context.setState({
-   //     showingInfoWindow: !context.state.showingInfoWindow
-   //   })
-   // }, 500);
+
  }
 
  render() {
