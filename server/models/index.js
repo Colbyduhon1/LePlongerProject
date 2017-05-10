@@ -45,8 +45,8 @@ module.exports = {
       );
     },
     post: (new_sites, callback) => {
-      var diveSite = [new_sites.id, new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description, new_sites.user_dive];
-      var queryString = 'INSERT INTO dives(id, name, longitude, latitude, rating, description, user_dive ) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      var diveSite = [ new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description, new_sites.user_dive];
+      var queryString = 'INSERT INTO dives( name, longitude, latitude, rating, description, user_dive ) VALUES ( ?, ?, ?, ?, ?, ?)';
       connection.query(queryString, diveSite, function(err, data) {
         if (err) {
           console.log('could not post dive-sites to database');
@@ -65,9 +65,9 @@ module.exports = {
       );
     },
     post: (new_comment, callback) => {
-      var NewComment = [new_comment.id, new_comment.diveSite_id, new_comment.message, new_comment.user_id];
-      var queryString = 'INSERT INTO comments(id, diveSite_id, message, user_id) VALUES(?,?,?,?)'
-      connection.query(queryString, NewComment ,function(err, data){
+      var newComment = [new_comment.divesite_id, new_comment.message, new_comment.user_id, new_comment.date_1];
+      var queryString = 'INSERT INTO comments(divesite_id, message, user_id, date_1 ) VALUES(?,?,?,?)'
+      connection.query(queryString, newComment ,function(err, data){
         if (err){
           console.log('could not post comment to database');
           callback(err, null);
@@ -99,17 +99,17 @@ module.exports = {
       const norCalCoordinates = 'x,y';
       const centralCalCoordinates = 'x,y';
       const southCalCoordinates = 'x,y';
-      
+
       //remove XXXXX for this to work
       axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${norCalCoordinates}.json`)
         .then( (result) => {
           homeWeather.push(result.data)
           axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${centralCalCoordinates}.json`)
-        })    
+        })
         .then( (result) => {
           homeWeather.push(result.data);
           axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${southCalCoordinates}.json`)
-        })        
+        })
         .then( (result) => {
           homeWeather.push(result.data);
           res.json(homeWeather);

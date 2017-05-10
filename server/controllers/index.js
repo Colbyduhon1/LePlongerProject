@@ -86,7 +86,7 @@ module.exports = {
 		},
 		post: (req, res) => {
 			console.log(req.body);
-			var fuel = Math.random() * 2343453479543;			
+			var fuel = Math.random() * 2343453479543;
 			var newUser = {
 				name: req.body.user,
 				salt: fuel,
@@ -107,14 +107,6 @@ module.exports = {
 	weather: {
 		get: models.weather.get,
 		home: models.weather.home
-      /*models.weather.get((err, data) => {
-      	if (err) {
-      		console.log('Cannot get weather data', err);
-      	} else {
-      		res.end(data)
-      	}
-      })*/
-		
 	}
 };
 
