@@ -75,7 +75,8 @@ module.exports = {
 		}
 	},
 	weather: {
-		get: models.weather.get
+		get: models.weather.get,
+		home: models.weather.home
       /*models.weather.get((err, data) => {
       	if (err) {
       		console.log('Cannot get weather data', err);
