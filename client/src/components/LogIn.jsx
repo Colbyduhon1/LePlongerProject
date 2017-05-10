@@ -4,14 +4,13 @@ import Input from 'react-input-password';
 import Signup from './Signup.jsx';
 
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    	value: '',
-    	password: '',
-    	signup: false,
+      value: '',
+      password: '',
+      signup: false,
       login: false
     };
 
@@ -31,14 +30,14 @@ class Login extends React.Component {
   }
 
   handleClick(e) {
-  	e.preventDefault()
+    e.preventDefault()
     this.setState(prevState => ({
       login: !prevState.login
     }));
   }
 
   handleSignIn(e) {
-  	e.preventDefault()
+    e.preventDefault()
     this.setState(prevState => ({
       signup: !prevState.signup
     }));
@@ -47,8 +46,7 @@ class Login extends React.Component {
   render() {
     return (
       <form className="loginForm">
-      <span onClick={this.handleClick}>
-      
+      <span onClick={this.handleClick}>     
         <em><strong> Login </strong></em></span> <span> / </span>
         {this.state.login ? 
           <p>Username:
@@ -57,23 +55,17 @@ class Login extends React.Component {
           value={this.state.value} 
           onChange={this.handleChange} 
           />
-
           Password: 
           <input
-					type="password"
-					value={this.state.password} 
-					onChange={this.handlePassword} 
-			    /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>
-			     Sign In </button></p>  : null}
-
-        
+          type="password"
+          value={this.state.password} 
+          onChange={this.handlePassword} 
+          /><button onClick={() => this.props.logIn(this.state.value, this.state.password)}>Sign In </button></p>:null}        
         <span onClick={this.handleSignIn}><em><strong> Sign Up </strong></em></span> 
-        {this.state.signup ? <Signup new_users={this.props.new_users} /> : null}
-        
+        {this.state.signup ? <Signup new_users={this.props.new_users} /> : null}        
       </form>
     );
   }
 }
-
 
 export default Login;
