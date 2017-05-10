@@ -83,7 +83,7 @@ class App extends React.Component {
       .then( (response) => {
         console.log('receieved sites from db: ', response);
         this.setState({
-          sites: response
+          sites: response.data
         })
       })
       .catch( (err) => {
