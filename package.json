@@ -10,7 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "seed-data" : "node server/db/worker.js"
+    "seed-data": "node server/db/worker.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -36,6 +36,7 @@
     "react-input-password": "^1.0.21",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
+    "sha1": "^1.1.1",
     "underscore": "^1.8.3"
   },
   "babel": {
