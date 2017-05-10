@@ -3,17 +3,26 @@ const request = require('request');
 const Api = require('../../keys');
 const Promise = require('bluebird');
 const axios = require('axios');
-
+const sha1 = require('sha1');
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
 //isn't clear, in my opinion
 module.exports = {
   users: {
-    get: (user) => {
-      return connection.queryAsync(
-      //NEED TO FIGURE OUT HOW WE ARE CALLING THIS AITH AUTHENITCATION
-      );
+    get: (user, callback) => {
+      var user = [user.user, user.pass];
+      var queryString = `SELECT salt, password FROM users WHERE name = '${user[0]}';`
+      connection.query(queryString, (err, data) => {
+        if(err) {
+          console.log('err');
+          callback(err, null);
+        } else {
+          console.log("Schema query,", data);
+          callback(null, data);
+        }
+      })
+
     },
     post: (new_user, callback) => {
        var user = [new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skill];

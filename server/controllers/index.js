@@ -38,8 +38,21 @@ module.exports = {
 			// }
 		},
 		post: (req, res) => {
-			console.log('OK')
-			res.send("I am from users post")
+			models.users.get(req.body, (err, data) => {
+				if(err) {
+					console.log('err')
+				} else {
+					if( data.length > 0) {
+						if(sha1(req.body.pass + data[0].salt) === data[0].password){
+						  res.send('User is def colby')
+					  } else {
+						  res.send('Wrong Password')
+					  }
+					} else {
+						res.send('User does Not exist')
+					}
+				}
+			})
 		}
 	},
 
