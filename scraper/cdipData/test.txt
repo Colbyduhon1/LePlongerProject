@@ -1,0 +1,140 @@
+
+Dataset {
+    Int32 waveTime[waveTime = 6];
+    Float32 waveFrequency[waveFrequency = 20];
+    String metaGridMapping;
+    Int32 waveTimeBounds[waveTime = 6][metaBoundsCount = 2];
+    Float32 waveFrequencyBounds[waveFrequency = 20][metaBoundsCount = 2];
+    Byte waveFrequencyFlagPrimary[waveFrequency = 20];
+    Byte waveFrequencyFlagSecondary[waveFrequency = 20];
+    Float32 metaLatitude[metaLatitude = 500];
+    Float32 metaLatitudeBounds[metaLatitude = 500][metaBoundsCount = 2];
+    Float32 metaLongitude[metaLongitude = 500];
+    Float32 metaLongitudeBounds[metaLongitude = 500][metaBoundsCount = 2];
+    Grid {
+     ARRAY:
+        Float32 metaWaterDepth[metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } metaWaterDepth;
+    String waveModelInputSource[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+    Grid {
+     ARRAY:
+        Float32 waveHs[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveHs;
+    Grid {
+     ARRAY:
+        Float32 waveTp[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveTp;
+    Grid {
+     ARRAY:
+        Float32 waveDp[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveDp;
+    Grid {
+     ARRAY:
+        Float32 waveTa[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveTa;
+    Grid {
+     ARRAY:
+        Byte waveFlagPrimary[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveFlagPrimary;
+    Grid {
+     ARRAY:
+        Byte waveFlagSecondary[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveFlagSecondary;
+} cdip/model/MOP_grids/VE_0.001_seaswellnc.nc;
+
+Dataset {
+    Int32 waveTime[waveTime = 6];
+    Float32 waveFrequency[waveFrequency = 20];
+    String metaGridMapping;
+    Int32 waveTimeBounds[waveTime = 6][metaBoundsCount = 2];
+    Float32 waveFrequencyBounds[waveFrequency = 20][metaBoundsCount = 2];
+    Byte waveFrequencyFlagPrimary[waveFrequency = 20];
+    Byte waveFrequencyFlagSecondary[waveFrequency = 20];
+    Float32 metaLatitude[metaLatitude = 500];
+    Float32 metaLatitudeBounds[metaLatitude = 500][metaBoundsCount = 2];
+    Float32 metaLongitude[metaLongitude = 500];
+    Float32 metaLongitudeBounds[metaLongitude = 500][metaBoundsCount = 2];
+    Grid {
+     ARRAY:
+        Float32 metaWaterDepth[metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } metaWaterDepth;
+    String waveModelInputSource[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+    Grid {
+     ARRAY:
+        Float32 waveHs[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveHs;
+    Grid {
+     ARRAY:
+        Float32 waveTp[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveTp;
+    Grid {
+     ARRAY:
+        Float32 waveDp[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveDp;
+    Grid {
+     ARRAY:
+        Float32 waveTa[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveTa;
+    Grid {
+     ARRAY:
+        Byte waveFlagPrimary[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveFlagPrimary;
+    Grid {
+     ARRAY:
+        Byte waveFlagSecondary[waveTime = 6][metaLatitude = 500][metaLongitude = 500];
+     MAPS:
+        Int32 waveTime[waveTime = 6];
+        Float32 metaLatitude[metaLatitude = 500];
+        Float32 metaLongitude[metaLongitude = 500];
+    } waveFlagSecondary;
+} cdip/model/MOP_grids/VE_0.001_seaswellnc.nc;
