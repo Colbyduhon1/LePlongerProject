@@ -3,6 +3,7 @@ const connection = require('../db');
 const request = require('request');
 const Api = require('../../keys');
 const Promise = require('bluebird');
+const axios = require('axios');
 
 
 //I(John) think these should be named relating to what theyre doing
