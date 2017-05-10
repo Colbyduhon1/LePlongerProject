@@ -13,6 +13,7 @@ USE dive_team;
 --
 -- ---
 
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
@@ -24,6 +25,7 @@ CREATE TABLE users (
   age INTEGER,
   skill VARCHAR(64)
 );
+
 
 -- ---
 -- Table 'Dives'

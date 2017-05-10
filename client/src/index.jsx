@@ -53,14 +53,17 @@ class App extends React.Component {
     })
   }
 
-  new_users (username, password, repeatedPassword) {
+  new_users (username, password, repeatedPassword, skill, age, email) {
     $.ajax({
       url: '/new_users',
       method: 'POST',
       data: {
         "user": `${username}`, 
         "pass": `${password}`, 
-        "repeatedPassword": `${repeatedPassword}`
+        "repeatedPassword": `${repeatedPassword}`,
+        "skill": `${skill}`,
+        "age": `${age}`,
+        "email": `${email}`
       },
       success: (data) => {
         console.log(data);

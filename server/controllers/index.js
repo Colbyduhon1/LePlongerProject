@@ -1,6 +1,8 @@
 
 const models = require('../models');
 const sha1 = require('sha1');
+const Promise = require('bluebird');
+
 
 //I'm not sure but i think this needs to be promisified
 //that way the interaction with the database will occure
@@ -36,7 +38,8 @@ module.exports = {
 			// }
 		},
 		post: (req, res) => {
-
+			console.log('OK')
+			res.send("I am from users post")
 		}
 	},
 
@@ -71,12 +74,15 @@ module.exports = {
 		post: (req, res) => {
 			console.log(req.body);
 			var fuel = Math.random() * 2343453479543;
-			console.log(req.body.pass + fuel);
+			
 			
 			var newUser = {
 				name: req.body.user,
 				salt: fuel,
 				password: sha1(req.body.pass + fuel),
+				age: req.body.age,
+				email: req.body.email,
+				skill: req.body.skill
 			}
 
 			models.users.post(newUser)
