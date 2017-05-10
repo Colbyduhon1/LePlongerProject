@@ -16,7 +16,7 @@ const promiseWrite = function(filePath, data) {
   });
 };
 
-const url = 'http://thredds.cdip.ucsd.edu/thredds/dodsC/cdip/model/MOP_grids/VE_0.001_seaswellnc.nc.html';
+const url='http://thredds.cdip.ucsd.edu/thredds/dodsC/cdip/model/MOP_grids/VE_0.001_seaswellnc.nc.html';
 const options = {
   urls: [url],
   directory: '/leplonger/cdipData/attempt'
