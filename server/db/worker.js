@@ -4,7 +4,7 @@ const dive_data = require('./sampledata/divesites.js');
 const comment_data = require('./sampledata/comments.js')
 
 //saves seed data to database
-data_data.divesites.forEach(function (site) {
+dive_data.divesites.forEach(function (site) {
 	models.dive_sites.post(site, function(err, data) {
 		if( err ) {
 			console.log(err);
