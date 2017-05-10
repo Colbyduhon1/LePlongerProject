@@ -3,7 +3,6 @@ const connection = require('../db');
 const request = require('request');
 const Api = require('../../keys');
 const Promise = require('bluebird');
-const axios = require('axios');
 
 
 //I(John) think these should be named relating to what theyre doing
@@ -17,17 +16,17 @@ module.exports = {
       );
     },
     post: (new_user, callback) => {
-      var user = [new_user.id, new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skill];
-      var queryString = 'INSERT INTO users(id, name, password, email, salt, age, skill ) VALUES (?, ?, ?, ?, ?, ?, ?)';
-      connection.query(queryString, user, function(err, data) {
-        if (err) {
-          console.log('could not post user to database');
-          callback(err, null);
-        } else {
-          console.log('posted users to database');
-          callback(null, data);
-        }
-      })
+       var user = [new_user.id, new_user.name, new_user.password, new_user.email, new_user.salt, new_user.age, new_user.skill];
+       var queryString = 'INSERT INTO users(id, name, password, email, salt, age, skill ) VALUES (?, ?, ?, ?, ?, ?, ?)';
+       connection.query(queryString, user, function(err, data) {
+         if (err) {
+           console.log('could not post user to database');
+           callback(err, null);
+         } else {
+           console.log('posted users to database');
+           callback(null, data);
+         }
+       })
     }
   },
   dive_sites: {
@@ -72,8 +71,10 @@ module.exports = {
     }
   },
   weather: {
+ //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
+      // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
       console.log('url: ', url);
 
       axios.get(url)
