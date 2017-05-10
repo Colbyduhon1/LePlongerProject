@@ -5,7 +5,7 @@ const divesites = [
 			longitude: -121.95361,
 			latitude: 36.52417,
 			rating: 'Experienced',
-			description: 'Offshore boat accessible',
+			description: 'Offshore and boat accessible, this dive location features large granite boulders covered in strawberry anemones. It is a relatively deep dive, the top of the rock formation is at 40\' and the bottom is at 110\'.',
 			user_dive: 1,
 		},
 		{

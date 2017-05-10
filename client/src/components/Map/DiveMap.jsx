@@ -4,14 +4,14 @@ import {withGoogleMap, GoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import MarkerContainer from './MarkerContainer.jsx';
 
 const DiveMap = withGoogleMap(props => (
- <GoogleMap
+  <GoogleMap
    ref={props.onMapLoad}
    defaultZoom={6}
    mapTypeId={google.maps.MapTypeId.SATELLITE}
    defaultCenter={{lat: 37.787, lng: -122.458}}
    onClick={props.onMapClick}
- >
-   {props.markers.map( (marker, index) => {
+  >
+  {props.markers.map( (marker, index) => {
     const formattedMarker = marker;
     formattedMarker['position'] = {lat: marker.latitude, lng: marker.longitude}
     return (
@@ -20,9 +20,9 @@ const DiveMap = withGoogleMap(props => (
       toggleInfoWindow={props.toggleInfoWindow}
       showConditions={props.showConditions}
       marker={formattedMarker} key={index} /> );
-   })}
+  })}
 
-   </GoogleMap>
+  </GoogleMap>
 ));
 
 export default DiveMap;
