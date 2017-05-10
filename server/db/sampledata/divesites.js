@@ -1,6 +1,6 @@
 const divesites = [
 		{
-			id: 1,
+			id: null, // 1
 			name: 'Carmel Point',
 			longitude: -121.95361,
 			latitude: 36.52417,
@@ -9,7 +9,7 @@ const divesites = [
 			user_dive: 1,
 		},
 		{
-			id: 2,
+			id: null, // 2
 			name: ' Eric\'s Pinnacle',
 			longitude: -121.91835,
 			latitude: 36.63407 ,
@@ -18,7 +18,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 3
 			name: 'Point Lobos',
 			longitude: -121.95361,
 			latitude: 36.52167,
@@ -27,7 +27,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 3
 			name: 'Kawika\'s Anchor Farm',
 			longitude: -121.88448,
 			latitude: 36.61427,
@@ -36,7 +36,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 4
 			name: 'The Mating Amtracks of Lover\'s Point',
 			longitude: -121.89282,
 			latitude: 36.61240,
@@ -45,7 +45,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 5
 			name: 'The Metridium Fields',
 			longitude: -121.89282,
 			latitude: 36.61240,
@@ -54,7 +54,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 6
 			name: 'The Sailboat',
 			longitude: -121.88528,
 			latitude: 36.60322,
@@ -63,7 +63,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 7
 			name: 'MacAfee Pinnacle',
 			longitude: -121.89617,
 			latitude: 36.61747,
@@ -72,7 +72,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 8
 			name: 'Shale Island',
 			longitude: -121.87977,
 			latitude: 36.60885,
@@ -81,7 +81,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 9
 			name: 'The Barge',
 			longitude: -121.89015,
 			latitude: 36.61063,
@@ -90,7 +90,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 10
 			name: 'Aumentos Reef',
 			longitude: -121.92225,
 			latitude: 36.63858,
@@ -99,7 +99,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 11
 			name: 'The Amtrack',
 			longitude: -121.88560,
 			latitude: 36.60303,
@@ -108,7 +108,7 @@ const divesites = [
 			user_dive: 1
 		},
 		{
-			id: null,
+			id: null, // 12
 			name: 'Alan\'s Arch',
 			longitude: -121.95622,
 			latitude: 36.48793,

@@ -21,7 +21,7 @@ var users = [
   	id: null,
   	name: 'Rich Neimic',
   	password: 12345,
-  	email: 'alytamboura7370@gmail.com',
+  	email: 'rich@gmail.com',
   	salt: null,
   	age: 50,
   	skill: 'Advanced',
