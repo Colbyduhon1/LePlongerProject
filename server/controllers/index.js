@@ -100,6 +100,9 @@ module.exports = {
 	weather: {
 		get: models.weather.get,
 		home: models.weather.home
+	},
+	ocean: {
+		get: models.ocean.get
 	}
 };
 

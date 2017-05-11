@@ -16,10 +16,13 @@ router.route('/comments')
 
 router.route('/weather')
   .get(controller.weather.get)
-  .post(controller.weather.home)
+  .post(controller.weather.get)
 
 router.route('/weather/home')
   .get(controller.weather.home);
+
+router.route('/ocean')
+  .post(controller.ocean.get);
 
 
 //JI: we only have user,dive,commment tables

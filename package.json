@@ -10,7 +10,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "seed-data": "node server/db/worker.js"
+    "seed-data": "node server/db/worker.js",
+    "rmb":"rm /leplonger/client/dist/bundle.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -23,6 +24,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
     "cors": "^2.8.3",
     "express": "^4.15.0",
     "firebaseui": "^1.0.1",
@@ -39,7 +41,8 @@
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
     "sha1": "^1.1.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "website-scraper": "^2.4.0"
   },
   "babel": {
     "presets": [
