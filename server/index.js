@@ -22,6 +22,7 @@ app.use('/weather', router);
 
 //Serve static files
 app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.use(express.static(path.join(__dirname, '../client/assets/')));
 
 //routes
 //this may have to be broken up, but i think that if we keep
