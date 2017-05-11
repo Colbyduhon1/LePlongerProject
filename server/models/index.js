@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const axios = require('axios');
 const sha1 = require('sha1');
 const visUtils = require('../../visualization/visUtils.js');
+//
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -68,7 +69,7 @@ module.exports = {
   comments: {
     get: (req,res) => {
       let diveID = req.body.diveSite_id;
-      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id WHERE comments.divesite_id=' + diveID;
+      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id LEFT JOIN users ut on comments.user_id = ut.id WHERE comments.divesite_id=' + diveID;
       return connection.queryAsync(
         queryString
       );

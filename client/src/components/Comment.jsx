@@ -1,8 +1,12 @@
 import React from 'react';
+import Time from 'react-time'
 
 var Comment = (props) => {
-var time = props.comment.date_1
-var message = props.comment.message;
+
+  console.log('tfdkfd' ,props)
+  let wasDate = new Date(props.comments.date_1)
+  let time = props.comments.date_1.slice(11, 16);
+
  return(
 
 	<div className="media">
@@ -10,12 +14,12 @@ var message = props.comment.message;
 	      <img width="64" className="media-object" src="octo.jpg" alt="..." />
 	  </div>
 	  <div className="media-body">
-	    <h4 className="media-heading">By {props.comments.user_id}</h4>
-		      <p>{props.comments.date_1}</p>
+	    <h4 className="media-heading">By {props.comments.name}</h4>
+          <p>Date: <Time value={wasDate} titleFormat="YYYY/MM/DD HH:mm" relative />&nbsp;at&nbsp;{time}</p>
+		      <p>Skill Level <span className='skill'>{props.comments.skill}</span></p>
 					{props.comments.message}
 	  </div>
 	</div>
-
   )
 };
 
