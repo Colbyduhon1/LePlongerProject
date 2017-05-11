@@ -238,6 +238,14 @@ class App extends React.Component {
                 onAfterOpen={this.afterOpenSignupModal}
                 onRequestClose={this.closeSignupModal}
                 contentLabel="Example Modal"
+                 style={{
+                    overlay: {
+                      background: 'lightsteelblue'
+                    },
+                    content: {
+                      backgroundImage: 'url("http://www.example.com/bck.png")'
+                    }
+                  }}
               >
                 <button onClick={this.closeSignupModal}>&times;</button>
                 <h2>Sign Up</h2>
@@ -253,6 +261,7 @@ class App extends React.Component {
                 onRequestClose={this.closeModal}
                 contentLabel="Example Modal"
               >
+
                 <button onClick={this.closeModal}>&times;</button>
 
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
