@@ -20,7 +20,7 @@ const router = require('./routes.js');
 app.use(express.static(path.join(__dirname, '../client/dist/')));
 app.use(express.static(path.join(__dirname, '../client/assets/')));
 
-//routes
+//All routes handled here
 app.use('/', router);
 
 app.listen(port, function () {
