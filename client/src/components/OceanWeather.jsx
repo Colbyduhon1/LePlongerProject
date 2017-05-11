@@ -10,7 +10,6 @@ class OceanWeather extends React.Component {
   componentDidMount() {
     const embedCode = `
       <script>
-        
       </script>
     `
     $('.weather-section').append(embedCode);
