@@ -20,6 +20,12 @@ const getClosestBouy = function(lat, lng) {
 };
 
 
+const formatBouyData = (data) => {
+  let formatted = [];
+
+  return formatted;
+};
 
 
 module.exports.getBouy = getClosestBouy;
+module.exports.formatTxt = formatBouyData;
