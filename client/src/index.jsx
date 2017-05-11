@@ -10,6 +10,7 @@ import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
 import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
+import CommentContainer from './components/CommentContainer.jsx'
 
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
@@ -31,7 +32,7 @@ class App extends React.Component {
       modalSignup: false,
       weatherdata: seedWeatherData,
       siteDescription: '',
-
+      commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData]
 
     }
@@ -176,10 +177,10 @@ class App extends React.Component {
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
         console.log('received comment data: ', response);
+        this.setState({
+          commentdata: response.data
+        })
       })
-      .catch( (err) => {
-        console.log('error retrieving comments from db: ', err);
-    })
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
@@ -266,7 +267,6 @@ class App extends React.Component {
 
 
           {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
-
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>
@@ -284,7 +284,7 @@ class App extends React.Component {
 
           {/* transfer to reviews component */}
           <div className='col-md-3 reviews-section'>
-            <h1>reviews section</h1>
+          {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> : <CommentContainer comments={[]}/>}
           </div>
 
         </div>

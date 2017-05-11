@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Comment = (props) => (
+var Comment = (props) => {
+var time = props.comment.date_1
+var message = props.comment.message;
+ return(
   <div>
-    <p>Username</p>
-    <p>timeStamp</p>
-    <p>Message</p>
+  	<p>{time}</p>
+    <p>{message}</p>
   </div>
-);
+  )
+};
 
 export default Comment;
