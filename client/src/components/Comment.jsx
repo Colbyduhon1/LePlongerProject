@@ -9,7 +9,8 @@ var Comment = (props) => {
 
  return(
 
-	<div className="media">
+
+ 	<div className="media">
 	  <div className="media-left media-middle">
 	      <img width="64" className="media-object" src="octo.jpg" alt="..." />
 	  </div>
