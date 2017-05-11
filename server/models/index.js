@@ -4,6 +4,7 @@ const Api = require('../../keys');
 const Promise = require('bluebird');
 const axios = require('axios');
 const sha1 = require('sha1');
+const visUtils = require('../../visualization/visUtils.js');
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -138,6 +139,7 @@ module.exports = {
 
       console.log('lat: ', latitude);
       console.log('lng: ', longitude);
+      console.log('Closest bouy: ', bouyId);
       res.send('world');      
     }
   }
