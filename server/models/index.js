@@ -136,13 +136,10 @@ module.exports = {
       let longitude = +req.body.location.lng * -1;
       let bouyId = visUtils.getBouy(latitude, longitude);
       console.log('Closest bouy: ', bouyId);
-
       axios.get(`http://www.ndbc.noaa.gov/data/realtime2/${bouyId}.txt`)
         .then( (result) => {
           let toFormat = result.data.split('\n').slice(0, 14);
           let formatted = visUtils.formatTxt(toFormat);
-
-
           res.send('hi');
         })
         .catch( (err) => {
