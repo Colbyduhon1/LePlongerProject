@@ -267,7 +267,6 @@ class App extends React.Component {
 
 
           {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
-
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>
@@ -285,7 +284,7 @@ class App extends React.Component {
 
           {/* transfer to reviews component */}
           <div className='col-md-3 reviews-section'>
-          <CommentContainer comments={this.state.commentdata}/>
+          {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> : <CommentContainer comments={[]}/>}
           </div>
 
         </div>
