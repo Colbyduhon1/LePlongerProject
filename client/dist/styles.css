@@ -79,6 +79,8 @@ LOGIN FORMS
 
 .loginForm {
 	float: right;
+  padding: 20px;
+  border: none;
 }
 
 /*
@@ -87,5 +89,22 @@ SIGNUP FORMS
 ================================================================================================
 */
 
+.signinForm {
+  float: right;
+  padding: 20px;
+  border: none;
+}
 
+.add_dive_site {
+  float: right;
+  padding: 30px;
+  border: none;
+}
 
+.loginSheet {
+  align-items: center;
+}
+
+.loginUserName {
+  border: none;
+}
