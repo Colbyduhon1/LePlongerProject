@@ -52,8 +52,8 @@ module.exports = {
       })
     },
     post: (new_sites, callback) => {
-      var diveSite = [ new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description];
-      var queryString = 'INSERT INTO dives( name, longitude, latitude, rating, description) VALUES ( ?, ?, ?, ?, ?)';
+      var diveSite = [ new_sites.name, new_sites.longitude, new_sites.latitude, new_sites.rating, new_sites.description, new_sites.user_dive];
+      var queryString = 'INSERT INTO dives( name, longitude, latitude, rating, description, user_dive ) VALUES ( ?, ?, ?, ?, ?, ?)';
       connection.query(queryString, diveSite, function(err, data) {
         if (err) {
           console.log('could not post dive-sites to database');
@@ -80,8 +80,7 @@ module.exports = {
         if (err){
           console.log('could not post comment to database');
           callback(err, null);
-        }
-        else{
+        } else{
           console.log('posted new comment data to database');
           callback(null,data)
         }
@@ -92,8 +91,7 @@ module.exports = {
  //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
-       const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
-
+       // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
       axios.get(url)
         .then( (result) => {
           console.log('received data from weatherUnderground');

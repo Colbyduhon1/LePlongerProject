@@ -44,7 +44,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-
+    
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -168,7 +168,7 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-        //console.log('received comment data: ', response);
+        console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
@@ -238,7 +238,7 @@ class App extends React.Component {
              <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
-
+                onAfterOpen={this.afterOpenLoginModal}
                 onRequestClose={this.closeLoginModal}
                 contentLabel="Example Modal"
               >
@@ -249,7 +249,6 @@ class App extends React.Component {
               </Modal>
             </div>
 
-      
             <div className="signinForm" >
              <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
@@ -257,14 +256,14 @@ class App extends React.Component {
                 onAfterOpen={this.afterOpenSignupModal}
                 onRequestClose={this.closeSignupModal}
                 contentLabel="Example Modal"
-                 style={{
-                    overlay: {
-                      background: 'lightsteelblue'
-                    },
-                    content: {
-                      backgroundImage: 'url("http://www.example.com/bck.png")'
-                    }
-                  }}
+                style={{
+                  overlay: {
+                    background: 'lightsteelblue'
+                  },
+                  content: {
+                    backgroundImage: 'url("http://www.example.com/bck.png")'
+                  }
+                }}
               >
                 <button onClick={this.closeSignupModal}>&times;</button>
                 <h2>Sign Up</h2>
@@ -282,11 +281,10 @@ class App extends React.Component {
                 onRequestClose={this.closeModal}
                 contentLabel="Example Modal"
               >
-
                 <button onClick={this.closeModal}>&times;</button>
-
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                  <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
+                <NewDiveSite />
+                <button>Add Site</button>
               </Modal>
             </div> 
 
@@ -295,10 +293,10 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1}
-                                                                                       data={this.state.waveHeight}
-                                                                                       description={this.state.siteDescription}
-                                                                                       weatherdata={this.state.weatherdata} />
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1} 
+                                                                                       data={this.state.waveHeight} 
+                                                                                       description={this.state.siteDescription} 
+                                                                                       weatherdata={this.state.weatherdata} /> 
                                                               : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
@@ -312,7 +310,7 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> 
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 

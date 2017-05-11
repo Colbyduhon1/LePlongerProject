@@ -30,7 +30,6 @@ module.exports = {
 		},
 		post: (req, res) => {
 			models.users.get(req.body, (err, data) => {
-				console.log(req.body)
 				if(err) {
 					console.log('err')
 				} else {
@@ -85,7 +84,6 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			console.log(req.body);
 			var fuel = Math.random() * 2343453479543;
 			var newUser = {
 				name: req.body.user,
