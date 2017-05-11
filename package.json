@@ -10,7 +10,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "seed-data": "node server/db/worker.js"
+    "seed-data": "node server/db/worker.js",
+    "rmb":"rm /leplonger/client/dist/bundle.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

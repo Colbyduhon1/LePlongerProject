@@ -131,7 +131,13 @@ module.exports = {
   },
   ocean: {
     get: (req, res) => {
-      console.log('hello');
+      let latitude = +req.body.location.lat;
+      let longitude = +req.body.location.lng * -1;
+
+      let bouyId = visUtils.getBouy(latitude, longitude);
+
+      console.log('lat: ', latitude);
+      console.log('lng: ', longitude);
       res.send('world');      
     }
   }
