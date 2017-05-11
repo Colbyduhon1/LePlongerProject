@@ -19,8 +19,13 @@ class OceanWeather extends React.Component {
   render() {
      return(
       <div className='col-md-12 weather-section'>
-        <p>Lots of Ocean info</p>
-        <AreaChart  data={this.props.data}/>
+        <p>Wave Height for the Past 12 Hours</p>
+        <AreaChart
+        axes
+        grid
+        yDomainRange={[0, 5]}
+        interpolate={'cardinal'}
+        data={this.props.data}/>
       </div>
     );
   }
