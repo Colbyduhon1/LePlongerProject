@@ -7,7 +7,7 @@ import SiteDescription from './SiteDescription.jsx';
 const DiveSiteInfoContainer = (props) => {
 	return (
 	  <div className='col-md-3'>
-	    <OceanWeather />
+	    <OceanWeather data={props.data}/>
 	    <SurfaceWeather weatherdata={props.weatherdata} />
 	    <SiteDescription description={props.description}/>
 	  </div>

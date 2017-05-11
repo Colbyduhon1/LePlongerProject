@@ -33,7 +33,13 @@ class App extends React.Component {
       weatherdata: seedWeatherData,
       siteDescription: '',
       commentdata: [],
-      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData]
+      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
+      waveHeight: [
+        { x: 1, y: 20 },
+        { x: 2, y: 10 },
+        { x: 3, y: 25 },
+        { x: 4, y: 20 }
+      ]
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -157,8 +163,6 @@ class App extends React.Component {
   }
 
   getDiveSiteWeather(site) {
-    console.log(site);
-    console.log(site.description);
     axios.post('/weather', {location: site.position})
       .then( (response) => {
         console.log('received weather for site: ', response);
@@ -184,7 +188,15 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        console.log('Got some pretty things ', result);
+        console.log(result.data);
+        console.log(result.data[0]);
+        console.log(result.data[0].x)
+        console.log(typeof result.data[0].x)
+        console.log(result.data[0].y)
+        console.log(typeof result.data[0].y)
+        this.setState({
+          waveHeight: [result.data]
+        })
       })
       .catch( (err) => {
         console.log('Error getting some sick visuals ', err);
@@ -201,6 +213,7 @@ class App extends React.Component {
   }
 
   toggleInfoWindow() {
+    console.log('toggling info window');
     this.setState({
       openInfoWindow: !this.state.openInfoWindow
     })
@@ -275,7 +288,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer data={this.state.waveHeight} description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>

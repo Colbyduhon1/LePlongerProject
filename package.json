@@ -11,7 +11,7 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed-data": "node server/db/worker.js",
-    "rmb":"rm /leplonger/client/dist/bundle.js"
+    "rmb": "rm /leplonger/client/dist/bundle.js"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -26,6 +26,11 @@
     "body-parser": "^1.17.1",
     "cheerio": "^0.22.0",
     "cors": "^2.8.3",
+    "d3": "^3.5.17",
+    "d3-array": "^0.8.1",
+    "d3-scale": "^0.9.3",
+    "d3-shape": "^0.7.1",
+    "d3-time-format": "^2.0.3",
     "express": "^4.15.0",
     "firebaseui": "^1.0.1",
     "google-maps-react": "^1.0.19",
@@ -34,6 +39,8 @@
     "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-easy-chart": "^0.1.13",
+    "react-faux-dom": "^2.5.0",
     "react-google-maps": "^6.3.0",
     "react-input-password": "^1.0.21",
     "react-modal": "^1.7.7",

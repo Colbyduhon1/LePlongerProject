@@ -92,7 +92,7 @@ module.exports = {
  //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
-       const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
+       // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
 
       axios.get(url)
         .then( (result) => {
@@ -132,6 +132,8 @@ module.exports = {
   },
   ocean: {
     get: (req, res) => {
+      /*field options for formatData:  [ '#YY','MM','DD','hh','mm','WDIR','WSPD','GST','WVHT',
+          'DPD','APD','MWD','PRES','ATMP','WTMP','DEWP','VIS','PTDY','TIDE' ]*/
       let latitude = +req.body.location.lat;
       let longitude = +req.body.location.lng * -1;
       let bouyId = visUtils.getBouy(latitude, longitude);
@@ -139,8 +141,9 @@ module.exports = {
       axios.get(`http://www.ndbc.noaa.gov/data/realtime2/${bouyId}.txt`)
         .then( (result) => {
           let toFormat = result.data.split('\n').slice(0, 14);
-          let formatted = visUtils.formatTxt(toFormat);
-          res.send('hi');
+          let waveHeights = visUtils.formatData(result.data, 'WVHT');
+
+          res.send(waveHeights);
         })
         .catch( (err) => {
           console.log('Error getting bouy data: ', err);

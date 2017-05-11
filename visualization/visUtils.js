@@ -3,15 +3,15 @@ const bouys = require('./bouys.js');
 
 const getClosestBouy = function(lat, lng) {
   let closest;
-  let total = Infinity;
+  let shortestDistance = Infinity;
 
   for (let key in bouys) {
-    let latitudeB = bouys[key][0];
-    let longitudeB = bouys[key][1];
-    let currentTotal  = Math.abs(lat - latitudeB) + Math.abs(lng - longitudeB);
+    let xdiff = Math.abs( bouys[key][0] - lat );
+    let ydiff = Math.abs( bouys[key][1] - lng );
+    let currentDistance  = Math.sqrt( (xdiff * xdiff) + (ydiff * ydiff) );
 
-    if ( currentTotal < total ) {
-      total = currentTotal;
+    if ( currentDistance < shortestDistance ) {
+      shortestDistance = currentDistance;
       closest = key;
     }
   }
@@ -19,13 +19,29 @@ const getClosestBouy = function(lat, lng) {
   return closest;
 };
 
-
-const formatBouyData = (data) => {
+//providing this field will let others determine which type of data
+//they want to show the user, for now we're specifying waveheight(WVHT)
+const formatBouyData = (data, field) => {
   let formatted = [];
+  
+  let rows = data.split('\n').slice(0, 14).map( (row) => {
+    return row.split(' ').filter( (element) => {
+      return element !== '';
+    });
+  });
+
+  let colIndex = rows[0].indexOf(field);
+
+  for (let i = rows.length -1; i > 1; i--) {
+    let position = {x: (rows.length - (i)), y: +rows[i][colIndex] }
+    formatted.push(position);
+  }
+  
 
   return formatted;
 };
 
 
 module.exports.getBouy = getClosestBouy;
-module.exports.formatTxt = formatBouyData;
+module.exports.formatData = formatBouyData;
+
