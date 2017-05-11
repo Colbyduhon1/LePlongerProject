@@ -23,14 +23,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sites: /*seedDiveData.divesites*/[],
+      sites: [],
 
       diveview: false,
       openInfoWindow: false,
+
       modalIsOpen: false,
       modalLogin: false,
       modalSignup: false,
+
       weatherdata: seedWeatherData,
+
       siteDescription: '',
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
@@ -41,6 +44,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteWeather = this.getDiveSiteWeather.bind(this);
+    
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -93,20 +97,33 @@ class App extends React.Component {
   }
 
   logIn (user, pass) {
-    $.ajax({
-      url: '/users',
-      method: 'POST',
-      data: {
-        "user": `${user}`,
-        "pass": `${pass}`
-      },
-      success: (data) => {
-        //console.log(data)
-      },
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    })
+    //Previous implementation
+    // $.ajax({
+    //   url: '/users',
+    //   method: 'POST',
+    //   data: {
+    //     "user": `${user}`,
+    //     "pass": `${pass}`
+    //   },
+    //   success: (data) => {
+    //     //console.log(data)
+    //   },
+    //   error: (err1, err2, err3) => {
+    //     console.log(err1, err2, err3);
+    //   }
+    // })
+    let userInfo = {
+      "user": user,
+      "pass": pass
+    };
+
+    axios.post('/users', userInfo)
+      .then( (response) => {
+        //
+      })
+      .catch( (err) => {
+        console.log('Error adding user: ', err);
+      })
   }
 
   new_users (username, password, repeatedPassword, skill, age, email) {
@@ -131,12 +148,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('grabbing weather data for landing page container');
-    //theoretically, this would make 3 api requests to weather underground
-    //send back the data in an array which will get passed to the container componenet
     axios.get('/dives')
       .then( (response) => {
-        console.log('receieved sites from db: ', response);
         this.setState({
           sites: response.data
         })
@@ -145,10 +158,10 @@ class App extends React.Component {
         console.log('Could not retrieve dive sites from DB: ', err);
       })
 
-
+    //theoretically, this would make 3 api requests to weather underground
+    //send back the data in an array which will get passed to the container componenet
     axios.get('/weather/home')
       .then( (response) => {
-        console.log('received landing page weather: ');
         this.setState({
           homeWeather: response.data
         })
