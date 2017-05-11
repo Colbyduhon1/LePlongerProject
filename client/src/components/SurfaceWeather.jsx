@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SurfaceWeather = (props) => {
+	console.log(props)
 	return (
 		 <div className='col-md-12 weather-section panel panel-warning'>
 			 <div className="panel panel-warning">

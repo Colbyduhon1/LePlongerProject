@@ -10,14 +10,25 @@ GLOBAL STYLES
 
 body {
   height: 100%;
+  overflow-x:hidden;
 }
 
 /*.container {
   width: 100%;
 }*/
-
-
-
+#myiframe {
+  -moz-transform: scale(0.4, 0.4);
+  -webkit-transform: scale(0.4, 0.4);
+  -o-transform: scale(0.4, 0.4);
+  -ms-transform: scale(0.4, 0.4);
+  transform: scale(0.4, 0.4);
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  margin-bottom: 0;
+}
 /*
 ================================================================================================
 WEATHER BOXES
@@ -25,7 +36,7 @@ WEATHER BOXES
 */
 .weather-section {
 	min-height: 200px;
-  overflow: auto;
+  overflow: hidden;
 }
 .pannel img {
   width: 60px;
