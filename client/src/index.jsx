@@ -225,8 +225,8 @@ class App extends React.Component {
               >
                 <button onClick={this.closeLoginModal}>&times;</button>
 
-                <h2>Login</h2>   
-                <Login logIn={this.logIn.bind(this)} /> 
+                <h2>Login</h2>
+                <Login logIn={this.logIn.bind(this)} />
               </Modal>
             </div>
 
@@ -240,8 +240,8 @@ class App extends React.Component {
                 contentLabel="Example Modal"
               >
                 <button onClick={this.closeSignupModal}>&times;</button>
-                <h2>Sign Up</h2>   
-                <Signup new_users={this.new_users.bind(this)} closeModal={this.closeSignupModal.bind(this)}/> 
+                <h2>Sign Up</h2>
+                <Signup new_users={this.new_users.bind(this)} closeModal={this.closeSignupModal.bind(this)}/>
               </Modal>
             </div>
 

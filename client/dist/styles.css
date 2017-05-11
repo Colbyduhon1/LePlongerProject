@@ -108,7 +108,8 @@ SIGNUP FORMS
 
 .add_dive_site {
   float: right;
-  padding: 30px;
+  padding-right: 30px;
+  margin-top: 20px;
   border: none;
 }
 
