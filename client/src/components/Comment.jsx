@@ -3,7 +3,6 @@ import Time from 'react-time'
 
 var Comment = (props) => {
 
-  console.log('tfdkfd' ,props)
   let wasDate = new Date(props.comments.date_1)
   let time = props.comments.date_1.slice(11, 16);
 
