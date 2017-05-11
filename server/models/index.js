@@ -132,7 +132,7 @@ module.exports = {
   },
   ocean: {
     get: (req, res) => {
-      /*field options:  [ '#YY','MM','DD','hh','mm','WDIR','WSPD','GST','WVHT',
+      /*field options for formatData:  [ '#YY','MM','DD','hh','mm','WDIR','WSPD','GST','WVHT',
           'DPD','APD','MWD','PRES','ATMP','WTMP','DEWP','VIS','PTDY','TIDE' ]*/
       let latitude = +req.body.location.lat;
       let longitude = +req.body.location.lng * -1;
@@ -143,7 +143,7 @@ module.exports = {
           let toFormat = result.data.split('\n').slice(0, 14);
           let waveHeights = visUtils.formatData(result.data, 'WVHT');
 
-          res.send('hi');
+          res.send(waveHeights);
         })
         .catch( (err) => {
           console.log('Error getting bouy data: ', err);

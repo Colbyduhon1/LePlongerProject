@@ -19,7 +19,8 @@ const getClosestBouy = function(lat, lng) {
   return closest;
 };
 
-
+//providing this field will let others determine which type of data
+//they want to show the user, for now we're specifying waveheight(WVHT)
 const formatBouyData = (data, field) => {
   let formatted = [];
   
@@ -28,11 +29,13 @@ const formatBouyData = (data, field) => {
       return element !== '';
     });
   });
-  console.log('fields: ', rows[0]);
 
   let colIndex = rows[0].indexOf(field);
 
-
+  for (let i = rows.length -1; i > 1; i--) {
+    let position = {x: (rows.length - (i)), y: +rows[i][colIndex] }
+    formatted.push(position);
+  }
   
 
   return formatted;
@@ -41,3 +44,4 @@ const formatBouyData = (data, field) => {
 
 module.exports.getBouy = getClosestBouy;
 module.exports.formatData = formatBouyData;
+

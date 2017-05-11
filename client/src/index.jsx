@@ -34,12 +34,12 @@ class App extends React.Component {
       siteDescription: '',
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
-      waveHeight: [[
+      waveHeight: [
         { x: 1, y: 20 },
         { x: 2, y: 10 },
         { x: 3, y: 25 },
         { x: 4, y: 20 }
-      ]]
+      ]
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -188,7 +188,15 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        console.log('Got some pretty things ', result);
+        console.log(result.data);
+        console.log(result.data[0]);
+        console.log(result.data[0].x)
+        console.log(typeof result.data[0].x)
+        console.log(result.data[0].y)
+        console.log(typeof result.data[0].y)
+        this.setState({
+          waveHeight: [result.data]
+        })
       })
       .catch( (err) => {
         console.log('Error getting some sick visuals ', err);
