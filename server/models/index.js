@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const axios = require('axios');
 const sha1 = require('sha1');
 const visUtils = require('../../visualization/visUtils.js');
+//
 
 //I(John) think these should be named relating to what theyre doing
 //this is the interface that interacts with the database, abstracting to get or post
@@ -68,7 +69,7 @@ module.exports = {
   comments: {
     get: (req,res) => {
       let diveID = req.body.diveSite_id;
-      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id WHERE comments.divesite_id=' + diveID;
+      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id LEFT JOIN users ut on comments.user_id = ut.id WHERE comments.divesite_id=' + diveID;
       return connection.queryAsync(
         queryString
       );
@@ -91,7 +92,9 @@ module.exports = {
  //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
+
        // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
+
       axios.get(url)
         .then( (result) => {
           console.log('received data from weatherUnderground');
