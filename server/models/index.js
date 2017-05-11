@@ -80,8 +80,7 @@ module.exports = {
         if (err){
           console.log('could not post comment to database');
           callback(err, null);
-        }
-        else{
+        } else{
           console.log('posted new comment data to database');
           callback(null,data)
         }
@@ -93,7 +92,6 @@ module.exports = {
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
        // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
-
       axios.get(url)
         .then( (result) => {
           console.log('received data from weatherUnderground');

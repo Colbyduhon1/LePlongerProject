@@ -32,7 +32,6 @@ router.route('/new_sites')
   .post(controller.new_sites.post)
 
 router.route('/new_users')
-  .get(controller.new_users.get)
   .post(controller.new_users.post)
 
 
