@@ -97,27 +97,12 @@ class App extends React.Component {
   }
 
   logIn (user, pass) {
-    //Previous implementation
-    // $.ajax({
-    //   url: '/users',
-    //   method: 'POST',
-    //   data: {
-    //     "user": `${user}`,
-    //     "pass": `${pass}`
-    //   },
-    //   success: (data) => {
-    //     //console.log(data)
-    //   },
-    //   error: (err1, err2, err3) => {
-    //     console.log(err1, err2, err3);
-    //   }
-    // })
-    let userInfo = {
+    let loginInfo = {
       "user": user,
       "pass": pass
     };
 
-    axios.post('/users', userInfo)
+    axios.post('/users', loginInfo)
       .then( (response) => {
         //
       })
@@ -127,24 +112,22 @@ class App extends React.Component {
   }
 
   new_users (username, password, repeatedPassword, skill, age, email) {
-    $.ajax({
-      url: '/new_users',
-      method: 'POST',
-      data: {
-        "user": `${username}`,
-        "pass": `${password}`,
-        "repeatedPassword": `${repeatedPassword}`,
-        "skill": `${skill}`,
-        "age": `${age}`,
-        "email": `${email}`
-      },
-      success: (data) => {
-        console.log(data);
-      },
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
-      }
-    })
+    let signUpInfo = {
+        "user": username,
+        "pass": password,
+        "repeatedPassword": repeatedPassword,
+        "skill": skill,
+        "age": age,
+        "email": email
+      };
+
+    axios.post('/new_users', signUpInfo)
+      .then( (response) => {
+        //
+      })
+      .catch( (err) => {
+        console.log('Error adding new user');
+      })
   }
 
   componentDidMount() {

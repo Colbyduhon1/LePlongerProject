@@ -78,7 +78,7 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			console.log(req.body);
+			console.log("John: ", req.body);
 			var fuel = Math.random() * 2343453479543;
 			var newUser = {
 				name: req.body.user,
