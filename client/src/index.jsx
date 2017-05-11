@@ -33,7 +33,18 @@ class App extends React.Component {
       weatherdata: seedWeatherData,
       siteDescription: '',
       commentdata: [],
-      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData]
+      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
+      waveHeight: [
+      [
+        { x: 1, y: 20 },
+        { x: 2, y: 10 },
+        { x: 3, y: 25 }
+      ], [
+        { x: 1, y: 10 },
+        { x: 2, y: 12 },
+        { x: 3, y: 4 }
+      ]
+    ]
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -274,7 +285,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer data={this.state.waveHeight} description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>

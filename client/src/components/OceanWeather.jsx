@@ -20,17 +20,7 @@ class OceanWeather extends React.Component {
      return(
       <div className='col-md-12 weather-section'>
         <p>Lots of Ocean info</p>
-        <AreaChart  data={[
-      [
-        { x: 1, y: 20 },
-        { x: 2, y: 10 },
-        { x: 3, y: 25 }
-      ], [
-        { x: 1, y: 10 },
-        { x: 2, y: 12 },
-        { x: 3, y: 4 }
-      ]
-    ]}/>
+        <AreaChart  data={this.props.data}/>
       </div>
     );
   }
