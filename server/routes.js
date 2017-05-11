@@ -21,6 +21,9 @@ router.route('/weather')
 router.route('/weather/home')
   .get(controller.weather.home);
 
+router.route('/ocean')
+  .post(controller.ocean.get);
+
 
 //JI: we only have user,dive,commment tables
 //these routes would probably be part of one of the above endpoints

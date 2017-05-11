@@ -128,6 +128,14 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('error retrieving comments from db: ', err);
     })
+
+    axios.post('/ocean', {location: site.position})
+      .then( (result) => {
+        console.log('Got some pretty things ', result);
+      })
+      .catch( (err) => {
+        console.log('Error getting some sick visuals ', err);
+      })
   }
 
 
