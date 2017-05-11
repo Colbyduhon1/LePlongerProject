@@ -91,7 +91,7 @@ module.exports = {
  //uncomment url for actual use, disabled so we don't hit api limit
     get: (req, res) => {
       const location = `${req.body.location.lat},${req.body.location.lng}`
-      const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
+      // const url = `http://api.wunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${location}.json`
 
       axios.get(url)
         .then( (result) => {
@@ -127,6 +127,12 @@ module.exports = {
         })
         //remove this when using real api
         res.send(200);
+    }
+  },
+  ocean: {
+    get: (req, res) => {
+      console.log('hello');
+      res.send('world');      
     }
   }
 };
