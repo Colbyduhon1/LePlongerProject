@@ -251,8 +251,6 @@ class App extends React.Component {
               </Modal>
             </div>
 
-
- 
         </div>{/* end first row */}
 
         <div className='row'>
