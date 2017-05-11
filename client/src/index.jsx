@@ -103,9 +103,7 @@ class App extends React.Component {
     };
 
     axios.post('/users', loginInfo)
-      .then( (response) => {
-        //
-      })
+      .then( (response) => {})
       .catch( (err) => {
         console.log('Error adding user: ', err);
       })
@@ -122,9 +120,7 @@ class App extends React.Component {
       };
 
     axios.post('/new_users', signUpInfo)
-      .then( (response) => {
-        //
-      })
+      .then( (response) => {})
       .catch( (err) => {
         console.log('Error adding new user');
       })
