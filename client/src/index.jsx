@@ -34,12 +34,8 @@ class App extends React.Component {
       siteDescription: '',
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
-      waveHeight: [
-        { x: 1, y: 20 },
-        { x: 2, y: 10 },
-        { x: 3, y: 25 },
-        { x: 4, y: 20 }
-      ]
+      waveHeight: [],
+      graphHeight: 0
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -188,14 +184,17 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        console.log(result.data);
-        console.log(result.data[0]);
-        console.log(result.data[0].x)
-        console.log(typeof result.data[0].x)
-        console.log(result.data[0].y)
-        console.log(typeof result.data[0].y)
+        let max = 0;
+        result.data.forEach( (value) => {
+          if (value.y > max) {
+            console.log('new high: ', value.y + 1);
+            max = value.y;
+          }
+        });
+
         this.setState({
-          waveHeight: [result.data]
+          waveHeight: [result.data],
+          graphHeight: max
         })
       })
       .catch( (err) => {
@@ -288,7 +287,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer data={this.state.waveHeight} description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1} data={this.state.waveHeight} description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
           containerElement={<div className='map-container col-md-6'></div>
