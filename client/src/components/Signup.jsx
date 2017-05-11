@@ -66,68 +66,59 @@ class Signup extends React.Component {
 	render() {
 		return (
 		<div >
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-			<div id="myModal" class="modal fade" role="dialog">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-body">
-			          <p> Username:
-			          <input 
-			          type="text" 
-			          value={this.state.username} 
-			          onChange={this.handleUser} 
-			          /></p>
+        <p> Username:
+        <input 
+        type="text" 
+        value={this.state.username} 
+        onChange={this.handleUser} 
+        /></p>
 
-			          <p> Age:
-			          <input 
-			          type="text" 
-			          value={this.state.age} 
-			          onChange={this.handleAge} 
-			          /></p>
+        <p> Age:
+        <input 
+        type="text" 
+        value={this.state.age} 
+        onChange={this.handleAge} 
+        /></p>
 
-			          <p> Email:
-			          <input 
-			          type="text" 
-			          value={this.state.email} 
-			          onChange={this.handleEmail} 
-			          /></p>
+        <p> Email:
+        <input 
+        type="text" 
+        value={this.state.email} 
+        onChange={this.handleEmail} 
+        /></p>
 
-			          <p> Skill:
-			          <input 
-			          type="text" 
-			          value={this.state.skill} 
-			          onChange={this.handleSkill} 
-			          /></p>
+        <p> Skill:
+        <input 
+        type="text" 
+        value={this.state.skill} 
+        onChange={this.handleSkill} 
+        /></p>
 
-			          <p>Password: 
-			          <input
-								type="password"
-								value={this.state.newPassword} 
-								onChange={this.handlePassword} 
-						    /></p>
+        <p>Password: 
+        <input
+				type="password"
+				value={this.state.newPassword} 
+				onChange={this.handlePassword} 
+		    /></p>
 
-						    <p>Repeat Password: 
-			          <input
-								type="password"
-								value={this.state.repeated} 
-								onChange={this.handleRepeated} 
-						    /></p>
+		    <p>Repeat Password: 
+        <input
+				type="password"
+				value={this.state.repeated} 
+				onChange={this.handleRepeated} 
+		    /></p>
 
+		  
+		    <button 
+		    onClick={() => this.props.new_users(this.state.username, 
+		    this.state.newPassword,
+		    this.state.repeated,
+		    this.state.skill,
+		    this.state.age,
+		    this.state.email)}
+		    > 
+		    Sign In </button>
 
-						    <button 
-						    onClick={() => this.props.new_users(this.state.username, 
-						    this.state.newPassword,
-						    this.state.repeated,
-						    this.state.skill,
-						    this.state.age,
-						    this.state.email)}
-						    > 
-						    Sign In </button>
-						    
-			      </div>
-			    </div>
-			  </div>
-			</div>
 		  </div>
 
 		)

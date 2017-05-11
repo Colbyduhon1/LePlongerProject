@@ -34,6 +34,8 @@
     "react-dom": "^15.4.2",
     "react-google-maps": "^6.3.0",
     "react-input-password": "^1.0.21",
+    "react-modal": "^1.7.7",
+    "react-modal-bootstrap": "^1.1.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
     "sha1": "^1.1.1",
