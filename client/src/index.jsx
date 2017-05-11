@@ -157,8 +157,6 @@ class App extends React.Component {
   }
 
   getDiveSiteWeather(site) {
-    console.log(site);
-    console.log(site.description);
     axios.post('/weather', {location: site.position})
       .then( (response) => {
         console.log('received weather for site: ', response);
@@ -201,6 +199,7 @@ class App extends React.Component {
   }
 
   toggleInfoWindow() {
+    console.log('toggling info window');
     this.setState({
       openInfoWindow: !this.state.openInfoWindow
     })
