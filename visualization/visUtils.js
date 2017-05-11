@@ -20,12 +20,24 @@ const getClosestBouy = function(lat, lng) {
 };
 
 
-const formatBouyData = (data) => {
+const formatBouyData = (data, field) => {
   let formatted = [];
+  
+  let rows = data.split('\n').slice(0, 14).map( (row) => {
+    return row.split(' ').filter( (element) => {
+      return element !== '';
+    });
+  });
+  console.log('fields: ', rows[0]);
+
+  let colIndex = rows[0].indexOf(field);
+
+
+  
 
   return formatted;
 };
 
 
 module.exports.getBouy = getClosestBouy;
-module.exports.formatTxt = formatBouyData;
+module.exports.formatData = formatBouyData;

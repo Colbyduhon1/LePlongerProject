@@ -34,17 +34,12 @@ class App extends React.Component {
       siteDescription: '',
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
-      waveHeight: [
-      [
+      waveHeight: [[
         { x: 1, y: 20 },
         { x: 2, y: 10 },
-        { x: 3, y: 25 }
-      ], [
-        { x: 1, y: 10 },
-        { x: 2, y: 12 },
-        { x: 3, y: 4 }
-      ]
-    ]
+        { x: 3, y: 25 },
+        { x: 4, y: 20 }
+      ]]
 
     }
     this.showConditions = this.showConditions.bind(this);

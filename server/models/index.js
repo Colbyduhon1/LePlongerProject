@@ -132,6 +132,8 @@ module.exports = {
   },
   ocean: {
     get: (req, res) => {
+      /*field options:  [ '#YY','MM','DD','hh','mm','WDIR','WSPD','GST','WVHT',
+          'DPD','APD','MWD','PRES','ATMP','WTMP','DEWP','VIS','PTDY','TIDE' ]*/
       let latitude = +req.body.location.lat;
       let longitude = +req.body.location.lng * -1;
       let bouyId = visUtils.getBouy(latitude, longitude);
@@ -139,7 +141,8 @@ module.exports = {
       axios.get(`http://www.ndbc.noaa.gov/data/realtime2/${bouyId}.txt`)
         .then( (result) => {
           let toFormat = result.data.split('\n').slice(0, 14);
-          let formatted = visUtils.formatTxt(toFormat);
+          let waveHeights = visUtils.formatData(result.data, 'WVHT');
+
           res.send('hi');
         })
         .catch( (err) => {
