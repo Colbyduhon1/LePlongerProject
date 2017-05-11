@@ -3,15 +3,15 @@ const bouys = require('./bouys.js');
 
 const getClosestBouy = function(lat, lng) {
   let closest;
-  let total = Infinity;
+  let shortestDistance = Infinity;
 
   for (let key in bouys) {
-    let latitudeB = bouys[key][0];
-    let longitudeB = bouys[key][1];
-    let currentTotal  = Math.abs(lat - latitudeB) + Math.abs(lng - longitudeB);
+    let xdiff = Math.abs( bouys[key][0] - lat );
+    let ydiff = Math.abs( bouys[key][1] - lng );
+    let currentDistance  = Math.sqrt( (xdiff * xdiff) + (ydiff * ydiff) );
 
-    if ( currentTotal < total ) {
-      total = currentTotal;
+    if ( currentDistance < shortestDistance ) {
+      shortestDistance = currentDistance;
       closest = key;
     }
   }
