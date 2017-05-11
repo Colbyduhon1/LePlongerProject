@@ -44,7 +44,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-
+    
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -273,10 +273,10 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1}
-                                                                                       data={this.state.waveHeight}
-                                                                                       description={this.state.siteDescription}
-                                                                                       weatherdata={this.state.weatherdata} />
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1} 
+                                                                                       data={this.state.waveHeight} 
+                                                                                       description={this.state.siteDescription} 
+                                                                                       weatherdata={this.state.weatherdata} /> 
                                                               : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
@@ -290,7 +290,7 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> 
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 
