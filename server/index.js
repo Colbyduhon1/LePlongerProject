@@ -19,7 +19,7 @@ const router = require('./routes.js');
 //Serve static files
 app.use(express.static(path.join(__dirname, '../client/dist/')));
 
-//routes
+//All routes handled here
 app.use('/', router);
 
 app.listen(port, function () {
