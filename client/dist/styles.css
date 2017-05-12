@@ -153,12 +153,15 @@ SIGNUP FORMS
   border: none;
 }
 .input-boxes {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  display:inline;
+  text-align:right;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .junk {
   background-color: red;
 }
+
 
 
 /*
@@ -181,7 +184,3 @@ COMMENTS
   font-weight: bold;
   color: #f94040;
 }
-
-
-
-
