@@ -7,10 +7,17 @@ GLOBAL STYLES
 /*div {
   border: 1px solid black;
 }*/
-
+html {
+  height: 100%;
+}
 body {
   height: 100%;
   overflow-x:hidden;
+  background-color: #023e58;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  color: black;
 }
 
 /*.container {
