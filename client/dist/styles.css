@@ -19,7 +19,19 @@ body {
   background-size: 100%;
 }
 
-.panel-text p, h1, h2, h3, h4, h5, h6 {
+.col-headers {
+  color: #082d8e;
+}
+
+.app-container {
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-position: 20px 0px;
+  background-attachment: fixed;
+  background-size: 9%;
+}
+.panel-text p, h1, h2, h3, h4, h5, h6, tr, td {
+
   color: #ffffff;
 }
 
@@ -64,6 +76,11 @@ body {
 WEATHER BOXES
 ================================================================================================
 */
+.left-col {
+  max-height: 600px;
+  overflow: scroll;
+  background-color: rgba(255, 255, 255, 0.25);
+}
 .weather-section {
 	min-height: 200px;
   overflow: hidden;
@@ -72,16 +89,21 @@ WEATHER BOXES
   width: 60px;
 }
 .forecast {
-  font-size: 1.7rem;
-  padding: 0;
-  margin-bottom: 0px;
+  font-size: 1.8rem;
+  margin-right: 10px;
+  color: #ffffff;
 }
 .temp {
   font-size: 2rem;
+  color: #f94040;
 }
 
 .panel {
   background-color: none;
+}
+.data {
+  color: #f94040;
+  font-weight: bold;
 }
 /*
 ================================================================================================
