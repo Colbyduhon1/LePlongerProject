@@ -4,13 +4,6 @@ const sha1 = require('sha1');
 const Promise = require('bluebird');
 
 
-//I'm not sure but i think this needs to be promisified
-//that way the interaction with the database will occure
-//THEN with that info we send response to the client.
-
-//if we can't figure it out, we can always pass along
-//res to the model
-
 module.exports = {
 	dives: {
 		get: models.dive_sites.get,
