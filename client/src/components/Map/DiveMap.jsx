@@ -7,11 +7,10 @@ import styles from './mapStyles.json';
 const DiveMap = withGoogleMap(props => (
   <GoogleMap
   defaultOptions={{styles: styles}}
-   ref={props.onMapLoad}
-   defaultZoom={6}
-  
-   defaultCenter={{lat: 37.787, lng: -122.458}}
-   onClick={props.onMapClick}
+    ref={props.onMapLoad}
+    defaultZoom={6}
+    defaultCenter={{lat: 37.787, lng: -122.458}}
+    onClick={props.onMapClick}
   >
   {props.markers.map( (marker, index) => {
     const formattedMarker = marker;

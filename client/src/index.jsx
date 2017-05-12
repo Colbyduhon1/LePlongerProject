@@ -51,6 +51,10 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
+<<<<<<< HEAD
+=======
+
+>>>>>>> .
   }
 
 
