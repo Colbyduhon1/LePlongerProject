@@ -220,14 +220,7 @@ class App extends React.Component {
         "longitude": `${longitude}`,
         "latitude": `${latitude}`,
         "rating": `${rating}`,
-
         "description": `${description}`
-      },
-      success: (data) => {
-        console.log('data');
-      },
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
       }
 
      axios.post('/new_sites', data)
