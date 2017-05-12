@@ -14,5 +14,4 @@ const CommentContainer = (props) => {
   )
 }
 
-
 export default CommentContainer;

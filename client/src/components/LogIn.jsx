@@ -7,7 +7,7 @@ import Input from 'react-input-password';
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {     
+    this.state = {
     	value: '',
     	password: '',
       login: false
@@ -36,25 +36,25 @@ class Login extends React.Component {
   render() {
     return (
 
-      <form className="loginSheet">    
+      <form className="loginSheet">
         <div className="loginUserName">
           Username:
-          <input 
-          type="text" 
-          value={this.state.value} 
-          onChange={this.handleChange} 
+          <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
           />
         </div>
         <div className="loginUserName">
-          Password: 
+          Password:
           <input
           type="password"
-          value={this.state.password} 
-          onChange={this.handlePassword} 
+          value={this.state.password}
+          onChange={this.handlePassword}
           />
           </div>
           <button onClick={() => this.props.logIn(this.state.value, this.state.password)}
-          >Sign In </button>                   
+          >Sign In </button>
       </form>
     );
   }

@@ -44,7 +44,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-    
+
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -168,10 +168,25 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
+<<<<<<< HEAD
         console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
+=======
+
+        if (response.data.length === 0) {
+          this.setState({
+            commentdata: [],
+            handleQueryError: true
+          })
+        } else {
+          this.setState({
+            handleQueryError: false,
+            commentdata: response.data
+          })
+        }
+>>>>>>> got rid of console logs in client
       })
 
     axios.post('/ocean', {location: site.position})
@@ -179,7 +194,7 @@ class App extends React.Component {
         let max = 0;
         result.data.forEach( (value) => {
           if (value.y > max) {
-            console.log('new high: ', value.y + 1);
+            //console.log('new high: ', value.y + 1);
             max = value.y;
           }
         });
@@ -203,7 +218,7 @@ class App extends React.Component {
         "longitude": `${longitude}`,
         "latitude": `${latitude}`,
         "rating": `${rating}`,
-        "description": `${description}` 
+        "description": `${description}`
       },
       success: (data) => {
         console.log('data');
@@ -235,7 +250,7 @@ class App extends React.Component {
         <div className='row'>
 
             <div className="loginForm">
-             <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
+             <button className="cool-button" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
                 onAfterOpen={this.afterOpenLoginModal}
@@ -250,7 +265,7 @@ class App extends React.Component {
             </div>
 
             <div className="signinForm" >
-             <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
+             <button className="cool-button" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
                 isOpen={this.state.modalSignup}
                 onAfterOpen={this.afterOpenSignupModal}
@@ -272,9 +287,9 @@ class App extends React.Component {
             </div>
 
 
-          
+
             <div className="add_dive_site">
-              <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
+              <button className="cool-button" onClick={this.openModal}>Add New Site</button>
               <Modal
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
@@ -286,17 +301,17 @@ class App extends React.Component {
                 <NewDiveSite />
                 <button>Add Site</button>
               </Modal>
-            </div> 
+            </div>
 
         </div>{/* end first row */}
 
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight} 
-                                                                                       data={this.state.waveHeight} 
-                                                                                       description={this.state.siteDescription} 
-                                                                                       weatherdata={this.state.weatherdata} /> 
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
+                                                                                       data={this.state.waveHeight}
+                                                                                       description={this.state.siteDescription}
+                                                                                       weatherdata={this.state.weatherdata} />
                                                               : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
@@ -311,7 +326,7 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> 
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 
