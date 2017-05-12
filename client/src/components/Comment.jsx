@@ -11,7 +11,7 @@ var Comment = (props) => {
 
  	<div className="media">
 	  <div className="media-left media-middle">
-	      <img width="64" className="media-object" src="octo.png" alt="..." />
+	      <img width="64" className="media-object" src="octo1.png" alt="..." />
 	  </div>
 	  <div className="media-body panel-text">
 	    <h4 className="media-heading panel-text">By {props.comments.name}</h4>
