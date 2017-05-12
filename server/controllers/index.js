@@ -73,7 +73,7 @@ module.exports = {
 				if(err){
 					console.log('err', err)
 				} else {
-					console.log(data)
+					res.json(data)
 				}
 			})		
 		}

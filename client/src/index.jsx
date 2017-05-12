@@ -5,6 +5,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
+import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
+
+
 import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
@@ -41,6 +44,8 @@ class App extends React.Component {
       graphHeight: 0
 
     }
+
+
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
@@ -55,6 +60,8 @@ class App extends React.Component {
     this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
     this.closeSignupModal = this.closeSignupModal.bind(this);
   }
+
+
   //Can these be moved to the modal component??
   openModal() {
     this.setState({modalIsOpen: true});
@@ -195,23 +202,23 @@ class App extends React.Component {
   }
 
   addNewDiveSite (name, longitude, latitude, rating, description) {
-    $.ajax({
-      url: '/new_sites  ',
-      method: 'POST',
-      data: {
+      let data = {
         "name": `${name}`,
         "longitude": `${longitude}`,
         "latitude": `${latitude}`,
         "rating": `${rating}`,
         "description": `${description}` 
-      },
-      success: (data) => {
-        console.log('data');
-      },
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
       }
-    })
+
+     axios.post('/new_sites', data)
+     .then(result => {
+      console.log('result', result)
+     })
+     .catch(err => {
+      console.log('err', err)
+     })
+
+ 
   }
 
   //toggles the view on the left side of index.html
@@ -225,6 +232,13 @@ class App extends React.Component {
     this.setState({
       openInfoWindow: !this.state.openInfoWindow
     })
+  }
+
+
+  componentWillMount() {
+    this.state = {
+      name: cookies.get('name') || 'Ben'
+    };
   }
 
 
@@ -285,7 +299,7 @@ class App extends React.Component {
 
                 <button onClick={this.closeModal}>&times;</button>
 
-                <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Add New Site Here</h2>
                   <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
               </Modal>
             </div> 

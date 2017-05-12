@@ -40,6 +40,7 @@
     "node-sass": "^4.5.2",
     "path": "^0.12.7",
     "react": "^15.4.2",
+    "react-cookie": "^2.0.6",
     "react-dom": "^15.4.2",
     "react-easy-chart": "^0.1.13",
     "react-faux-dom": "^2.5.0",
@@ -52,6 +53,8 @@
     "request-promise": "^4.2.0",
     "sha1": "^1.1.1",
     "underscore": "^1.8.3",
+    "universal-cookie": "^2.0.5",
+    "universal-cookie-express": "^2.0.5",
     "website-scraper": "^2.4.0"
   },
   "babel": {
