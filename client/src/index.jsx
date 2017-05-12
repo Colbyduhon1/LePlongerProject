@@ -27,6 +27,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentsite: null,
       sites: [],
       user: null,
       diveview: false,
@@ -50,16 +51,6 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openLoginModal = this.openLoginModal.bind(this);
-    this.afterOpenLoginModal = this.afterOpenLoginModal.bind(this);
-    this.closeLoginModal = this.closeLoginModal.bind(this);
-    this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
-    this.closeSignupModal = this.closeSignupModal.bind(this);
   }
 
 
@@ -142,9 +133,10 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('error retrieving weather from api: ', err);
       })
-
+      
       this.setState({
-        siteDescription: site.description
+        siteDescription: site.description,
+        currentsite: site
       })
 
     axios.post('/comments',{diveSite_id : site.id})
@@ -208,6 +200,36 @@ class App extends React.Component {
  
   }
 
+    addNewDiveSiteComment (divesite_id, message ,user_id) {
+     let date = new Date();
+     date = date.getUTCFullYear() + '-' +
+    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+    ('00' + date.getUTCDate()).slice(-2) + ' ' + 
+    ('00' + date.getUTCHours()).slice(-2) + ':' + 
+    ('00' + date.getUTCMinutes()).slice(-2) + ':' + 
+    ('00' + date.getUTCSeconds()).slice(-2);
+      console.log(divesite_id, message, user_id, date);
+    $.ajax({
+      url: '/newcomment',
+      method: 'POST',
+      data: {
+        "divesite_id": `${divesite_id}`,
+        "message": `${message}`,
+        "user_id": `${user_id}`,
+        "date_1": `${date}`,
+      },
+      success: (data) => {
+        console.log(data);
+        this.setState({
+          commentdata: this.state.commentdata.concat(data)
+        })
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   //toggles the view on the left side of index.html
   showConditions () {
     this.setState({
@@ -263,7 +285,7 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 

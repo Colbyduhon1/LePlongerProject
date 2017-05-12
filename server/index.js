@@ -15,7 +15,6 @@ const SampleData = require('./db/sampledata/weather.js');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookiesMiddleware())
 
 
 
