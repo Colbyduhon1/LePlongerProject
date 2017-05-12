@@ -10,13 +10,17 @@ describe('server', function() {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> Some more tests
   it('should send back parsable stringified JSON', function(done) {
     request('http://127.0.0.1:8080/weather', function(error, response, body) {
       expect(JSON.parse.bind(this, body)).to.not.throw();
       done();
     });
   });
+<<<<<<< HEAD
 
 =======
 >>>>>>> Writing tests in mocha/chai to ensure application runs as expected, testing server routes
@@ -26,6 +30,8 @@ describe('server', function() {
   //     done();
   //   });
   // });
+=======
+>>>>>>> Some more tests
 
 <<<<<<< HEAD
 
@@ -66,7 +72,10 @@ describe('server', function() {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> Some more tests
   xit('should respond with users that previously registered', function(done) {
     var requestParams = {method: 'POST',
       uri: 'http://127.0.0.1:8080/users',
@@ -74,6 +83,7 @@ describe('server', function() {
         username: 'colby',
         password: 'j'}
     };
+<<<<<<< HEAD
 
 
     request(requestParams, function(error, response, body) {
@@ -126,6 +136,9 @@ describe('server', function() {
 
 <<<<<<< HEAD
 
+=======
+
+>>>>>>> Some more tests
     request(requestParams, function(error, response, body) {
       // Now if we request the log, that message we posted should be there:
       request('http://127.0.0.1:8080/users', function(error, response, body) {
@@ -136,6 +149,7 @@ describe('server', function() {
       });
     });
   });
+<<<<<<< HEAD
 
   it('Should 404 when asked for a nonexistent endpoint', function(done) {
     request('http://127.0.0.1:8080/meow_mix', function(error, response, body) {
@@ -169,35 +183,25 @@ describe('server', function() {
   //     });
   //   });
   // });
+=======
+>>>>>>> Some more tests
 
-  // it('Should 404 when asked for a nonexistent endpoint', function(done) {
-  //   request('http://127.0.0.1:3000/arglebargle', function(error, response, body) {
-  //     expect(response.statusCode).to.equal(404);
-  //     done();
-  //   });
-  // });
+  it('Should 404 when asked for a nonexistent endpoint', function(done) {
+    request('http://127.0.0.1:8080/meow_mix', function(error, response, body) {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  });
 
-  // it('Should display our supreme competenece.', function(done) {
-  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  it('Should display our supreme competenece.', function(done) {
+    request('http://127.0.0.1:8080/comments', function(error, response, body) {
   
-  //     expect(JSON.parse(body).results.length > 1).to.equal(true);
-  //     done();
-  //   });
-  // });
+      expect(JSON.parse(body).results.length > 1).to.equal(true);
+      done();
+    });
+  });
 
-  // it('Should respoon with 200 status code for OPTIONS request', function (done) {
-  //   var requestParams = {method: 'OPTIONS',
-  //     uri: 'http://127.0.0.1:3000/classes/messages',
-  //     json: {
-  //       username: 'Jono',
-  //       message: 'Do my bidding!'}
-  //   };
-  //   request(requestParams, function(error, response, body) {
-  //     expect(response.statusCode).to.equal(200);
-  //     done();
-  //   });
-  // });
-
+<<<<<<< HEAD
   // it('Should populate results array with message objects', function(done) {
   //   var requestParams = {method: 'GET',
   //     uri: 'http://127.0.0.1:3000/classes/messages',
@@ -206,13 +210,19 @@ describe('server', function() {
   //       message: 'Do my bidding!'}
   //   };
 >>>>>>> Writing tests in mocha/chai to ensure application runs as expected, testing server routes
+=======
+  it('Should populate results array with message objects', function(done) {
+    var requestParams = {method: 'GET',
+      uri: 'http://127.0.0.1:8080/comments',
+    };
+>>>>>>> Some more tests
 
-  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
-  //     var message = JSON.parse(body).results[0];
-  //     expect(typeof message === 'object').to.equal(true);
-  //     done();
-  //   });
-  // });
+    request(requestParams, function(error, response, body) {
+      var message = JSON.parse(body).results[0];
+      expect(typeof message === 'object').to.equal(true);
+      done();
+    });
+  });
 
 <<<<<<< HEAD
     request(requestParams, function(error, response, body) {
