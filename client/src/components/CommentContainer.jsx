@@ -4,7 +4,7 @@ import Comment from './Comment.jsx'
 const CommentContainer = (props) => {
 
  return (
- 	<div>
+ 	<div class="comment-container">
  	{props.comments.length > 0 ? <h2>Dive Site Reviews</h2> : <h4>Select a Dive Location and Click 'See Condions' to Read a Reveiw</h4>}
 
  	 {props.comments.map((item, idx) => {
