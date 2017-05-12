@@ -301,9 +301,9 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
 
-          <div className='col-md-3 reviews-section left-col'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
-                                                                : <CommentContainer comments={[]}/>}
+          <div className='col-md-3 reviews-section'>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer userPresent={this.state.user} currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
+                                                                : null}
           </div>
 
         </div>
