@@ -68,7 +68,7 @@ module.exports = {
   comments: {
     get: (req,res) => {
       let diveID = req.body.diveSite_id;
-      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id WHERE comments.divesite_id=' + diveID;
+      let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id LEFT JOIN users ut on comments.user_id = ut.id WHERE comments.divesite_id=' + diveID;
       return connection.queryAsync(
         queryString
       );
