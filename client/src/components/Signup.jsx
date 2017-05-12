@@ -1,5 +1,5 @@
 import React from 'react';
-import { CookiesProvider } from 'react-cookie';
+
 
 class Signup extends React.Component {
 	constructor(props){

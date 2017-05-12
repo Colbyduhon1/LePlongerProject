@@ -14,6 +14,7 @@ import _ from 'underscore';
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
 import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
 import CommentContainer from './components/CommentContainer.jsx'
+import TopBar from './components/TopBar.jsx'
 
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
@@ -27,7 +28,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       sites: [],
-
+      user: null,
       diveview: false,
       openInfoWindow: false,
 
@@ -50,58 +51,9 @@ class App extends React.Component {
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
 
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openLoginModal = this.openLoginModal.bind(this);
-    this.afterOpenLoginModal = this.afterOpenLoginModal.bind(this);
-    this.closeLoginModal = this.closeLoginModal.bind(this);
-    this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
-    this.closeSignupModal = this.closeSignupModal.bind(this);
   }
 
 
-  //Can these be moved to the modal component??
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  openLoginModal() {
-    this.setState({modalLogin: true});
-  }
-
-  afterOpenLoginModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#888';
-  }
-
-  closeLoginModal() {
-    this.setState({modalLogin: false});
-  }
-
-
-  openSignupModal() {
-    this.setState({modalSignup: true});
-  }
-
-  afterOpenSignupModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#777';
-  }
-
-  closeSignupModal() {
-    this.setState({modalSignup: false});
-  }
 
   logIn (user, pass) {
     let loginInfo = {
@@ -110,7 +62,12 @@ class App extends React.Component {
     };
 
     axios.post('/users', loginInfo)
-      .then( (response) => {})
+      .then( (response) => {
+        console.log("Setting state of logged in user to: ", response.data);
+        this.setState({
+          user: response.data
+        })
+      })
       .catch( (err) => {
         console.log('Error adding user: ', err);
       })
@@ -133,7 +90,16 @@ class App extends React.Component {
       })
   }
 
+  componentWillMount() {
+    console.log('will mount...');
+    console.log(this.state.user);
+  }
+
   componentDidMount() {
+    console.log(this.state.user)
+    console.log('RELOADED');
+
+
     axios.get('/dives')
       .then( (response) => {
         this.setState({
@@ -248,12 +214,6 @@ class App extends React.Component {
   }
 
 
-  componentWillMount() {
-    this.state = {
-      name: cookies.get('name') || 'Ben'
-    };
-  }
-
 
   render() {
 
@@ -261,65 +221,14 @@ class App extends React.Component {
       <div className='container-fluid'>
         <div className='row'>
 
-            <div className="loginForm">
-             <button className="cool-button" onClick={this.openLoginModal}>Login</button>
-              <Modal
-                isOpen={this.state.modalLogin}
-                onAfterOpen={this.afterOpenLoginModal}
-                onRequestClose={this.closeLoginModal}
-                contentLabel="Example Modal"
-              >
-                <button onClick={this.closeLoginModal}>&times;</button>
-
-                <h2>Login</h2>
-                <Login logIn={this.logIn.bind(this)} />
-              </Modal>
-            </div>
-
-            <div className="signinForm" >
-             <button className="cool-button" onClick={this.openSignupModal}>Sign Up</button>
-              <Modal
-                isOpen={this.state.modalSignup}
-                onAfterOpen={this.afterOpenSignupModal}
-                onRequestClose={this.closeSignupModal}
-                contentLabel="Example Modal"
-                style={{
-                  overlay: {
-                    background: 'lightsteelblue'
-                  },
-                  content: {
-                    backgroundImage: 'url("http://www.example.com/bck.png")'
-                  }
-                }}
-              >
-                <button onClick={this.closeSignupModal}>&times;</button>
-                <h2>Sign Up</h2>
-                <Signup new_users={this.new_users.bind(this)} closeModal={this.closeSignupModal.bind(this)}/>
-              </Modal>
-            </div>
-
-
-
-            <div className="add_dive_site">
-              <button className="cool-button" onClick={this.openModal}>Add New Site</button>
-              <Modal
-                isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                contentLabel="Example Modal"
-              >
-                <button onClick={this.closeModal}>&times;</button>
-
-                <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                <NewDiveSite />
-                <button>Add Site</button>
-
-
-                <h2 ref={subtitle => this.subtitle = subtitle}>Add New Site Here</h2>
-                  <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
-
-              </Modal>
-            </div>
+        <div>
+          <TopBar 
+          newDiveSite={this.addNewDiveSite.bind(this)}
+          new_users={this.new_users.bind(this)} 
+          logIn={this.logIn.bind(this)}
+          user={this.state.user}
+          />
+        </div>
 
         </div>{/* end first row */}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Input from 'react-input-password';
-import { CookiesProvider } from 'react-cookie';
+
 
 
 
@@ -36,8 +36,7 @@ class Login extends React.Component {
 
   render() {
     return (
-
-      <form className="loginSheet">
+      <div>
         <div className="loginUserName">
           Username:
           <input
@@ -56,7 +55,7 @@ class Login extends React.Component {
           </div>
           <button onClick={() => this.props.logIn(this.state.value, this.state.password)}
           >Sign In </button>
-      </form>
+        </div>
     );
   }
 }
