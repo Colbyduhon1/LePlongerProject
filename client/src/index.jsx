@@ -23,28 +23,28 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sites: [],
-
+      sites: /*seedDiveData.divesites*/[],
+      user: null,
       diveview: false,
       openInfoWindow: false,
-
       modalIsOpen: false,
       modalLogin: false,
       modalSignup: false,
-
       weatherdata: seedWeatherData,
-
       siteDescription: '',
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
-      waveHeight: [],
-      graphHeight: 0
+      waveHeight: [
+        { x: 1, y: 20 },
+        { x: 2, y: 10 },
+        { x: 3, y: 25 },
+        { x: 4, y: 20 }
+      ]
 
     }
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
-    this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-
+    this.getDiveSiteWeather = this.getDiveSiteWeather.bind(this);
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -52,10 +52,10 @@ class App extends React.Component {
     this.afterOpenLoginModal = this.afterOpenLoginModal.bind(this);
     this.closeLoginModal = this.closeLoginModal.bind(this);
     this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
+
     this.closeSignupModal = this.closeSignupModal.bind(this);
   }
-  //Can these be moved to the modal component??
+
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -87,48 +87,60 @@ class App extends React.Component {
     this.setState({modalSignup: true});
   }
 
-  afterOpenSignupModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#777';
-  }
 
   closeSignupModal() {
     this.setState({modalSignup: false});
   }
 
   logIn (user, pass) {
-    let loginInfo = {
-      "user": user,
-      "pass": pass
-    };
-
-    axios.post('/users', loginInfo)
-      .then( (response) => {})
-      .catch( (err) => {
-        console.log('Error adding user: ', err);
-      })
+    $.ajax({
+      url: '/users',
+      method: 'POST',
+      data: {
+        "user": `${user}`,
+        "pass": `${pass}`
+      },
+      success: (data) => {
+        this.setState({
+          user: data
+        })
+        console.log(this.state.user)
+      },
+      error: (err1, err2, err3) => {
+        console.log(err1, err2, err3);
+      }
+    })
   }
 
   new_users (username, password, repeatedPassword, skill, age, email) {
-    let signUpInfo = {
-        "user": username,
-        "pass": password,
-        "repeatedPassword": repeatedPassword,
-        "skill": skill,
-        "age": age,
-        "email": email
-      };
-
-    axios.post('/new_users', signUpInfo)
-      .then( (response) => {})
-      .catch( (err) => {
-        console.log('Error adding new user');
-      })
+    $.ajax({
+      url: '/new_users',
+      method: 'POST',
+      data: {
+        "user": `${username}`,
+        "pass": `${password}`,
+        "repeatedPassword": `${repeatedPassword}`,
+        "skill": `${skill}`,
+        "age": `${age}`,
+        "email": `${email}`
+      },
+      success: (data) => {
+        console.log(data);
+      },
+      error: (err1, err2, err3) => {
+        console.log(err1, err2, err3);
+      }
+    })
   }
 
   componentDidMount() {
+   
+    console.log('grabbing weather data for landing page container');
+    //theoretically, this would make 3 api requests to weather underground
+    //send back the data in an array which will get passed to the container componenet
     axios.get('/dives')
       .then( (response) => {
+        console.log('receieved sites from db: ', response);
         this.setState({
           sites: response.data
         })
@@ -137,10 +149,10 @@ class App extends React.Component {
         console.log('Could not retrieve dive sites from DB: ', err);
       })
 
-    //theoretically, this would make 3 api requests to weather underground
-    //send back the data in an array which will get passed to the container componenet
+
     axios.get('/weather/home')
       .then( (response) => {
+        console.log('received landing page weather: ');
         this.setState({
           homeWeather: response.data
         })
@@ -150,7 +162,7 @@ class App extends React.Component {
       })
   }
 
-  getDiveSiteInfo(site) {
+  getDiveSiteWeather(site) {
     axios.post('/weather', {location: site.position})
       .then( (response) => {
         console.log('received weather for site: ', response);
@@ -168,7 +180,7 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-        //console.log('received comment data: ', response);
+        console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
@@ -176,25 +188,20 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        let max = 0;
-        result.data.forEach( (value) => {
-          if (value.y > max) {
-            console.log('new high: ', value.y + 1);
-            max = value.y;
-          }
-        });
-
+        console.log(result.data);
+        console.log(result.data[0]);
+        console.log(result.data[0].x)
+        console.log(typeof result.data[0].x)
+        console.log(result.data[0].y)
+        console.log(typeof result.data[0].y)
         this.setState({
-          waveHeight: [result.data],
-          graphHeight: max
+          waveHeight: [result.data]
         })
       })
       .catch( (err) => {
         console.log('Error getting some sick visuals ', err);
       })
   }
-
-
 
   //toggles the view on the left side of index.html
   showConditions () {
@@ -204,11 +211,31 @@ class App extends React.Component {
   }
 
   toggleInfoWindow() {
+    console.log('toggling info window');
     this.setState({
       openInfoWindow: !this.state.openInfoWindow
     })
   }
 
+  addNewDiveSite (name, longitude, latitude, rating, description) {
+    $.ajax({
+      url: '/new_sites',
+      method: 'POST',
+      data: {
+        "name": `${name}`,
+        "longitude": `${longitude}`,
+        "latitude": `${latitude}`,
+        "rating": `${rating}`,
+        "description": `${description}` 
+      },
+      success: (data) => {
+        console.log('data');
+      },
+      error: (err1, err2, err3) => {
+        console.log(err1, err2, err3);
+      }
+    })
+  }
 
   render() {
 
@@ -216,11 +243,12 @@ class App extends React.Component {
       <div className='container-fluid'>
         <div className='row'>
 
+         {/*transfer to search component*/}
             <div className="loginForm">
              <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
-                onAfterOpen={this.afterOpenLoginModal}
+
                 onRequestClose={this.closeLoginModal}
                 contentLabel="Example Modal"
               >
@@ -231,6 +259,7 @@ class App extends React.Component {
               </Modal>
             </div>
 
+      
             <div className="signinForm" >
              <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
@@ -238,14 +267,14 @@ class App extends React.Component {
                 onAfterOpen={this.afterOpenSignupModal}
                 onRequestClose={this.closeSignupModal}
                 contentLabel="Example Modal"
-                style={{
-                  overlay: {
-                    background: 'lightsteelblue'
-                  },
-                  content: {
-                    backgroundImage: 'url("http://www.example.com/bck.png")'
-                  }
-                }}
+                 style={{
+                    overlay: {
+                      background: 'lightsteelblue'
+                    },
+                    content: {
+                      backgroundImage: 'url("http://www.example.com/bck.png")'
+                    }
+                  }}
               >
                 <button onClick={this.closeSignupModal}>&times;</button>
                 <h2>Sign Up</h2>
@@ -253,6 +282,8 @@ class App extends React.Component {
               </Modal>
             </div>
 
+
+          
             <div className="add_dive_site">
               <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
               <Modal
@@ -261,41 +292,45 @@ class App extends React.Component {
                 onRequestClose={this.closeModal}
                 contentLabel="Example Modal"
               >
+
                 <button onClick={this.closeModal}>&times;</button>
+
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                <NewDiveSite />
-                <button>Add Site</button>
+                  <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
               </Modal>
-            </div>
+            </div> 
 
         </div>{/* end first row */}
 
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1}
-                                                                                       data={this.state.waveHeight}
-                                                                                       description={this.state.siteDescription}
-                                                                                       weatherdata={this.state.weatherdata} />
-                                                              : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer data={this.state.waveHeight} description={this.state.siteDescription} weatherdata={this.state.weatherdata} /> : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
-            containerElement={ <div className='map-container col-md-6'></div> }
-            mapElement={ <div id="map" className='col-md-12 map-section'></div> }
-            markers={this.state.sites}
-            showConditions={this.showConditions.bind(this)}
-            toggleInfoWindow={this.toggleInfoWindow}
-            getWeather={this.getDiveSiteInfo.bind(this)}
+          containerElement={<div className='map-container col-md-6'></div>
+          }
+          mapElement={<div id="map" className='col-md-12 map-section'></div>
+          }
+          onMapLoad={_.noop}//can probably remove
+          onMapClick={_.noop}//can probably remove
+          markers={this.state.sites}
+          onMarkerRightClick={_.noop}//can probably remove
+          showConditions={this.showConditions.bind(this)}
+          toggleInfoWindow={this.toggleInfoWindow}
+          getWeather={this.getDiveSiteWeather.bind(this)}
           />
 
-          {/*This ternary for the comment container isn't doing anything*/}
+          {/* transfer to reviews component */}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
-                                                                : <CommentContainer comments={[]}/>}
+          {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> : <CommentContainer comments={[]}/>}
           </div>
 
         </div>
+      {/* use for dev remove for production*/}
+        <div className='col-md-12'>
 
+        </div>
       </div>
     )
   }

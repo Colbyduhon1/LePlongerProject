@@ -30,12 +30,13 @@ module.exports = {
 		},
 		post: (req, res) => {
 			models.users.get(req.body, (err, data) => {
+				console.log(req.body)
 				if(err) {
 					console.log('err')
 				} else {
 					if( data.length > 0) {
 						if(sha1(req.body.pass + data[0].salt) === data[0].password){
-						  res.send('User is def colby')
+						  res.send(req.body.user)
 					  } else {
 						  res.send('Wrong Password')
 					  }
@@ -67,8 +68,14 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
-			model.new_sites.post()
-			.then()
+			console.log(req.body)
+			models.dive_sites.post(req.body, (err, data) => {
+				if(err){
+					console.log('err', err)
+				} else {
+					console.log(data)
+				}
+			})		
 		}
 	},
 
@@ -78,6 +85,7 @@ module.exports = {
 			.then()
 		},
 		post: (req, res) => {
+			console.log(req.body);
 			var fuel = Math.random() * 2343453479543;
 			var newUser = {
 				name: req.body.user,

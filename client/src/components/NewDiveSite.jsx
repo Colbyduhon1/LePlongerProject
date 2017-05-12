@@ -11,10 +11,11 @@ class NewDiveSite extends React.Component {
 			description: ''
 		}
 		this.handleName = this.handleName.bind(this)
-		this.handleLong = this.handleLong.bind(this)
-		this.handleLat = this.handleLat.bind(this)
-
+		this.handleLongitude = this.handleLongitude.bind(this)
+		this.handleLatitude = this.handleLatitude.bind(this)
+		this.handleRating = this.handleRating.bind(this)
 		this.handleDescription = this.handleDescription.bind(this)
+
   }
 
 		handleName (e) {
@@ -23,23 +24,24 @@ class NewDiveSite extends React.Component {
 			})
 		}
 
-		handleLong (e) {
+		handleLongitude (e) {
 			this.setState({
 				longitude: e.target.value
 			})
 		}
 
-		handleLat (e) {
+		handleLatitude (e) {
 			this.setState({
 				latitude: e.target.value
 			})
 		}
 
-		// handleRating (e) {
-		// 	this.setState({
-		// 		name: e.target.value
-		// 	})
-		// }
+		handleRating (e) {
+		
+			this.setState({
+				rating: e.target.value
+			})
+		}
 
 		handleDescription (e) {
 			this.setState({
@@ -47,6 +49,12 @@ class NewDiveSite extends React.Component {
 			})
 		}
 
+  // handleClick(e) {
+  //   e.preventDefault()
+  //   this.setState(prevState => ({
+  //     click: !prevState.login
+  //   }));
+  // }
 	
 
 	render() {
@@ -63,18 +71,38 @@ class NewDiveSite extends React.Component {
         <input 
         type="text" 
         value={this.state.longitude} 
-        onChange={this.handleLong} 
+        onChange={this.handleLongitude} 
         /></p>
 
         <p> Latitude:
         <input 
         type="text" 
         value={this.state.latitude} 
-        onChange={this.handleLat} 
+        onChange={this.handleLatitude} 
         /></p>
 
-		    <button> Sign In </button>
+        <p className="dive_site_rating"> Rating: </p>
+        <p className="dive_site_rating"> <input type="radio" name="expirience" 
+        value="Novice" onChange={this.handleRating} /> Novice  </p> 
+        <p className="dive_site_rating"> <input type="radio" name="expirience" 
+        value="Intermediate" onChange={this.handleRating} /> Intermediate </p>  
+        <p className="dive_site_rating"> <input type="radio" name="expirience" 
+        value="Advanced" onChange={this.handleRating} /> Advanced</p>
+        
 
+        <p> Description:
+        <input 
+        type="text" 
+        value={this.state.description} 
+        onChange={this.handleDescription} 
+        /></p>
+        
+        <button onClick={() => this.props.newDiveSite(
+        	this.state.name,
+        	this.state.longitude,
+        	this.state.latitude,
+        	this.state.rating,
+        	this.state.description)}>Add Site</button>
 		  </div>
 		)
 	}
