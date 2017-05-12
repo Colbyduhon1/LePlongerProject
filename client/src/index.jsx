@@ -141,6 +141,7 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
+
         console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
@@ -158,6 +159,7 @@ class App extends React.Component {
             commentdata: response.data
           })
         }
+
       })
 
     axios.post('/ocean', {location: site.position})
