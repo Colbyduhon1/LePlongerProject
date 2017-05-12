@@ -19,6 +19,9 @@ body {
   background-size: 100%;
 }
 
+.col-headers {
+  color: #082d8e;
+}
 
 .app-container {
   background-image: url('logo.png');
@@ -73,6 +76,11 @@ body {
 WEATHER BOXES
 ================================================================================================
 */
+.left-col {
+  max-height: 600px;
+  overflow: scroll;
+  background-color: rgba(255, 255, 255, 0.25);
+}
 .weather-section {
 	min-height: 200px;
   overflow: hidden;
@@ -81,12 +89,13 @@ WEATHER BOXES
   width: 60px;
 }
 .forecast {
-  font-size: 1.7rem;
-  padding: 0;
-  margin-bottom: 0px;
+  font-size: 1.8rem;
+  margin-right: 10px;
+  color: #ffffff;
 }
 .temp {
   font-size: 2rem;
+  color: #f94040;
 }
 
 .panel {

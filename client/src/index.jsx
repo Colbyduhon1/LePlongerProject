@@ -133,7 +133,7 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('error retrieving weather from api: ', err);
       })
-      
+
       this.setState({
         siteDescription: site.description,
         currentsite: site
@@ -197,16 +197,16 @@ class App extends React.Component {
       console.log('err', err)
      })
 
- 
+
   }
 
     addNewDiveSiteComment (divesite_id, message ,user_id) {
      let date = new Date();
      date = date.getUTCFullYear() + '-' +
     ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
-    ('00' + date.getUTCDate()).slice(-2) + ' ' + 
-    ('00' + date.getUTCHours()).slice(-2) + ':' + 
-    ('00' + date.getUTCMinutes()).slice(-2) + ':' + 
+    ('00' + date.getUTCDate()).slice(-2) + ' ' +
+    ('00' + date.getUTCHours()).slice(-2) + ':' +
+    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
     ('00' + date.getUTCSeconds()).slice(-2);
       console.log(divesite_id, message, user_id, date);
     $.ajax({
@@ -254,9 +254,9 @@ class App extends React.Component {
 
 
         <div>
-          <TopBar 
+          <TopBar
           newDiveSite={this.addNewDiveSite.bind(this)}
-          new_users={this.new_users.bind(this)} 
+          new_users={this.new_users.bind(this)}
           logIn={this.logIn.bind(this)}
           user={this.state.user}
           />
@@ -284,8 +284,13 @@ class App extends React.Component {
           />
 
           {/*This ternary for the comment container isn't doing anything*/}
+<<<<<<< HEAD
           <div className='col-md-3 reviews-section'>
             {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
+=======
+          <div className='col-md-3 reviews-section left-col'>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
+>>>>>>> added sample weather data
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 

@@ -5,9 +5,9 @@ import LandingInfoSouth from './LandingInfoSouth.jsx';
 
 const LandingInfoContainer = (props) => {
 	return (
-	  <div className='col-md-3'>
+	  <div className='col-md-3 left-col'>
 	    <LandingInfoCentral />
-	    {/*<LandingInfoSouth />*/}
+	    <LandingInfoSouth />
 	    <LandingInfoNorth />
 	  </div>
 	)
