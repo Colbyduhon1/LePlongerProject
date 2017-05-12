@@ -2,12 +2,14 @@ import React from 'react';
 import keys from '../../../../keys.js';
 import {withGoogleMap, GoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import MarkerContainer from './MarkerContainer.jsx';
+import styles from './mapStyles.json';
 
 const DiveMap = withGoogleMap(props => (
   <GoogleMap
+  defaultOptions={{styles: styles}}
    ref={props.onMapLoad}
    defaultZoom={6}
-   mapTypeId={google.maps.MapTypeId.SATELLITE}
+  
    defaultCenter={{lat: 37.787, lng: -122.458}}
    onClick={props.onMapClick}
   >

@@ -17,7 +17,7 @@ import Signup from './components/Signup.jsx';
 import NewDiveSite from './components/NewDiveSite.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
-
+import mapstyles from './components/Map/mapStyles.json';
 
 class App extends React.Component {
   constructor(props) {
@@ -300,6 +300,7 @@ class App extends React.Component {
                                                               : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
+            styles={ mapstyles }
             containerElement={ <div className='map-container col-md-6'></div> }
             mapElement={ <div id="map" className='col-md-12 map-section'></div> }
             markers={this.state.sites}
