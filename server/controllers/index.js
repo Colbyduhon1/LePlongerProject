@@ -49,15 +49,27 @@ module.exports = {
 
 	comments: {
 		get: (req, res) => {
-			console.log(req.body);
 			models.comments.get(req)
 		.then((response) => {
 			res.json(response)
 			});
 		},
 		post: (req, res) => {
-		models.comments.post()
-		.then()
+		models.comments.post(req.body, (err, data) => {
+			if(err){
+				console.log('Error posting new comment to db', err)
+			} else{
+				console.log('New comment', data)
+				let newComment = {};
+				//Refactor name for user
+				newComment.name = req.body.user_id;
+				newComment.date_1 = req.body.date_1;
+				newComment.message = req.body.message;
+				//Refactor Skill
+				newComment.skill = "Experienced"
+				res.send(newComment);
+			}
+		})
 		}
 	},
 

@@ -51,17 +51,6 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-    tihs.addNewDiveSiteComment
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openLoginModal = this.openLoginModal.bind(this);
-    this.afterOpenLoginModal = this.afterOpenLoginModal.bind(this);
-    this.closeLoginModal = this.closeLoginModal.bind(this);
-    this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
-    this.closeSignupModal = this.closeSignupModal.bind(this);
   }
 
 
@@ -211,18 +200,29 @@ class App extends React.Component {
  
   }
 
-    addNewDiveSiteComment (divesite_id,message,user_id,date_1) {
+    addNewDiveSiteComment (divesite_id, message ,user_id) {
+     let date = new Date();
+     date = date.getUTCFullYear() + '-' +
+    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+    ('00' + date.getUTCDate()).slice(-2) + ' ' + 
+    ('00' + date.getUTCHours()).slice(-2) + ':' + 
+    ('00' + date.getUTCMinutes()).slice(-2) + ':' + 
+    ('00' + date.getUTCSeconds()).slice(-2);
+      console.log(divesite_id, message, user_id, date);
     $.ajax({
       url: '/newcomment',
       method: 'POST',
       data: {
-        "diveSite_id": `${diveSite_id}`,
+        "divesite_id": `${divesite_id}`,
         "message": `${message}`,
         "user_id": `${user_id}`,
-        "date_1": `${date_1}`,
+        "date_1": `${date}`,
       },
       success: (data) => {
-        console.log('data');
+        console.log(data);
+        this.setState({
+          commentdata: this.state.commentdata.concat(data)
+        })
       },
       error: (err) => {
         console.log(err);

@@ -1,5 +1,6 @@
 import React from 'react';
-import Comment from './Comment.jsx'
+import Comment from './Comment.jsx';
+import CommentForm from './CommentForm.jsx';
 
 const CommentContainer = (props) => {
 
