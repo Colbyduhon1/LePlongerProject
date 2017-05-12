@@ -9,27 +9,21 @@ describe('server', function() {
     });
   });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Some more tests
+
   it('should send back parsable stringified JSON', function(done) {
     request('http://127.0.0.1:8080/weather', function(error, response, body) {
       expect(JSON.parse.bind(this, body)).to.not.throw();
       done();
     });
   });
-<<<<<<< HEAD
-=======
+
   // it('should send back parsable stringified JSON', function(done) {
   //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
   //     expect(JSON.parse.bind(this, body)).to.not.throw();
   //     done();
   //   });
   // });
->>>>>>> Writing tests in mocha/chai to ensure application runs as expected, testing server routes
-=======
->>>>>>> Some more tests
+
 
   it('should send back an object', function(done) {
     request('http://127.0.0.1:8080/dives', function(error, response, body) {
@@ -65,10 +59,7 @@ describe('server', function() {
     });
   });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Some more tests
+
   xit('should respond with users that previously registered', function(done) {
     var requestParams = {method: 'POST',
       uri: 'http://127.0.0.1:8080/users',
@@ -76,7 +67,7 @@ describe('server', function() {
         username: 'colby',
         password: 'j'}
     };
-<<<<<<< HEAD
+
 
     request(requestParams, function(error, response, body) {
       // Now if we request the log, that message we posted should be there:
@@ -115,7 +106,7 @@ describe('server', function() {
       done();
     });
   });
-=======
+
   // it('should respond with messages that were previously posted', function(done) {
   //   var requestParams = {method: 'POST',
   //     uri: 'http://127.0.0.1:3000/classes/messages',
@@ -123,8 +114,7 @@ describe('server', function() {
   //       username: 'Jono',
   //       message: 'Do my bidding!'}
   //   };
-=======
->>>>>>> Some more tests
+
 
     request(requestParams, function(error, response, body) {
       // Now if we request the log, that message we posted should be there:
@@ -157,21 +147,20 @@ describe('server', function() {
       uri: 'http://127.0.0.1:8080/comments',
     };
 
-<<<<<<< HEAD
+
   //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
   //     var message = JSON.parse(body).results[0];
   //     expect(typeof message === 'object').to.equal(true);
   //     done();
   //   });
   // });
->>>>>>> Writing tests in mocha/chai to ensure application runs as expected, testing server routes
-=======
+
     request(requestParams, function(error, response, body) {
       var message = JSON.parse(body).results[0];
       expect(typeof message === 'object').to.equal(true);
       done();
     });
   });
->>>>>>> Some more tests
+
 
 });
