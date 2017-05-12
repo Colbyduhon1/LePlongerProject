@@ -9,7 +9,6 @@ describe('server', function() {
     });
   });
 
-
   it('should send back parsable stringified JSON', function(done) {
     request('http://127.0.0.1:8080/weather', function(error, response, body) {
       expect(JSON.parse.bind(this, body)).to.not.throw();
@@ -76,7 +75,6 @@ describe('server', function() {
     };
 
 
-
     request(requestParams, function(error, response, body) {
       // Now if we request the log, that message we posted should be there:
       request('http://127.0.0.1:8080/users', function(error, response, body) {
@@ -114,6 +112,7 @@ describe('server', function() {
       done();
     });
   });
+
 
   // it('should respond with messages that were previously posted', function(done) {
   //   var requestParams = {method: 'POST',
@@ -280,4 +279,6 @@ describe('server', function() {
 
 
 
+=======
+>>>>>>> cee61d8648a0ba7f7cc3de6df450ffa9f6aaf905
 });
