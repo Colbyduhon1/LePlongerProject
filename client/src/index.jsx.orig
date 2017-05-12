@@ -198,6 +198,7 @@ class App extends React.Component {
       })
   }
 
+<<<<<<< HEAD
   addNewDiveSite (name, longitude, latitude, rating, description) {
     $.ajax({
       url: '/new_sites  ',
@@ -217,6 +218,9 @@ class App extends React.Component {
       }
     })
   }
+=======
+
+>>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
 
   //toggles the view on the left side of index.html
   showConditions () {
@@ -242,7 +246,11 @@ class App extends React.Component {
              <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
+<<<<<<< HEAD
 
+=======
+                onAfterOpen={this.afterOpenLoginModal}
+>>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
                 onRequestClose={this.closeLoginModal}
                 contentLabel="Example Modal"
               >
@@ -254,9 +262,12 @@ class App extends React.Component {
             </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       
 =======
 >>>>>>> Code cleanup for index.jsx
+=======
+>>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
             <div className="signinForm" >
              <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
@@ -279,8 +290,11 @@ class App extends React.Component {
               </Modal>
             </div>
 
+<<<<<<< HEAD
 
           
+=======
+>>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
             <div className="add_dive_site">
               <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
               <Modal
@@ -292,6 +306,7 @@ class App extends React.Component {
                 <button onClick={this.closeModal}>&times;</button>
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
 =======
                 <NewDiveSite />
@@ -299,6 +314,12 @@ class App extends React.Component {
 >>>>>>> Code cleanup for index.jsx
               </Modal>
             </div> 
+=======
+                <NewDiveSite />
+                <button>Add Site</button>
+              </Modal>
+            </div>
+>>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
 
         </div>{/* end first row */}
 
