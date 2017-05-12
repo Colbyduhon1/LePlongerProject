@@ -133,7 +133,8 @@ COMMMENTS SECTION
 ================================================================================================
 */
 .reviews-section {
-	min-height: 600px;
+  height: 600px;
+  overflow: auto;
 }
 
 /*
