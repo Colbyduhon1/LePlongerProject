@@ -168,12 +168,12 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-<<<<<<< HEAD
+
         console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
-=======
+
 
         if (response.data.length === 0) {
           this.setState({
@@ -186,7 +186,7 @@ class App extends React.Component {
             commentdata: response.data
           })
         }
->>>>>>> got rid of console logs in client
+
       })
 
     axios.post('/ocean', {location: site.position})
