@@ -284,13 +284,9 @@ class App extends React.Component {
           />
 
           {/*This ternary for the comment container isn't doing anything*/}
-<<<<<<< HEAD
-          <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
-=======
+
           <div className='col-md-3 reviews-section left-col'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
->>>>>>> added sample weather data
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 
