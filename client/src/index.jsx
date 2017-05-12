@@ -314,7 +314,6 @@ class App extends React.Component {
                 <NewDiveSite />
                 <button>Add Site</button>
 
-
                 <h2 ref={subtitle => this.subtitle = subtitle}>Add New Site Here</h2>
                   <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
 
