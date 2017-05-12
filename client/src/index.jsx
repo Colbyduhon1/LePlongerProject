@@ -220,7 +220,6 @@ class App extends React.Component {
         "longitude": `${longitude}`,
         "latitude": `${latitude}`,
         "rating": `${rating}`,
-
         "description": `${description}`
       }
 
