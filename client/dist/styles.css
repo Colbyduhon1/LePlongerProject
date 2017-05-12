@@ -4,25 +4,25 @@ GLOBAL STYLES
 ================================================================================================
 */
 
-/*div {
-  border: 1px solid black;
-}*/
+
 html {
   height: 100%;
 }
+
 body {
   height: 100%;
   overflow-x:hidden;
-  background-color: #023e58;
+  background-image: url('3.jpg');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+  background-size: 100%;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  color: black;
+.panel-text p, h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
 }
 
-/*.container {
-  width: 100%;
-}*/
 #myiframe {
   -moz-transform: scale(0.4, 0.4);
   -webkit-transform: scale(0.4, 0.4);
@@ -36,6 +36,29 @@ p, h1, h2, h3, h4, h5, h6 {
   transform-origin: top left;
   margin-bottom: 0;
 }
+.cool-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: background-color 0.2s ease-out,
+  border-color 0.2s ease-out;
+}
+.cool-button:hover,
+.cool-button:active {
+  background-color: #fff; /* fallback */
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: #fff; /* fallback */
+  border-color: rgba(255, 255, 255, 0.4);
+  transition: background-color 0.3s ease-in,
+  border-color 0.3s ease-in;
+}
+
 /*
 ================================================================================================
 WEATHER BOXES
@@ -57,7 +80,9 @@ WEATHER BOXES
   font-size: 2rem;
 }
 
-
+.panel {
+  background-color: none;
+}
 /*
 ================================================================================================
 CENTRAL MAP
@@ -154,6 +179,7 @@ COMMENTS
 */
 .skill {
   font-weight: bold;
+  color: #f94040;
 }
 
 

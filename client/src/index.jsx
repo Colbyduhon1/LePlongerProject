@@ -250,7 +250,7 @@ class App extends React.Component {
         <div className='row'>
 
             <div className="loginForm">
-             <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
+             <button className="cool-button" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
                 onAfterOpen={this.afterOpenLoginModal}
@@ -265,7 +265,7 @@ class App extends React.Component {
             </div>
 
             <div className="signinForm" >
-             <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
+             <button className="cool-button" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
                 isOpen={this.state.modalSignup}
                 onAfterOpen={this.afterOpenSignupModal}
@@ -289,7 +289,7 @@ class App extends React.Component {
 
 
             <div className="add_dive_site">
-              <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
+              <button className="cool-button" onClick={this.openModal}>Add New Site</button>
               <Modal
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}

@@ -12,9 +12,10 @@ class OceanWeather extends React.Component {
 
 
   render() {
-    return(
-      <div className='col-md-12 weather-section'>
-        <p>Wave Height for the Past 12 Hours</p>
+
+     return(
+      <div className='col-md-12 weather-section panel-text'>
+        <h2>Wave Height for the Past 12 Hours</h2>
         <AreaChart
           axes
           grid

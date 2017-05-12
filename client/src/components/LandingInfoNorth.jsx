@@ -2,8 +2,8 @@ import React from 'react';
 
 const LandingInfoNorth = (props) => {
   return (
-    <div className='col-md-12 weather-section'>
-    <h3>hi</h3>    
+    <div className='col-md-12 weather-section panel-text'>
+    <h3>hi</h3>
     </div>
   )
 }
