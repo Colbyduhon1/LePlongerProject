@@ -27,6 +27,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentsite: null,
       sites: [],
       user: null,
       diveview: false,
@@ -143,9 +144,10 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('error retrieving weather from api: ', err);
       })
-
+      
       this.setState({
-        siteDescription: site.description
+        siteDescription: site.description,
+        currentsite: site
       })
 
     axios.post('/comments',{diveSite_id : site.id})
@@ -283,7 +285,7 @@ class App extends React.Component {
 
           {/*This ternary for the comment container isn't doing anything*/}
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 
