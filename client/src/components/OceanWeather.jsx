@@ -21,7 +21,7 @@ class OceanWeather extends React.Component {
           noAreaGradient
           width={400}
           height={200}
-          areaColors={['blue']}
+          areaColors={['#be94ff']}
           yDomainRange={[0, this.state.waveheight]}
           interpolate={'cardinal'}
           data={this.props.data}
