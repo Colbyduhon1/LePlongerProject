@@ -194,7 +194,25 @@ class App extends React.Component {
       })
   }
 
-
+  addNewDiveSite (name, longitude, latitude, rating, description) {
+    $.ajax({
+      url: '/new_sites  ',
+      method: 'POST',
+      data: {
+        "name": `${name}`,
+        "longitude": `${longitude}`,
+        "latitude": `${latitude}`,
+        "rating": `${rating}`,
+        "description": `${description}` 
+      },
+      success: (data) => {
+        console.log('data');
+      },
+      error: (err1, err2, err3) => {
+        console.log(err1, err2, err3);
+      }
+    })
+  }
 
   //toggles the view on the left side of index.html
   showConditions () {
@@ -220,7 +238,7 @@ class App extends React.Component {
              <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
               <Modal
                 isOpen={this.state.modalLogin}
-                onAfterOpen={this.afterOpenLoginModal}
+
                 onRequestClose={this.closeLoginModal}
                 contentLabel="Example Modal"
               >
@@ -231,6 +249,7 @@ class App extends React.Component {
               </Modal>
             </div>
 
+      
             <div className="signinForm" >
              <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
@@ -238,14 +257,14 @@ class App extends React.Component {
                 onAfterOpen={this.afterOpenSignupModal}
                 onRequestClose={this.closeSignupModal}
                 contentLabel="Example Modal"
-                style={{
-                  overlay: {
-                    background: 'lightsteelblue'
-                  },
-                  content: {
-                    backgroundImage: 'url("http://www.example.com/bck.png")'
-                  }
-                }}
+                 style={{
+                    overlay: {
+                      background: 'lightsteelblue'
+                    },
+                    content: {
+                      backgroundImage: 'url("http://www.example.com/bck.png")'
+                    }
+                  }}
               >
                 <button onClick={this.closeSignupModal}>&times;</button>
                 <h2>Sign Up</h2>
@@ -253,6 +272,8 @@ class App extends React.Component {
               </Modal>
             </div>
 
+
+          
             <div className="add_dive_site">
               <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
               <Modal
@@ -261,12 +282,13 @@ class App extends React.Component {
                 onRequestClose={this.closeModal}
                 contentLabel="Example Modal"
               >
+
                 <button onClick={this.closeModal}>&times;</button>
+
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-                <NewDiveSite />
-                <button>Add Site</button>
+                  <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
               </Modal>
-            </div>
+            </div> 
 
         </div>{/* end first row */}
 
