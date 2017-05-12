@@ -50,6 +50,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
+    tihs.addNewDiveSiteComment
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -206,6 +207,25 @@ class App extends React.Component {
      })
 
  
+  }
+
+    addNewDiveSiteComment (divesite_id,message,user_id,date_1) {
+    $.ajax({
+      url: '/newcomment',
+      method: 'POST',
+      data: {
+        "diveSite_id": `${diveSite_id}`,
+        "message": `${message}`,
+        "user_id": `${user_id}`,
+        "date_1": `${date_1}`,
+      },
+      success: (data) => {
+        console.log('data');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
   //toggles the view on the left side of index.html
