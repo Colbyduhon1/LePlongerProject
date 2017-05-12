@@ -5,14 +5,14 @@ import {AreaChart} from 'react-easy-chart';
 class OceanWeather extends React.Component {
   constructor(props) {
     super(props);
-    // this.findCurrentMaxHeight = this.findCurrentMaxHeight.bind(this);
-    this.state = {
-      waveheight: this.props.graphHeight
-    }
+    // this.state = {
+    //   waveheight: this.props.graphHeight
+    // }
   }
 
+
   render() {
-     return(
+    return(
       <div className='col-md-12 weather-section'>
         <p>Wave Height for the Past 12 Hours</p>
         <AreaChart
@@ -22,7 +22,7 @@ class OceanWeather extends React.Component {
           width={400}
           height={200}
           areaColors={['#be94ff']}
-          yDomainRange={[0, this.state.waveheight]}
+          yDomainRange={[0, this.props.graphHeight]}
           interpolate={'cardinal'}
           data={this.props.data}
         />

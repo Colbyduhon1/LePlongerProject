@@ -38,7 +38,7 @@ class App extends React.Component {
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
       waveHeight: [],
-      graphHeight: 0
+      graphHeight: 1
 
     }
     this.showConditions = this.showConditions.bind(this);
@@ -293,7 +293,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1} 
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight} 
                                                                                        data={this.state.waveHeight} 
                                                                                        description={this.state.siteDescription} 
                                                                                        weatherdata={this.state.weatherdata} /> 
