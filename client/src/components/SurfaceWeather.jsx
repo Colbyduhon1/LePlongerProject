@@ -11,10 +11,10 @@ const SurfaceWeather = (props) => {
 				</div>
 				<table className="table">
 				  <tbody>
-					  <tr><td>Gusts {props.weatherdata.current_observation.wind_gust_mph}</td><td>Wind from {props.weatherdata.current_observation.wind_dir}</td></tr>
-					  <tr><td>Dew Point: {props.weatherdata.current_observation.dewpoint_f}</td><td>Humidity: {props.weatherdata.current_observation.relative_humidity}</td></tr>
-					  <tr><td>Precip Rate: {props.weatherdata.current_observation.precip_1hr_in}</td><td>Precip Accum {props.weatherdata.current_observation.precip_today_in}</td></tr>
-					  <tr><td>Feels Like {props.weatherdata.current_observation.temp_f}</td><td>Pressure {props.weatherdata.current_observation.pressure_in}</td></tr>
+					  <tr><td>Gusts <span className='data'>{props.weatherdata.current_observation.wind_gust_mph}</span></td><td>Wind from <span className='data'>{props.weatherdata.current_observation.wind_dir}</span></td></tr>
+					  <tr><td>Dew Point: {props.weatherdata.current_observation.dewpoint_f}</td><td>Humidity: <span className='data'>{props.weatherdata.current_observation.relative_humidity}</span></td></tr>
+					  <tr><td>Precip Rate: <span className='data'>{props.weatherdata.current_observation.precip_1hr_in}</span></td><td>Precip Accum <span className='data'>{props.weatherdata.current_observation.precip_today_in}</span></td></tr>
+					  <tr><td>Feels Like <span className='data'>{props.weatherdata.current_observation.temp_f}</span></td><td>Pressure <span className='data'>{props.weatherdata.current_observation.pressure_in}</span></td></tr>
 				  </tbody>
  				</table>
 

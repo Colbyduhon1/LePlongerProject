@@ -83,6 +83,10 @@ WEATHER BOXES
 .panel {
   background-color: none;
 }
+.data {
+  color: #f94040;
+  font-weight: bold;
+}
 /*
 ================================================================================================
 CENTRAL MAP
