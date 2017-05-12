@@ -249,8 +249,8 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className='container-fluid '>
+        <div className='row app-container'>
 
 
         <div>
