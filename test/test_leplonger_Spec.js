@@ -16,6 +16,21 @@ describe('server', function() {
     });
   });
 
+  // it('should send back parsable stringified JSON', function(done) {
+  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  //     expect(JSON.parse.bind(this, body)).to.not.throw();
+  //     done();
+  //   });
+  // });
+
+
+  // it('should send back parsable stringified JSON', function(done) {
+  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  //     expect(JSON.parse.bind(this, body)).to.not.throw();
+  //     done();
+  //   });
+  // });
+
   it('should send back an object', function(done) {
     request('http://127.0.0.1:8080/dives', function(error, response, body) {
       var parsedBody = JSON.parse(body);
@@ -50,6 +65,7 @@ describe('server', function() {
     });
   });
 
+
   xit('should respond with users that previously registered', function(done) {
     var requestParams = {method: 'POST',
       uri: 'http://127.0.0.1:8080/users',
@@ -57,6 +73,7 @@ describe('server', function() {
         username: 'colby',
         password: 'j'}
     };
+
 
     request(requestParams, function(error, response, body) {
       // Now if we request the log, that message we posted should be there:
@@ -96,4 +113,172 @@ describe('server', function() {
     });
   });
 
+
+  // it('should respond with messages that were previously posted', function(done) {
+  //   var requestParams = {method: 'POST',
+  //     uri: 'http://127.0.0.1:3000/classes/messages',
+  //     json: {
+  //       username: 'Jono',
+  //       message: 'Do my bidding!'}
+  //   };
+
+
+    request(requestParams, function(error, response, body) {
+      // Now if we request the log, that message we posted should be there:
+      request('http://127.0.0.1:8080/users', function(error, response, body) {
+        var messages = JSON.parse(body).results;
+        expect(messages[0].username).to.equal('colby');
+        expect(messages[0].message).to.equal('j');
+        done();
+      });
+    });
+  });
+
+
+  it('Should 404 when asked for a nonexistent endpoint', function(done) {
+    request('http://127.0.0.1:8080/meow_mix', function(error, response, body) {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  });
+
+  it('Should display our supreme competenece.', function(done) {
+    request('http://127.0.0.1:8080/comments', function(error, response, body) {
+  
+      expect(JSON.parse(body).results.length > 1).to.equal(true);
+      done();
+    });
+  });
+
+  it('Should populate results array with message objects', function(done) {
+    var requestParams = {method: 'GET',
+      uri: 'http://127.0.0.1:8080/comments',
+    };
+
+
+  //   request(requestParams, function(error, response, body) {
+      
+  //     // Now if we request the log, that message we posted should be there:
+  //     request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  //       var messages = JSON.parse(body).results;
+  //       expect(messages[0].username).to.equal('Jono');
+  //       expect(messages[0].message).to.equal('Do my bidding!');
+  //       done();
+  //     });
+  //   });
+  // });
+
+
+  it('Should 404 when asked for a nonexistent endpoint', function(done) {
+    request('http://127.0.0.1:8080/meow_mix', function(error, response, body) {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  });
+
+  it('Should display our supreme competenece.', function(done) {
+    request('http://127.0.0.1:8080/comments', function(error, response, body) {
+  
+      expect(JSON.parse(body).results.length > 1).to.equal(true);
+      done();
+    });
+  });
+
+
+  // it('Should populate results array with message objects', function(done) {
+  //   var requestParams = {method: 'GET',
+  //     uri: 'http://127.0.0.1:3000/classes/messages',
+  //     json: {
+  //       username: 'Jono',
+  //       message: 'Do my bidding!'}
+  //   };
+
+  it('Should populate results array with message objects', function(done) {
+    var requestParams = {method: 'GET',
+      uri: 'http://127.0.0.1:8080/comments',
+    };
+
+
+    request(requestParams, function(error, response, body) {
+      var message = JSON.parse(body).results[0];
+      expect(typeof message === 'object').to.equal(true);
+      done();
+    });
+  });
+
+    request(requestParams, function(error, response, body) {
+      var message = JSON.parse(body).results[0];
+      expect(typeof message === 'object').to.equal(true);
+      done();
+    });
+  });
+
+
+  // it('should respond with messages that were previously posted', function(done) {
+  //   var requestParams = {method: 'POST',
+  //     uri: 'http://127.0.0.1:3000/classes/messages',
+  //     json: {
+  //       username: 'Jono',
+  //       message: 'Do my bidding!'}
+  //   };
+
+  //   request(requestParams, function(error, response, body) {
+      
+  //     // Now if we request the log, that message we posted should be there:
+  //     request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  //       var messages = JSON.parse(body).results;
+  //       expect(messages[0].username).to.equal('Jono');
+  //       expect(messages[0].message).to.equal('Do my bidding!');
+  //       done();
+  //     });
+  //   });
+  // });
+
+  // it('Should 404 when asked for a nonexistent endpoint', function(done) {
+  //   request('http://127.0.0.1:3000/arglebargle', function(error, response, body) {
+  //     expect(response.statusCode).to.equal(404);
+  //     done();
+  //   });
+  // });
+
+  // it('Should display our supreme competenece.', function(done) {
+  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  
+  //     expect(JSON.parse(body).results.length > 1).to.equal(true);
+  //     done();
+  //   });
+  // });
+
+  // it('Should respoon with 200 status code for OPTIONS request', function (done) {
+  //   var requestParams = {method: 'OPTIONS',
+  //     uri: 'http://127.0.0.1:3000/classes/messages',
+  //     json: {
+  //       username: 'Jono',
+  //       message: 'Do my bidding!'}
+  //   };
+  //   request(requestParams, function(error, response, body) {
+  //     expect(response.statusCode).to.equal(200);
+  //     done();
+  //   });
+  // });
+
+  // it('Should populate results array with message objects', function(done) {
+  //   var requestParams = {method: 'GET',
+  //     uri: 'http://127.0.0.1:3000/classes/messages',
+  //     json: {
+  //       username: 'Jono',
+  //       message: 'Do my bidding!'}
+  //   };
+
+  //   request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
+  //     var message = JSON.parse(body).results[0];
+  //     expect(typeof message === 'object').to.equal(true);
+  //     done();
+  //   });
+  // });
+
+
+
+=======
+>>>>>>> cee61d8648a0ba7f7cc3de6df450ffa9f6aaf905
 });

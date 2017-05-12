@@ -5,6 +5,7 @@ import { CookiesProvider } from 'react-cookie';
 
 
 
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -36,8 +37,7 @@ class Login extends React.Component {
 
   render() {
     return (
-
-      <form className="loginSheet">
+      <div>
         <div className="loginUserName">
           Username:
           <input
@@ -56,7 +56,7 @@ class Login extends React.Component {
           </div>
           <button onClick={() => this.props.logIn(this.state.value, this.state.password)}
           >Sign In </button>
-      </form>
+        </div>
     );
   }
 }

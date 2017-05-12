@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const rout = require('./routes');
 
-const cookiesMiddleware = require('universal-cookie-express');
+
 
 
 const app = express();
@@ -16,6 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookiesMiddleware())
+
 
 
 //Router
