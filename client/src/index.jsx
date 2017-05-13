@@ -232,6 +232,7 @@ class App extends React.Component {
         "message": `${message}`,
         "user_id": `${user_id}`,
         "date_1": `${date}`,
+        "name": `${this.state.user.name}`
       },
       success: (data) => {
         console.log(data);
