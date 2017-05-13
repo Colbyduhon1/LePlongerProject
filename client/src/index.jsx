@@ -67,9 +67,11 @@ class App extends React.Component {
     axios.post('/users', loginInfo)
       .then( (response) => {
         console.log("Setting state of logged in user to: ", response.data);
-        this.setState({
-          user: response.data
-        })
+        if (response.data !== 'User does Not exist') {
+          this.setState({
+            user: response.data
+          })
+        }
       })
       .catch( (err) => {
         console.log('Error adding user: ', err);
