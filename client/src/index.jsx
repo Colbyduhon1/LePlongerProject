@@ -43,15 +43,15 @@ class App extends React.Component {
 
       siteDescription: '',
       commentdata: [],
-      homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
+      homeWeather: null,//[seedWeatherData, seedWeatherData, seedWeatherData],
       waveHeight: [],
       graphHeight: 1,
 
-      darksky: sampleDarkSky[0].daily.data,
+      darksky: sampleDarkSky,
 
     }
 
-
+    console.log(this.state.homeWeather)
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
@@ -105,13 +105,13 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    console.log('will mount...');
-    console.log(this.state.user);
+    // console.log('will mount...');
+    // console.log(this.state.user);
   }
 
   componentDidMount() {
-    console.log(this.state.user)
-    console.log('RELOADED');
+    // console.log(this.state.user)
+    // console.log('RELOADED');
 
 
     axios.get('/dives')
@@ -125,11 +125,13 @@ class App extends React.Component {
       })
 
     //theoretically, this would make 3 api requests to weather underground
-    //send back the data in an array which will get passed to the container componenet
+    //send back the data in an array which will get passed to the container component
     axios.get('/weather/home')
       .then( (response) => {
+        //console.log('this is the date', response);
         this.setState({
-          homeWeather: response.data
+          darksky: response.data,
+          // homeWeather: response.data
         })
       })
       .catch( (err) => {

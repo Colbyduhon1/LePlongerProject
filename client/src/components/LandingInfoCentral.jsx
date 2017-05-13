@@ -1,9 +1,9 @@
 import React from 'react';
-import WeatherTable from './weatherTable.jsx'
+import CentralWeatherTable from './CentralWeatherTable.jsx'
 const LandingInfoCentral = (props) => {
 	return (
     <div className='col-md-12 weather-section panel-text'>
-      <WeatherTable darksky={props.darksky}/>
+      <CentralWeatherTable darksky={props.darksky}/>
     </div>
 	)
 };

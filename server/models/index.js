@@ -104,30 +104,29 @@ module.exports = {
     },
     home: (req, res) => {
       let homeWeather = [];
-      const norCalCoordinates = 'x,y';
-      const centralCalCoordinates = 'x,y';
-      const southCalCoordinates = 'x,y';
+      const norCalCoordinates = '37.7910,-122.5401';
+      const centralCalCoordinates = '35.3257,-120.9237';
+      const southCalCoordinates = '37.8267,-122.4233';
 
       //remove XXXXX for this to work
-      axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${norCalCoordinates}.json`)
+      axios.get(`https://api.darksky.net/forecast/${Api.darkSky}/${norCalCoordinates}`)
         .then( (result) => {
           homeWeather.push(result.data)
-          axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${centralCalCoordinates}.json`)
-        })
-        .then( (result) => {
-          homeWeather.push(result.data);
-          axios.get(`http://api.XXXXXwunderground.com/api/${Api.weatherUnderground}/geolookup/conditions/q/${southCalCoordinates}.json`)
-        })
-        .then( (result) => {
-          homeWeather.push(result.data);
-          res.json(homeWeather);
+          axios.get(`https://api.darksky.net/forecast/${Api.darkSky}/${centralCalCoordinates}`)
+            .then( (result) => {
+              homeWeather.push(result.data);
+              axios.get(`https://api.darksky.net/forecast/${Api.darkSky}/${southCalCoordinates}`)
+                .then( (result) => {
+                  homeWeather.push(result.data);
+                  res.json(homeWeather);
+                })
+            })
         })
         .catch( (err) => {
           console.log('Error retrieving home page weather: ', err.message);
-        })
-        //remove this when using real api
-        res.send(200);
-    }
+      })
+
+     }
   },
   ocean: {
     get: (req, res) => {
