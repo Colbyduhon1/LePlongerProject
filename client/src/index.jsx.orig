@@ -5,26 +5,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
+import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
+
+
 import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
 import LandingInfoContainer from './components/LandingInfoContainer.jsx';
 import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
 import CommentContainer from './components/CommentContainer.jsx'
+import TopBar from './components/TopBar.jsx'
 
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import NewDiveSite from './components/NewDiveSite.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
-
+import mapstyles from './components/Map/mapStyles.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentsite: null,
       sites: [],
-
+      user: null,
       diveview: false,
       openInfoWindow: false,
 
@@ -38,67 +43,24 @@ class App extends React.Component {
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
       waveHeight: [],
-      graphHeight: 0
+      graphHeight: 1
 
     }
+
+
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
 <<<<<<< HEAD
-
+<<<<<<< HEAD
 =======
-    
->>>>>>> Code cleanup for index.jsx
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.openLoginModal = this.openLoginModal.bind(this);
-    this.afterOpenLoginModal = this.afterOpenLoginModal.bind(this);
-    this.closeLoginModal = this.closeLoginModal.bind(this);
-    this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
-    this.closeSignupModal = this.closeSignupModal.bind(this);
-  }
-  //Can these be moved to the modal component??
-  openModal() {
-    this.setState({modalIsOpen: true});
+
+>>>>>>> .
+=======
+
+>>>>>>> aecf805b608deae7b2a8e54ae85eee635be727a3
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  openLoginModal() {
-    this.setState({modalLogin: true});
-  }
-
-  afterOpenLoginModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#888';
-  }
-
-  closeLoginModal() {
-    this.setState({modalLogin: false});
-  }
-
-
-  openSignupModal() {
-    this.setState({modalSignup: true});
-  }
-
-  afterOpenSignupModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#777';
-  }
-
-  closeSignupModal() {
-    this.setState({modalSignup: false});
-  }
 
   logIn (user, pass) {
     let loginInfo = {
@@ -107,7 +69,12 @@ class App extends React.Component {
     };
 
     axios.post('/users', loginInfo)
-      .then( (response) => {})
+      .then( (response) => {
+        console.log("Setting state of logged in user to: ", response.data);
+        this.setState({
+          user: response.data
+        })
+      })
       .catch( (err) => {
         console.log('Error adding user: ', err);
       })
@@ -130,7 +97,16 @@ class App extends React.Component {
       })
   }
 
+  componentWillMount() {
+    console.log('will mount...');
+    console.log(this.state.user);
+  }
+
   componentDidMount() {
+    console.log(this.state.user)
+    console.log('RELOADED');
+
+
     axios.get('/dives')
       .then( (response) => {
         this.setState({
@@ -167,15 +143,45 @@ class App extends React.Component {
       })
 
       this.setState({
-        siteDescription: site.description
+        siteDescription: site.description,
+        currentsite: site
       })
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-        //console.log('received comment data: ', response);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> Changed overflow for review section to auto
+=======
+
+>>>>>>> aecf805b608deae7b2a8e54ae85eee635be727a3
+        console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
+
+
+        if (response.data.length === 0) {
+          this.setState({
+            commentdata: [],
+            handleQueryError: true
+          })
+        } else {
+          this.setState({
+            handleQueryError: false,
+            commentdata: response.data
+          })
+        }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> Changed overflow for review section to auto
+=======
+
+>>>>>>> aecf805b608deae7b2a8e54ae85eee635be727a3
       })
 
     axios.post('/ocean', {location: site.position})
@@ -183,7 +189,7 @@ class App extends React.Component {
         let max = 0;
         result.data.forEach( (value) => {
           if (value.y > max) {
-            console.log('new high: ', value.y + 1);
+            //console.log('new high: ', value.y + 1);
             max = value.y;
           }
         });
@@ -198,29 +204,55 @@ class App extends React.Component {
       })
   }
 
-<<<<<<< HEAD
   addNewDiveSite (name, longitude, latitude, rating, description) {
-    $.ajax({
-      url: '/new_sites  ',
-      method: 'POST',
-      data: {
+      let data = {
         "name": `${name}`,
         "longitude": `${longitude}`,
         "latitude": `${latitude}`,
         "rating": `${rating}`,
-        "description": `${description}` 
+        "description": `${description}`
+      }
+
+     axios.post('/new_sites', data)
+     .then(result => {
+      console.log('result', result)
+     })
+     .catch(err => {
+      console.log('err', err)
+     })
+
+
+  }
+
+    addNewDiveSiteComment (divesite_id, message ,user_id) {
+     let date = new Date();
+     date = date.getUTCFullYear() + '-' +
+    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+    ('00' + date.getUTCDate()).slice(-2) + ' ' +
+    ('00' + date.getUTCHours()).slice(-2) + ':' +
+    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+    ('00' + date.getUTCSeconds()).slice(-2);
+      console.log(divesite_id, message, user_id, date);
+    $.ajax({
+      url: '/newcomment',
+      method: 'POST',
+      data: {
+        "divesite_id": `${divesite_id}`,
+        "message": `${message}`,
+        "user_id": `${user_id}`,
+        "date_1": `${date}`,
       },
       success: (data) => {
-        console.log('data');
+        console.log(data);
+        this.setState({
+          commentdata: this.state.commentdata.concat(data)
+        })
       },
-      error: (err1, err2, err3) => {
-        console.log(err1, err2, err3);
+      error: (err) => {
+        console.log(err);
       }
     })
   }
-=======
-
->>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
 
   //toggles the view on the left side of index.html
   showConditions () {
@@ -236,110 +268,37 @@ class App extends React.Component {
   }
 
 
+
+
   render() {
 
     return (
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className='container-fluid '>
+        <div className='row app-container'>
 
-            <div className="loginForm">
-             <button className="btn btn-primary" onClick={this.openLoginModal}>Login</button>
-              <Modal
-                isOpen={this.state.modalLogin}
-<<<<<<< HEAD
 
-=======
-                onAfterOpen={this.afterOpenLoginModal}
->>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
-                onRequestClose={this.closeLoginModal}
-                contentLabel="Example Modal"
-              >
-                <button onClick={this.closeLoginModal}>&times;</button>
-
-                <h2>Login</h2>
-                <Login logIn={this.logIn.bind(this)} />
-              </Modal>
-            </div>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-      
-=======
->>>>>>> Code cleanup for index.jsx
-=======
->>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
-            <div className="signinForm" >
-             <button className="btn btn-primary" onClick={this.openSignupModal}>Sign Up</button>
-              <Modal
-                isOpen={this.state.modalSignup}
-                onAfterOpen={this.afterOpenSignupModal}
-                onRequestClose={this.closeSignupModal}
-                contentLabel="Example Modal"
-                style={{
-                  overlay: {
-                    background: 'lightsteelblue'
-                  },
-                  content: {
-                    backgroundImage: 'url("http://www.example.com/bck.png")'
-                  }
-                }}
-              >
-                <button onClick={this.closeSignupModal}>&times;</button>
-                <h2>Sign Up</h2>
-                <Signup new_users={this.new_users.bind(this)} closeModal={this.closeSignupModal.bind(this)}/>
-              </Modal>
-            </div>
-
-<<<<<<< HEAD
-
-          
-=======
->>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
-            <div className="add_dive_site">
-              <button className="btn btn-primary" onClick={this.openModal}>Add New Site</button>
-              <Modal
-                isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                contentLabel="Example Modal"
-              >
-                <button onClick={this.closeModal}>&times;</button>
-                <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  <NewDiveSite newDiveSite={this.addNewDiveSite.bind(this)} />
-=======
-                <NewDiveSite />
-                <button>Add Site</button>
->>>>>>> Code cleanup for index.jsx
-              </Modal>
-            </div> 
-=======
-                <NewDiveSite />
-                <button>Add Site</button>
-              </Modal>
-            </div>
->>>>>>> fbe25f18ec29cc91148f1da58a18e13fd4f2b4d1
+        <div>
+          <TopBar
+          newDiveSite={this.addNewDiveSite.bind(this)}
+          new_users={this.new_users.bind(this)}
+          logIn={this.logIn.bind(this)}
+          user={this.state.user}
+          />
+        </div>
 
         </div>{/* end first row */}
 
         <div className='row'>
 
 
-<<<<<<< HEAD
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1}
+          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
                                                                                        data={this.state.waveHeight}
                                                                                        description={this.state.siteDescription}
                                                                                        weatherdata={this.state.weatherdata} />
-=======
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight + 1} 
-                                                                                       data={this.state.waveHeight} 
-                                                                                       description={this.state.siteDescription} 
-                                                                                       weatherdata={this.state.weatherdata} /> 
->>>>>>> Code cleanup for index.jsx
                                                               : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
           {/* transfer to map component */}
           <DiveMap
+            styles={ mapstyles }
             containerElement={ <div className='map-container col-md-6'></div> }
             mapElement={ <div id="map" className='col-md-12 map-section'></div> }
             markers={this.state.sites}
@@ -349,12 +308,9 @@ class App extends React.Component {
           />
 
           {/*This ternary for the comment container isn't doing anything*/}
-          <div className='col-md-3 reviews-section'>
-<<<<<<< HEAD
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/>
-=======
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer comments={this.state.commentdata}/> 
->>>>>>> Code cleanup for index.jsx
+
+          <div className='col-md-3 reviews-section left-col'>
+            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                                 : <CommentContainer comments={[]}/>}
           </div>
 

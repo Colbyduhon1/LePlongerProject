@@ -20,7 +20,7 @@ const DiveMap = withGoogleMap(props => (
     defaultZoom={6}
     defaultCenter={{lat: 37.787, lng: -122.458}}
     onClick={props.onMapClick}
->>>>>>> .
+>>>>>>> aecf805b608deae7b2a8e54ae85eee635be727a3
   >
   {props.markers.map( (marker, index) => {
     const formattedMarker = marker;

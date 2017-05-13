@@ -51,10 +51,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
-<<<<<<< HEAD
-=======
 
->>>>>>> .
   }
 
 
@@ -145,10 +142,7 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-<<<<<<< HEAD
-=======
 
->>>>>>> Changed overflow for review section to auto
         console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
@@ -166,10 +160,7 @@ class App extends React.Component {
             commentdata: response.data
           })
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> Changed overflow for review section to auto
       })
 
     axios.post('/ocean', {location: site.position})
