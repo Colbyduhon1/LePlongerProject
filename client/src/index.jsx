@@ -11,14 +11,14 @@ import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
-import LandingInfoContainer from './components/LandingInfoContainer.jsx';
-import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
-import CommentContainer from './components/CommentContainer.jsx'
-import TopBar from './components/TopBar.jsx'
+import LandingInfoContainer from './components/LandingWeather/LandingInfoContainer.jsx';
+import DiveSiteInfoContainer from './components/DiveSitePanel/DiveSiteInfoContainer.jsx';
+import CommentContainer from './components/CommentPanel/CommentContainer.jsx'
+import TopBar from './components/Menu/TopBar.jsx'
 
-import Login from './components/Login.jsx';
-import Signup from './components/Signup.jsx';
-import NewDiveSite from './components/NewDiveSite.jsx';
+import Login from './components/Menu/Login.jsx';
+import Signup from './components/Menu/Signup.jsx';
+import NewDiveSite from './components/Menu/NewDiveSite.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
 import mapstyles from './components/Map/mapStyles.json';
@@ -151,13 +151,11 @@ class App extends React.Component {
   getDiveSiteInfo(site) {
     axios.post('/weather', {location: site.position})
       .then( (response) => {
-        console.log('received weather for site: ', response);
         this.setState({
           weatherdata: response.data
         })
       })
       .catch( (err) => {
-        console.log('error retrieving weather from api: ', err);
       })
 
       this.setState({
