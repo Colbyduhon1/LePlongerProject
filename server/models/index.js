@@ -66,7 +66,8 @@ module.exports = {
     }
   },
   comments: {
-    get: (req,res) => {
+    get: (req, res) => {
+      console.log('trying to get comments for: ', req.body);
       let diveID = req.body.diveSite_id;
       let queryString = 'SELECT * FROM comments INNER JOIN dives ON dives.id=comments.divesite_id LEFT JOIN users ut on comments.user_id = ut.id WHERE comments.divesite_id=' + diveID;
 
