@@ -207,3 +207,14 @@ COMMENTS
   font-weight: bold;
   color: #f94040;
 }
+
+.dive-title {
+  display: inline-block;
+  color: red;
+}
+
+.new-dive-site {
+  
+  text-align: center;
+  margin: 0 auto;
+}

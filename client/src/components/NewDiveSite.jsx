@@ -59,7 +59,8 @@ class NewDiveSite extends React.Component {
 
 	render() {
 		return(
-		<div >
+		<div className="new-dive-site">
+		<h2 className="dive-title"> Add Dive Site Here </h2>
         <p> Name:
         <input 
         type="text" 
