@@ -23,6 +23,8 @@ import NewDiveSite from './components/NewDiveSite.jsx';
 import DiveMap from './components/Map/DiveMap.jsx';
 import mapstyles from './components/Map/mapStyles.json';
 
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +53,7 @@ class App extends React.Component {
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
+    this.LogOut = this.LogOut.bind(this);
 
   }
 
@@ -71,6 +74,13 @@ class App extends React.Component {
       .catch( (err) => {
         console.log('Error adding user: ', err);
       })
+  }
+
+  LogOut () {
+    console.log(this.state.user);
+    this.setState({
+      user: null
+    })
   }
 
   new_users (username, password, repeatedPassword, skill, age, email) {
@@ -262,6 +272,7 @@ class App extends React.Component {
           new_users={this.new_users.bind(this)}
           logIn={this.logIn.bind(this)}
           user={this.state.user}
+          logout={this.LogOut.bind(this)}
           />
         </div>
 

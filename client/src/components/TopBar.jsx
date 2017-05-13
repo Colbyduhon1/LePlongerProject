@@ -69,24 +69,28 @@ class TopBar extends React.Component {
 
 	render() {
 		return(
-		  <div>
+		   <div>
+          
+           { this.props.user ? 
             <div className="loginForm">
-             <button className="cool-button" onClick={this.openLoginModal}>Login</button>
+                <button className="cool-button" 
+                onClick={() => this.props.logout()}>Log Out</button>
+            </div> :
+            <div className="loginForm">
+             <button className="cool-button" onClick={this.openLoginModal}>Log in</button>
               <Modal
                 isOpen={this.state.modalLogin}
                 onAfterOpen={this.afterOpenLoginModal}
                 onRequestClose={this.closeLoginModal}
-                contentLabel="Example Modal"
-              >
+                contentLabel="Example Modal">
                 <button onClick={this.closeLoginModal}>&times;</button>
-
-                <h2>Login</h2>
-                <Login logIn={this.props.logIn.bind(this)} />
+                <h2>Log in</h2>
+                <Login logIn={this.props.logIn.bind(this)} 
+                close={this.closeLoginModal.bind(this)}/>
               </Modal>
-            </div>
-
+            </div> }
             
-
+            { this.props.user ? null :
             <div className="signinForm" >
              <button className="cool-button" onClick={this.openSignupModal}>Sign Up</button>
               <Modal
@@ -106,10 +110,9 @@ class TopBar extends React.Component {
                 <button onClick={this.closeSignupModal}>&times;</button>
                 <h2>Sign Up</h2>
                 <Signup new_users={this.props.new_users.bind(this)} 
-                closeModal={this.closeSignupModal.bind(this)}/>
+                closeModal={this.closeSignupModal.bind(this)} />
               </Modal>
-            </div> 
-
+            </div>  }
             {this.props.user ? 
             <div className="add_dive_site">
               <button className="cool-button" onClick={this.openModal}>Add New Site</button>
@@ -120,15 +123,10 @@ class TopBar extends React.Component {
                 contentLabel="Example Modal"
               >
                 <button onClick={this.closeModal}>&times;</button>
-
                 <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-             
                 <button>Add Site</button>
-
-
                 <h2 ref={subtitle => this.subtitle = subtitle}>Add New Site Here</h2>
                   <NewDiveSite newDiveSite={this.props.newDiveSite.bind(this)} />
-
               </Modal>
             </div> : null }
           </div> 
