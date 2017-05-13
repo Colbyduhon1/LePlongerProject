@@ -106,9 +106,9 @@ module.exports = {
 			}
 			models.users.post(newUser, function(err, data) {
 				if (err) {
-					console.log('could not save user');
+					res.send('could not save user');
 				} else {
-					console.log('data');
+					res.send(newUser.name);
 				}
 			})
 		}

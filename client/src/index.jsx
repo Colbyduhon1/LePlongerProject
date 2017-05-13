@@ -34,6 +34,7 @@ class App extends React.Component {
       user: null,
       diveview: false,
       openInfoWindow: false,
+      dive_site: false,
 
       modalIsOpen: false,
       modalLogin: false,
@@ -69,7 +70,8 @@ class App extends React.Component {
         console.log("Setting state of logged in user to: ", response.data);
         if (response.data !== 'User does Not exist') {
           this.setState({
-            user: response.data
+            user: response.data,
+            dive_site: !this.state.dive_site
           })
         } else {
           throw response.data
@@ -98,7 +100,12 @@ class App extends React.Component {
       };
 
     axios.post('/new_users', signUpInfo)
-      .then( (response) => {})
+      .then( (response) => {
+        this.setState({
+          user: response.data,
+          dive_site: !this.state.dive_site
+        })
+      })
       .catch( (err) => {
         console.log('Error adding new user');
       })
@@ -209,6 +216,7 @@ class App extends React.Component {
      axios.post('/new_sites', data)
      .then(result => {
       console.log('result', result)
+
      })
      .catch(err => {
       console.log('err', err)
@@ -278,6 +286,7 @@ class App extends React.Component {
           logIn={this.logIn.bind(this)}
           user={this.state.user}
           logout={this.LogOut.bind(this)}
+          dive_sites={this.state.dive_site}
           />
         </div>
 
