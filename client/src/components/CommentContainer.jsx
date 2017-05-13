@@ -11,9 +11,10 @@ const CommentContainer = (props) => {
  	 {props.comments.map((item, idx) => {
  	 	return <Comment key={idx} comments={item} />
  	 })}
-
- 	 <CommentForm site={props.currentsite} addNewComment = {props.addNewComment}/>
-
+	{(props.userPresent) 
+		? <CommentForm user={props.user} site={props.currentsite} addNewComment = {props.addNewComment}/>
+ 		: null
+ 	}
   </div>
   )
 }

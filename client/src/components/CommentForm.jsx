@@ -14,7 +14,7 @@ class CommentForm extends React.Component {
  	handleSubmit(e) {
  		e.preventDefault();
  		//Need to replace with actual variable values
- 		this.props.addNewComment(this.props.site.id, this.state.message, 3);
+ 		this.props.addNewComment(this.props.site.id, this.state.message, this.props.user.id);
  	}
  	render() {
  		return (

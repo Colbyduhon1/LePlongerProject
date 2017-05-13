@@ -61,7 +61,7 @@ module.exports = {
 				console.log('New comment', data)
 				let newComment = {};
 				//Refactor name for user
-				newComment.name = req.body.user_id;
+				newComment.name = req.body.name;
 				newComment.date_1 = req.body.date_1;
 				newComment.message = req.body.message;
 				//Refactor Skill
