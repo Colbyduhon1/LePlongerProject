@@ -49,12 +49,17 @@ class NewDiveSite extends React.Component {
 			})
 		}
 
-  // handleClick(e) {
-  //   e.preventDefault()
-  //   this.setState(prevState => ({
-  //     click: !prevState.login
-  //   }));
-  // }
+  handleClick() {
+    this.props.newDiveSite(
+        	this.state.name,
+        	this.state.longitude,
+        	this.state.latitude,
+        	this.state.rating,
+        	this.state.description);
+    
+    this.props.close();
+  }
+
 	
 
 	render() {
@@ -98,12 +103,7 @@ class NewDiveSite extends React.Component {
         onChange={this.handleDescription} 
         /></p>
         
-        <button onClick={() => this.props.newDiveSite(
-        	this.state.name,
-        	this.state.longitude,
-        	this.state.latitude,
-        	this.state.rating,
-        	this.state.description)}>Add Site</button>
+        <button onClick={() => this.handleClick()}>Add Site</button>
 		  </div>
 		)
 	}

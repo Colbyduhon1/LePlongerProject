@@ -57,6 +57,10 @@ class TopBar extends React.Component {
     this.setState({modalSignup: false});
   }
 
+  logOutFunc () {
+   this.props.logout();
+   this.closeLoginModal(); 
+  }
 	
 
 	render() {
@@ -66,7 +70,7 @@ class TopBar extends React.Component {
            { this.props.user ? 
             <div className="loginForm">
                 <button className="cool-button" 
-                onClick={() => this.props.logout()}>Log Out</button>
+                onClick={() => this.logOutFunc()}>Log Out</button>
             </div> :
             <div className="loginForm">
              <button className="cool-button" onClick={this.openLoginModal}>Log in</button>
@@ -74,7 +78,15 @@ class TopBar extends React.Component {
                 isOpen={this.state.modalLogin}
                
                 onRequestClose={this.closeLoginModal}
-                contentLabel="Example Modal">
+                contentLabel="Example Modal"
+                style={{
+                  overlay: {
+                    background: 'lightsteelblue'
+                  },
+                  content: {
+                    backgroundImage: 'url("http://www.example.com/bck.png")'
+                  }
+                }}>
                 <button onClick={this.closeLoginModal}>&times;</button>
                 <h2>Log in</h2>
                 <Login logIn={this.props.logIn.bind(this)} 
@@ -116,7 +128,8 @@ class TopBar extends React.Component {
                 contentLabel="Example Modal"
               >
                 <button onClick={this.closeModal}>&times;</button>
-                  <NewDiveSite newDiveSite={this.props.newDiveSite.bind(this)} />
+                  <NewDiveSite newDiveSite={this.props.newDiveSite.bind(this)} 
+                  close={this.closeModal.bind(this)}/>
               </Modal>
             </div> : null }
           </div> 

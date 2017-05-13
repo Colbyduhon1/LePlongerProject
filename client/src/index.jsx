@@ -87,7 +87,8 @@ class App extends React.Component {
   LogOut () {
     console.log(this.state.user);
     this.setState({
-      user: null
+      user: null,
+      dive_site: false
     })
   }
 
