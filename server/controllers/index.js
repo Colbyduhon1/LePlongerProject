@@ -28,7 +28,13 @@ module.exports = {
 				} else {
 					if( data.length > 0) {
 						if(sha1(req.body.pass + data[0].salt) === data[0].password){
-						  res.send(req.body.user)
+							
+							let userInfo = {
+								name: data[0].name,
+								id: data[0].id
+							};
+
+						  res.send(userInfo);
 					  } else {
 						  res.send('Wrong Password')
 					  }
