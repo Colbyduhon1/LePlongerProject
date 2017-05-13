@@ -13,7 +13,7 @@ module.exports = {
   users: {
     get: (user, callback) => {
       var user = [user.user, user.pass];
-      var queryString = `SELECT salt, password FROM users WHERE name = '${user[0]}';`
+      var queryString = `SELECT salt, password, id, name FROM users WHERE name = '${user[0]}';`
       connection.query(queryString, (err, data) => {
         if(err) {
           console.log('err');
