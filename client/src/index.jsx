@@ -47,7 +47,7 @@ class App extends React.Component {
       waveHeight: [],
       graphHeight: 1,
 
-      darksky: sampleDarkSky,
+      darksky: sampleDarkSky
 
     }
 
@@ -56,7 +56,6 @@ class App extends React.Component {
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
     this.LogOut = this.LogOut.bind(this);
-
   }
 
 
@@ -219,35 +218,35 @@ class App extends React.Component {
 
   }
 
-    addNewDiveSiteComment (divesite_id, message ,user_id) {
+  addNewDiveSiteComment (divesite_id, message ,user_id) {
      let date = new Date();
      date = date.getUTCFullYear() + '-' +
-    ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
-    ('00' + date.getUTCDate()).slice(-2) + ' ' +
-    ('00' + date.getUTCHours()).slice(-2) + ':' +
-    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
-    ('00' + date.getUTCSeconds()).slice(-2);
-      console.log(divesite_id, message, user_id, date);
-    $.ajax({
-      url: '/newcomment',
-      method: 'POST',
-      data: {
-        "divesite_id": `${divesite_id}`,
-        "message": `${message}`,
-        "user_id": `${user_id}`,
-        "date_1": `${date}`,
-        "name": `${this.state.user.name}`
-      },
-      success: (data) => {
-        console.log(data);
-        this.setState({
-          commentdata: this.state.commentdata.concat(data)
-        })
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+      ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+      ('00' + date.getUTCDate()).slice(-2) + ' ' +
+      ('00' + date.getUTCHours()).slice(-2) + ':' +
+      ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+      ('00' + date.getUTCSeconds()).slice(-2);
+        console.log(divesite_id, message, user_id, date);
+      $.ajax({
+        url: '/newcomment',
+        method: 'POST',
+        data: {
+          "divesite_id": `${divesite_id}`,
+          "message": `${message}`,
+          "user_id": `${user_id}`,
+          "date_1": `${date}`,
+          "name": `${this.state.user.name}`
+        },
+        success: (data) => {
+          console.log(data);
+          this.setState({
+            commentdata: this.state.commentdata.concat(data)
+          })
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
   }
 
   //toggles the view on the left side of index.html
@@ -263,7 +262,6 @@ class App extends React.Component {
       openInfoWindow: !this.state.openInfoWindow
     })
   }
-
 
 
 
@@ -298,6 +296,9 @@ class App extends React.Component {
           {/* transfer to map component */}
           <DiveMap
             styles={ mapstyles }
+            
+            scroll={this.state.mapScroll}
+
             containerElement={ <div className='map-container col-md-6'></div> }
             mapElement={ <div id="map" className='col-md-12 map-section'></div> }
             markers={this.state.sites}
@@ -309,7 +310,7 @@ class App extends React.Component {
           {/*This ternary for the comment container isn't doing anything*/}
 
           <div className='col-md-3 reviews-section'>
-            {(this.state.diveview && this.state.openInfoWindow) ? <CommentContainer user={this.state.user} userPresent={this.state.user} currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
+            {this.state.diveview ? <CommentContainer user={this.state.user} userPresent={this.state.user} currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                                 : null}
           </div>
 
