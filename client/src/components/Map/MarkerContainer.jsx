@@ -20,9 +20,6 @@ class MarkerContainer extends React.Component {
    });
    this.props.toggleInfoWindow()
 
-   if (!this.state.showingInfoWindow) {
-    this.props.showConditions();
-   }
 
  }
 
@@ -37,12 +34,14 @@ class MarkerContainer extends React.Component {
          <InfoWindow
          visible={this.state.showingInfoWindow}
          position={this.props.marker.position}
-         onCloseClick={this.displayInfoWindow}>
+         onCloseClick={() => {
+          this.props.showConditions(false)
+          this.displayInfoWindow}}>
            <div>
              <p>{this.props.marker.name}</p>
              <p>{this.props.marker.position.lat}</p>
              <p onClick={() => {
-              this.props.showConditions();
+              this.props.showConditions(true);
               this.props.getWeather(this.props.marker);
 
               }}>See Conditions</p>

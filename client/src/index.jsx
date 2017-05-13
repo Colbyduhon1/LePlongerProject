@@ -247,9 +247,10 @@ class App extends React.Component {
   }
 
   //toggles the view on the left side of index.html
-  showConditions () {
+  showConditions (bool) {
+    console.log('CHANGING DIVEVIEW TO: ', bool);
     this.setState({
-      diveview: !this.state.diveview
+      diveview: bool
     });
   }
 
@@ -284,7 +285,7 @@ class App extends React.Component {
         <div className='row'>
 
 
-          {(this.state.diveview && this.state.openInfoWindow) ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
+          {this.state.diveview ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
                                                                                        data={this.state.waveHeight}
                                                                                        description={this.state.siteDescription}
                                                                                        weatherdata={this.state.weatherdata} />
