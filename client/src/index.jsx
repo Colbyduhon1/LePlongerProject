@@ -71,6 +71,8 @@ class App extends React.Component {
           this.setState({
             user: response.data
           })
+        } else {
+          throw response.data
         }
       })
       .catch( (err) => {

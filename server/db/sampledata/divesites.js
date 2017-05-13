@@ -116,6 +116,161 @@ const divesites = [
 			description: 'This is a rather amazing arch about 30\' high bridging a sand-bottomed canyon off Yankee Pt.  The bottom is at 110\', the top of the opening at 80\', the top of the arch at 70\', and I\'ve never been there without a ripping current.  It\'s for very advanced divers only due to depth, current, and offshore location.  Check out amazing color on the walls extending south from the arch.  The site is named after Alan Cull, former captain the the former (here, it\'s now in SoCal) dive boat Pacific Star.',
 			user_dive: 1
 		},
+		{
+		    id: null, // 14
+			name: 'Dionysus',
+			longitude: -121.44611,
+			latitude: 35.73028,
+			rating: 'Advanced',
+			description: 'The Advance II lies about eight nautical miles out from the Oregon Inlet sea buoy. The 185-foot ship lies on a sandy bottom at 80 feet. This dive spot is a popular training and certification dive with Nags Head dive operators.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 15
+			name: 'EMERALD BAY',
+			longitude: -118.31563,
+			latitude: 33.28082,
+			rating: 'Advanced',
+			description: 'Generally Clear Blue water. Lots of Manta ray, sting ray, leopard shark, Eel, and the usual fish. Great night diving for beginners.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 16
+			name: 'CAPE CORTES',
+			longitude: -118.32092,
+			latitude: 33.25783,
+			rating: 'Novice',
+			description: 'This place is the coolest dive, new diver friendly and beautiful sea life all around.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 17
+			name: 'Girbralter',
+			longitude: -118.24321,
+			latitude: 33.25325,
+			rating: 'Novice',
+			description: 'This place is the coolest dive, new diver friendly and beautiful sea life all around.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 18
+			name: 'Nunans Bay',
+			longitude: -118.33249,
+			latitude: 33.28486,
+			rating: 'intermediate',
+			description: 'New diver friendly and This place is the coolest divebeautiful sea life all around.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 19
+			name: 'Turtle Point',
+			longitude: -118.29324,
+			latitude: 33.27144,
+			rating: 'intermediate',
+			description: 'We like turtles here, I am a huge fan or dolphins and I have never seen a turtle but that sure would be cool am I right am I right. ',
+			user_dive: 1
+		},
+		{
+		    id: null, // 20
+			name: 'Black Point',
+			longitude: -119.53144,
+			latitude: 34.22340,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 21
+			name: 'Forney Cove',
+			longitude: -119.55036,
+			latitude: 34.34050,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 22
+			name: 'USS PEACOCK WRECK',
+			longitude: -119.32895,
+			latitude: 34.02932,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 23
+			name: 'SCORPION ANCHORAGE',
+			longitude: -119.34481,
+			latitude: 34.03646,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 24
+			name: 'MORSE POINT',
+			longitude: -119.50626,
+			latitude: 33.58075,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 25
+			name: 'YELLOW BANKS',
+			longitude: -119.32805,
+			latitude: 34.00204,
+			rating: 'intermediate',
+			description: 'Santa Cruz is the best!!!!.',
+			user_dive: 1
+		},
+		{
+		    id: null, // 26
+			name: 'Arena Cove',
+			longitude: -123.42666,
+			latitude: 38.54884,
+			rating: 'Advanced',
+			description: 'Sonoma County Dives for life!',
+			user_dive: 1
+		},
+		{
+		    id: null, // 27
+			name: 'Horsehoe Cove',
+			longitude: -123.04222,
+			latitude: 38.18986,
+			rating: 'Advanced',
+			description: 'Sonoma County Dives for life!',
+			user_dive: 1
+		},
+		{
+		    id: null, // 28
+			name: 'Salt Point',
+			longitude: -123.19802,
+			latitude: 38.34017,
+			rating: 'Advanced',
+			description: 'Sonoma County Dives for life!',
+			user_dive: 1
+		},
+		{
+		    id: null, // 29
+			name: 'Stornetta Point',
+			longitude: -123.43816,
+			latitude: 38.55919,
+			rating: 'Advanced',
+			description: 'Sonoma County Dives for life!',
+			user_dive: 1
+		},
+		{
+		    id: null, // 30
+			name: 'Novarro Point',
+			longitude: -123.84507,
+			latitude: 39.11407,
+			rating: 'Advanced',
+			description: 'Sonoma County Dives for life!',
+			user_dive: 1
+		}
+
+
 ];
 
 
