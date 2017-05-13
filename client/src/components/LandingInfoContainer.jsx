@@ -7,7 +7,7 @@ const LandingInfoContainer = (props) => {
 	return (
 	  <div className='col-md-3 left-col'>
 	    <LandingInfoNorth />
-	    <LandingInfoCentral />
+	    <LandingInfoCentral  darksky={props.darksky}/>
 	    <LandingInfoSouth />
 	  </div>
 	)

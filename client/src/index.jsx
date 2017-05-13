@@ -23,7 +23,7 @@ import NewDiveSite from './components/NewDiveSite.jsx';
 import DiveMap from './components/Map/DiveMap.jsx';
 import mapstyles from './components/Map/mapStyles.json';
 
-
+import sampleDarkSky from '../../server/db/sampledata/weatherDarkCloud.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -45,7 +45,9 @@ class App extends React.Component {
       commentdata: [],
       homeWeather: [seedWeatherData, seedWeatherData, seedWeatherData],
       waveHeight: [],
-      graphHeight: 1
+      graphHeight: 1,
+
+      darksky: sampleDarkSky[0].daily.data,
 
     }
 
@@ -288,7 +290,8 @@ class App extends React.Component {
                                                                                        data={this.state.waveHeight}
                                                                                        description={this.state.siteDescription}
                                                                                        weatherdata={this.state.weatherdata} />
-                                                              : <LandingInfoContainer landingWeather={this.state.homeWeather}/>}
+                                                              : <LandingInfoContainer landingWeather={this.state.homeWeather}
+                                                                darksky={this.state.darksky}/>}
           {/* transfer to map component */}
           <DiveMap
             styles={ mapstyles }
