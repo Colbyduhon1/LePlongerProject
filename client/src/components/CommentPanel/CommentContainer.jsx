@@ -13,7 +13,7 @@ const CommentContainer = (props) => {
  	 	return <Comment key={idx} comments={item} />
  	 })}
 	{(props.userPresent)
-		? <CommentForm user={props.user} site={props.currentsite} addNewComment = {props.addNewComment}/>
+		? <CommentForm user={props.user} site={props.currentsite} addNewComment={props.addNewComment}/>
  		: null
  	}
   </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SurfaceWeather = (props) => {
 	return (
-		<div className='col-md-12 weather-section comment'>
+		<div className='col-md-12 weather-section'>
 			<img src={props.weatherdata.current_observation.icon_url} /><span className='forecast'>{props.weatherdata.current_observation.icon}</span><span className='temp'>{props.weatherdata.current_observation.temp_f}&#176;</span>
 			<table className="table">
 			  <tbody>
