@@ -37,14 +37,15 @@ class MarkerContainer extends React.Component {
          onCloseClick={() => {
           this.props.showConditions(false)
           this.displayInfoWindow}}>
-           <div>
-             <p>{this.props.marker.name}</p>
-             <p>{this.props.marker.position.lat}</p>
-             <p onClick={() => {
-              this.props.showConditions(true);
-              this.props.getWeather(this.props.marker);
-
-              }}>See Conditions</p>
+           <div className="info-window">
+             <p className="site-name">{this.props.marker.name}</p>
+             <p className="site-location">{this.props.marker.position.lat}, {this.props.marker.position.lng}</p>
+             <p>{this.props.marker.rating}</p>
+             <p className="site-description"
+                onClick={() => {
+                  this.props.showConditions(true);
+                  this.props.getWeather(this.props.marker);
+              }}>{this.props.marker.description.slice(0, 50)}<strong className="more">...Check it out!</strong></p>
            </div>
          </InfoWindow>
        </div>

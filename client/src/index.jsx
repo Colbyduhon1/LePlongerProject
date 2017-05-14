@@ -11,14 +11,14 @@ import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
 import $ from 'jquery';
 import _ from 'underscore';
 /*--Landing Page Weather/Wave Components--*/
-import LandingInfoContainer from './components/LandingInfoContainer.jsx';
-import DiveSiteInfoContainer from './components/DiveSiteInfoContainer.jsx';
-import CommentContainer from './components/CommentContainer.jsx'
-import TopBar from './components/TopBar.jsx'
+import LandingInfoContainer from './components/LandingWeather/LandingInfoContainer.jsx';
+import DiveSiteInfoContainer from './components/DiveSitePanel/DiveSiteInfoContainer.jsx';
+import CommentContainer from './components/CommentPanel/CommentContainer.jsx'
+import TopBar from './components/Menu/TopBar.jsx'
 
-import Login from './components/Login.jsx';
-import Signup from './components/Signup.jsx';
-import NewDiveSite from './components/NewDiveSite.jsx';
+import Login from './components/Menu/Login.jsx';
+import Signup from './components/Menu/Signup.jsx';
+import NewDiveSite from './components/Menu/NewDiveSite.jsx';
 /*--Map and subsequent components--*/
 import DiveMap from './components/Map/DiveMap.jsx';
 import mapstyles from './components/Map/mapStyles.json';
@@ -28,6 +28,7 @@ import sampleDarkSky from '../../server/db/sampledata/weatherDarkCloud.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       currentsite: null,
       sites: [],
@@ -44,15 +45,13 @@ class App extends React.Component {
 
       siteDescription: '',
       commentdata: [],
-      homeWeather: null,//[seedWeatherData, seedWeatherData, seedWeatherData],
+      homeWeather: null,
       waveHeight: [],
       graphHeight: 1,
 
       darksky: sampleDarkSky
-
     }
 
-    console.log(this.state.homeWeather)
     this.showConditions = this.showConditions.bind(this);
     this.toggleInfoWindow = this.toggleInfoWindow.bind(this);
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
@@ -68,7 +67,6 @@ class App extends React.Component {
 
     axios.post('/users', loginInfo)
       .then( (response) => {
-        console.log("Setting state of logged in user to: ", response.data);
         if (response.data !== 'User does Not exist') {
           this.setState({
             user: response.data,
@@ -84,11 +82,10 @@ class App extends React.Component {
   }
 
   LogOut () {
-    console.log(this.state.user);
     this.setState({
       user: null,
       dive_site: false
-    })
+    });
   }
 
   new_users (username, password, repeatedPassword, skill, age, email) {
@@ -99,7 +96,7 @@ class App extends React.Component {
         "skill": skill,
         "age": age,
         "email": email
-      };
+    };
 
     axios.post('/new_users', signUpInfo)
       .then( (response) => {
@@ -113,16 +110,7 @@ class App extends React.Component {
       })
   }
 
-  componentWillMount() {
-    // console.log('will mount...');
-    // console.log(this.state.user);
-  }
-
   componentDidMount() {
-    // console.log(this.state.user)
-    // console.log('RELOADED');
-
-
     axios.get('/dives')
       .then( (response) => {
         this.setState({
@@ -133,11 +121,8 @@ class App extends React.Component {
         console.log('Could not retrieve dive sites from DB: ', err);
       })
 
-    //theoretically, this would make 3 api requests to weather underground
-    //send back the data in an array which will get passed to the container component
     axios.get('/weather/home')
       .then( (response) => {
-        //console.log('this is the date', response);
         this.setState({
           darksky: response.data,
           // homeWeather: response.data
@@ -151,13 +136,11 @@ class App extends React.Component {
   getDiveSiteInfo(site) {
     axios.post('/weather', {location: site.position})
       .then( (response) => {
-        console.log('received weather for site: ', response);
         this.setState({
           weatherdata: response.data
         })
       })
       .catch( (err) => {
-        console.log('error retrieving weather from api: ', err);
       })
 
       this.setState({
@@ -168,11 +151,9 @@ class App extends React.Component {
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
 
-        console.log('received comment data: ', response);
         this.setState({
           commentdata: response.data
         })
-
 
         if (response.data.length === 0) {
           this.setState({
@@ -193,7 +174,6 @@ class App extends React.Component {
         let max = 0;
         result.data.forEach( (value) => {
           if (value.y > max) {
-            //console.log('new high: ', value.y + 1);
             max = value.y;
           }
         });
@@ -210,11 +190,11 @@ class App extends React.Component {
 
   addNewDiveSite (name, longitude, latitude, rating, description) {
       let data = {
-        "name": `${name}`,
-        "longitude": `${longitude}`,
-        "latitude": `${latitude}`,
-        "rating": `${rating}`,
-        "description": `${description}`
+        name: name,
+        longitude: longitude,
+        latitude: latitude,
+        rating: rating,
+        description: description
       }
 
      axios.post('/new_sites', data)
@@ -231,38 +211,34 @@ class App extends React.Component {
 
   addNewDiveSiteComment (divesite_id, message ,user_id) {
      let date = new Date();
-     date = date.getUTCFullYear() + '-' +
+      date = date.getUTCFullYear() + '-' +
       ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
       ('00' + date.getUTCDate()).slice(-2) + ' ' +
       ('00' + date.getUTCHours()).slice(-2) + ':' +
       ('00' + date.getUTCMinutes()).slice(-2) + ':' +
       ('00' + date.getUTCSeconds()).slice(-2);
-        console.log(divesite_id, message, user_id, date);
-      $.ajax({
-        url: '/newcomment',
-        method: 'POST',
-        data: {
-          "divesite_id": `${divesite_id}`,
-          "message": `${message}`,
-          "user_id": `${user_id}`,
-          "date_1": `${date}`,
-          "name": `${this.state.user.name}`
-        },
-        success: (data) => {
-          console.log(data);
+
+      let data = {
+        divesite_id: divesite_id,
+        message: message,
+        user_id: user_id,
+        date_1: date,
+        name: this.state.user.name
+      };
+
+      axios.post('/newcomment', data)
+        .then( (response) => {
           this.setState({
-            commentdata: this.state.commentdata.concat(data)
+            commentdata: this.state.commentdata.concat(response.data)
           })
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      })
+        })
+        .catch( (err) => {
+          console.log('Error posing dive site comment to DB');
+        })
   }
 
   //toggles the view on the left side of index.html
   showConditions (bool) {
-    console.log('CHANGING DIVEVIEW TO: ', bool);
     this.setState({
       diveview: bool
     });
@@ -280,37 +256,30 @@ class App extends React.Component {
 
     return (
       <div className='container-fluid '>
+        
         <div className='row app-container'>
-
-
-        <div>
-          <TopBar
-          newDiveSite={this.addNewDiveSite.bind(this)}
-          new_users={this.new_users.bind(this)}
-          logIn={this.logIn.bind(this)}
-          user={this.state.user}
-          logout={this.LogOut.bind(this)}
-          dive_sites={this.state.dive_site}
-          />
-        </div>
-
+          <div>
+            <TopBar
+            newDiveSite={this.addNewDiveSite.bind(this)}
+            new_users={this.new_users.bind(this)}
+            logIn={this.logIn.bind(this)}
+            user={this.state.user}
+            logout={this.LogOut.bind(this)}
+            dive_sites={this.state.dive_site}
+            />
+          </div>
         </div>{/* end first row */}
 
         <div className='row'>
-
-
           {this.state.diveview ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
-                                                                                       data={this.state.waveHeight}
-                                                                                       description={this.state.siteDescription}
-                                                                                       weatherdata={this.state.weatherdata} />
-                                                              : <LandingInfoContainer landingWeather={this.state.homeWeather}
-                                                                darksky={this.state.darksky}/>}
+                                                        data={this.state.waveHeight}
+                                                        description={this.state.siteDescription}
+                                                        weatherdata={this.state.weatherdata} />
+                                : <LandingInfoContainer landingWeather={this.state.homeWeather}
+                                                        darksky={this.state.darksky}/>}
           {/* transfer to map component */}
           <DiveMap
             styles={ mapstyles }
-            
-            scroll={this.state.mapScroll}
-
             containerElement={ <div className='map-container col-md-6'></div> }
             mapElement={ <div id="map" className='col-md-12 map-section'></div> }
             markers={this.state.sites}
@@ -319,11 +288,13 @@ class App extends React.Component {
             getWeather={this.getDiveSiteInfo.bind(this)}
           />
 
-          {/*This ternary for the comment container isn't doing anything*/}
-
           <div className='col-md-3 reviews-section'>
-            {this.state.diveview ? <CommentContainer user={this.state.user} userPresent={this.state.user} currentsite={this.state.currentsite} comments={this.state.commentdata} addNewComment={this.addNewDiveSiteComment.bind(this)}/>
-                                                                : null}
+            {this.state.diveview ? <CommentContainer user={this.state.user} 
+                                                     userPresent={this.state.user} 
+                                                     currentsite={this.state.currentsite} 
+                                                     comments={this.state.commentdata} 
+                                                     addNewComment={this.addNewDiveSiteComment.bind(this)}/>
+                                                    : null}
           </div>
 
         </div>
