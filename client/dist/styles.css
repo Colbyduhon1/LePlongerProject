@@ -19,6 +19,7 @@ body {
   background-size: 100%;
 }
 
+
 .app-container {
   background-image: url('logo.png');
   background-repeat: no-repeat;
@@ -72,7 +73,6 @@ WEATHER BOXES
 ================================================================================================
 */
 .left-col {
-  max-height: 600px;
   overflow: scroll;
   background-color: rgba(255, 255, 255, 0.25);
   margin: 0 5px 0 -6px;
@@ -92,14 +92,14 @@ WEATHER BOXES
 }
 .temp {
   font-size: 2rem;
-  color: #f94040;
+  color: #a4b9f3;
 }
 
 .panel {
   background-color: none;
 }
 .data {
-  color: #f94040;
+  color: #a4b9f3;
   font-weight: bold;
 }
 
@@ -126,7 +126,6 @@ CENTRAL MAP
 */
 
 .map-section {
-	min-height: 600px;
   height: 100%;
   padding: 0;
 }
@@ -220,7 +219,7 @@ COMMENTS
 }
 .skill {
   font-weight: bold;
-  color: #f94040;
+  color: #a4b9f3;
 }
 
 .dive-title {

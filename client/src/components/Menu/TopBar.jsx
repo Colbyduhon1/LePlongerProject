@@ -92,6 +92,7 @@ class TopBar extends React.Component {
                     maxWidth: 1000,
                     height: 600,
                     color: '#a4b9f3',
+                    right: '15px',
                   }
                 }}>
                 <button className="cool-button" onClick={this.closeLoginModal}>&times;</button>
@@ -122,6 +123,7 @@ class TopBar extends React.Component {
                     maxWidth: 1000,
                     height: 600,
                     color: '#a4b9f3',
+                    right: '15px',
                   }
                 }}>
                 <button className='cool-button' onClick={this.closeSignupModal}>&times;</button>
@@ -152,6 +154,7 @@ class TopBar extends React.Component {
                     maxWidth: 1000,
                     height: 600,
                     color: '#a4b9f3',
+                    right: '15px'
                   }
                 }}>
                 <button className='cool-button' onClick={this.closeModal}>&times;</button>

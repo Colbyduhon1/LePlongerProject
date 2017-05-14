@@ -177,7 +177,7 @@ const divesites = [
 			latitude: 34.22340,
 			rating: 'intermediate',
 			description: 'Santa Cruz is the best!!!!.',
-			user_dive: 1
+			user_dive: 6
 		},
 		{
 		    id: null, // 21
@@ -186,7 +186,7 @@ const divesites = [
 			latitude: 34.34050,
 			rating: 'intermediate',
 			description: 'Santa Cruz is the best!!!!.',
-			user_dive: 1
+			user_dive: 2
 		},
 		{
 		    id: null, // 22
@@ -195,7 +195,7 @@ const divesites = [
 			latitude: 34.02932,
 			rating: 'intermediate',
 			description: 'Santa Cruz is the best!!!!.',
-			user_dive: 1
+			user_dive: 3
 		},
 		{
 		    id: null, // 23
@@ -204,7 +204,7 @@ const divesites = [
 			latitude: 34.03646,
 			rating: 'intermediate',
 			description: 'Santa Cruz is the best!!!!.',
-			user_dive: 1
+			user_dive: 4
 		},
 		{
 		    id: null, // 24
@@ -213,7 +213,7 @@ const divesites = [
 			latitude: 33.58075,
 			rating: 'intermediate',
 			description: 'Santa Cruz is the best!!!!.',
-			user_dive: 1
+			user_dive: 5
 		},
 		{
 		    id: null, // 25
@@ -231,7 +231,7 @@ const divesites = [
 			latitude: 38.54884,
 			rating: 'Advanced',
 			description: 'Sonoma County Dives for life!',
-			user_dive: 1
+			user_dive: 5
 		},
 		{
 		    id: null, // 27
@@ -267,7 +267,16 @@ const divesites = [
 			latitude: 39.11407,
 			rating: 'Advanced',
 			description: 'Sonoma County Dives for life!',
-			user_dive: 1
+			user_dive: 6
+		},
+		{
+		    id: null, // 31
+			name: 'Yukon (Canadian Destroyer)',
+			longitude: -117.3012,
+			latitude: 32.7980,
+			rating: 'Advanced',
+			description: 'The Yukon is California’s latest and most popular wreck, both in and outside of diving circles. It is different from nearly all other wrecks as it is completely intact, which also makes it potentially one of California’s most dangerous wrecks to dive. \n Unlike most ships with large open holds for cargo, the Yukon was designed to carry a crew—its bulkheads and low decks form a maze of narrow passages and small compartments, some of which are over 50’ from the nearest exit. To compound the potential danger, the ineffectual sinking of the Yukon left it on its portside, allowing sand and silt to fill the hull and block off several exits. The orientation of the ship is now offset by a strong list, increasing the depth from what was originally planned and the depths listed on the maps of the wreck.',
+			user_dive: 3
 		}
 
 

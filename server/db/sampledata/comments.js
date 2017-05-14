@@ -17,28 +17,28 @@ var comments = [
 		id: null,
 		divesite_id: 1,
 		message: 'Carmel Point was a hard dive. The current was strong and the swell was moving all the divers in our group about 12\' back and fourth. This is definitely an Advanced dive.',
-		user_id: 1,
+		user_id: 3,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 2,
 		message: 'Had a wonderful dive at Eric\'s Pinnacle. The viability was 40\' and the water temperature was 54 degrees. There was lots to see: decorator crabs, linkcods and lots of perch. I would recommend this dive for anyone who wants to see the rich array of sea live in Monterey Bay.',
-		user_id: 3,
+		user_id: 4,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 2,
 		message: 'Wasn\'t the best of dives lots of surge and I broke a fin strap.',
-		user_id: 2,
+		user_id: 5,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 2,
 		message: 'This is a really cool place to dive. It is not feasible to make the long swim from shore, but if you have access to a boat it is worth the trip.',
-		user_id: 3,
+		user_id: 6,
 		date_1: new Date()
 	},
   {
@@ -66,14 +66,14 @@ var comments = [
 		id: null,
 		divesite_id: 4,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 4,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 4,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 2,
+		user_id: 5,
 		date_1: new Date()
 	},
 	{
@@ -87,34 +87,20 @@ var comments = [
 		id: null,
 		divesite_id: 5,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 6,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 5,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 2,
+		user_id: 1,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 5,
 		message: 'EUdiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 3,
-		date_1: new Date()
-	},
-	{
-		id: null,
-		divesite_id: 6,
-		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
-		date_1: new Date()
-	},
-	{
-		id: null,
-		divesite_id: 6,
-		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
 		user_id: 2,
 		date_1: new Date()
 	},
@@ -127,9 +113,23 @@ var comments = [
 	},
 	{
 		id: null,
+		divesite_id: 6,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 6,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
 		divesite_id: 7,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 6,
 		date_1: new Date()
 	},
 	{
@@ -150,21 +150,21 @@ var comments = [
 		id: null,
 		divesite_id: 8,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 6,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 8,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 2,
+		user_id: 5,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 8,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 3,
+		user_id: 6,
 		date_1: new Date()
 	},
 	{
@@ -192,21 +192,21 @@ var comments = [
 		id: null,
 		divesite_id: 10,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 4,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 10,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 2,
+		user_id: 5,
 		date_1: new Date()
 	},
 	{
 		id: null,
 		divesite_id: 10,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 3,
+		user_id: 6,
 		date_1: new Date()
 	},
 	{
@@ -234,7 +234,7 @@ var comments = [
 		id: null,
 		divesite_id: 12,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
-		user_id: 1,
+		user_id: 4,
 		date_1: new Date()
 	},
 	{
@@ -248,7 +248,428 @@ var comments = [
 		id: null,
 		divesite_id: 12,
 		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	////////////////////////////
+		{
+		id: null,
+		divesite_id: 13,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 13,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
 		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 13,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 14,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 14,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 14,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 14,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 15,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 15,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 15,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 15,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 16,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 16,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 16,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 16,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 17,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 17,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 17,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 18,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 18,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 18,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 19,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 19,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 19,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 20,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 20,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 20,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 21,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 21,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 21,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 22,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 22,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 22,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 23,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 23,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 23,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 24,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 24,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 24,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 25,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 25,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 25,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 26,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 26,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 26,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 27,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 27,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 27,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 28,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 28,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 28,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 29,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 29,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 29,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 30,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 2,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 30,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 3,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 30,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 4,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 31,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 5,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 31,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 6,
+		date_1: new Date()
+	},
+	{
+		id: null,
+		divesite_id: 31,
+		message: 'Udiandi vel eum quis quo maximusdae etur andis et am abo. Enda poriae remquid ut lacerepedit ant hil imodis exceatiaesti natur? Quis ipidus dolutem esendias est, sit, ulpa quaspisime rerehendae pore estis cor sit eatianto imincto comnim doluptam volore eatiis dunt pedit, et dolorrorenis etus.',
+		user_id: 1,
 		date_1: new Date()
 	},
 ];

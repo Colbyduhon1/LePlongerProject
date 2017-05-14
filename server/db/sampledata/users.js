@@ -10,20 +10,20 @@ var users = [
   },
   {
   	id: null,
-  	name: 'Aly Tamboura',
+  	name: 'Dan King',
   	password: 12345,
-  	email: 'alytamboura7370@gmail.com',
+  	email: 'dan0@diverdans.com',
   	salt: null,
   	age: 50,
   	skill: 'Advanced',
   },
   {
   	id: null,
-  	name: 'Rich Neimic',
+  	name: 'Rich Niemiec',
   	password: 12345,
   	email: 'rich@gmail.com',
   	salt: null,
-  	age: 50,
+  	age: 39,
   	skill: 'Advanced',
   },
   {
@@ -37,7 +37,7 @@ var users = [
   },
   {
   	id: null,
-  	name: 'Bubba Gump',
+  	name: 'Jeremy Thead',
   	password: 12345,
   	email: 'bgump@gmail.com',
   	salt: null,
@@ -46,7 +46,7 @@ var users = [
   },
   {
   	id: null,
-  	name: 'John Icoisn',
+  	name: 'Mike McConnell',
   	password: 12345,
   	email: 'some@gmail.com',
   	salt: null,

@@ -145,7 +145,7 @@ class App extends React.Component {
       })
 
       this.setState({
-        siteDescription: site.description,
+        siteDescription: site,
         currentsite: site
       })
 
