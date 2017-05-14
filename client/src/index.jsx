@@ -48,6 +48,7 @@ class App extends React.Component {
       homeWeather: null,
       waveHeight: [],
       graphHeight: 1,
+      bouyId: '.....',
 
       darksky: sampleDarkSky
     }
@@ -171,15 +172,17 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
+        console.log(result.data);
         let max = 0;
-        result.data.forEach( (value) => {
+        result.data.heights.forEach( (value) => {
           if (value.y > max) {
             max = value.y;
           }
         });
 
         this.setState({
-          waveHeight: [result.data],
+          waveHeight: [result.data.heights],
+          bouyId: result.data.id,
           graphHeight: max
         })
       })
@@ -272,6 +275,7 @@ class App extends React.Component {
 
         <div className='row'>
           {this.state.diveview ? <DiveSiteInfoContainer graphHeight={this.state.graphHeight}
+                                                        bouy={this.state.bouyId}
                                                         data={this.state.waveHeight}
                                                         description={this.state.siteDescription}
                                                         weatherdata={this.state.weatherdata} />
