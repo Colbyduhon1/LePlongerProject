@@ -226,7 +226,7 @@ COMMENTS
 
 .review-title {
   background-color: rgba(63, 68, 119, 0.65);
-  margin: 0 0 0 5px;
+  margin: 0;
   padding: 10px 5px;
 }
 
@@ -267,10 +267,6 @@ COMMENTS
   background-color: rgba(63, 68, 119, 0.65);
   padding: 7px;
   margin: 5px 0;
-}
-
-.comment-right {
-  margin-left: 5px;
 }
 
 .no-comment {
