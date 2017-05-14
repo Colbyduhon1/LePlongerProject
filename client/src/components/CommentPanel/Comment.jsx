@@ -10,12 +10,12 @@ var Comment = (props) => {
  return(
 
 
- 	<div className="media comment">
+ 	<div className="media comment comment-right">
 	  <div className="media-left media-middle">
 	      <img width="64" className="media-object" src="octo1.png" alt="..." />
 	  </div>
 	  <div className="media-body panel-text">
-	    <h4 className="media-heading panel-text">By {props.comments.name}</h4>
+	    <h4 className="media-heading comment-right panel-text">By {props.comments.name}</h4>
           <p>Date: <Time value={wasDate} titleFormat="YYYY/MM/DD HH:mm" relative />&nbsp;at&nbsp;{time}</p>
 		      <p>Skill Level <span className='skill'>{props.comments.skill}</span></p>
     </div>

@@ -19,6 +19,9 @@ body {
   background-size: 100%;
 }
 
+.col-headers {
+  color: #082d8e;
+}
 
 .app-container {
   background-image: url('logo.png');
@@ -28,6 +31,7 @@ body {
   background-size: 9%;
 }
 .panel-text p, h1, h2, h3, h4, h5, h6, tr, td {
+
   color: black;
 }
 
@@ -53,7 +57,7 @@ body {
   text-align: center;
   outline: none;
   text-decoration: none;
-  background-color: rgba(63, 68, 119, 0.65);
+  background-color: rgba(255, 255, 255, 0.25);
   transition: background-color 0.2s ease-out,
   border-color 0.2s ease-out;
 }
@@ -73,16 +77,27 @@ WEATHER BOXES
 ================================================================================================
 */
 .left-col {
-  height: 600px;
+  max-height: 600px;
   overflow: scroll;
   background-color: rgba(255, 255, 255, 0.25);
   margin: 0 5px 0 -6px;
+  padding-left: 0;
 }
-
 .weather-section {
+  background-color: rgba(63, 68, 119, 0.65);
 	min-height: 200px;
   overflow: hidden;
+  margin: 0 0 5px 0;
+  padding-top: 0;
+  width: 107%;
+  padding-right: 15px;
 }
+
+.weather-section h3 {
+  margin: 2px 0 5px 0;
+  padding: 0;
+}
+
 .pannel img {
   width: 60px;
 }
@@ -93,14 +108,14 @@ WEATHER BOXES
 }
 .temp {
   font-size: 2rem;
-  color: #a4b9f3;
+  color: #f94040;
 }
 
 .panel {
   background-color: none;
 }
 .data {
-  color: #a4b9f3;
+  color: #f94040;
   font-weight: bold;
 }
 
@@ -108,7 +123,6 @@ WEATHER BOXES
   vertical-align: top;
   display: block;
   font-size: 10px;
-  text-align: center;
 }
 .weather-img {
   display: block;
@@ -117,9 +131,6 @@ WEATHER BOXES
     padding: 0px;
     line-height:
 }
-.info {
-  color: #a4b9f3;
-}
 /*
 ================================================================================================
 CENTRAL MAP
@@ -127,8 +138,7 @@ CENTRAL MAP
 */
 
 .map-section {
-  min-height: 600px;
-	height: 600px;
+	min-height: 600px;
   height: 100%;
   padding: 0;
 }
@@ -154,9 +164,7 @@ LOGIN FORMS
   padding: 20px;
   border: none;
 }
-.btn-ctr {
-  margin-top: 20px;
-}
+
 /*
 ================================================================================================
 SIGNUP FORMS
@@ -189,6 +197,11 @@ SIGNUP FORMS
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.junk {
+  background-color: red;
+}
+
+
 
 /*
 ================================================================================================
@@ -217,12 +230,10 @@ COMMENTS
   padding: 10px 5px;
 }
 
-.no-comment {
-  padding-left: 20px;
-}
+
 .skill {
   font-weight: bold;
-  color: #a4b9f3;
+  color: #f94040;
 }
 
 .dive-title {
@@ -258,6 +269,10 @@ COMMENTS
   margin: 5px 0;
 }
 
+.no-comment {
+  margin-left: 10px;
+}
+
 
 /*
 ================================================================================================
@@ -279,9 +294,6 @@ INFO-WINDOW
   margin-top: 10px;
 }
 
-.site-location {
-
-}
 
 .more {
   display: inline;
@@ -290,4 +302,24 @@ INFO-WINDOW
   color: #2a3e73;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/*
+================================================================================================
+Dive Site DIVE SITE INFO
+================================================================================================
+*/
+
+.wave-chart {
+  background-color: rgba(63, 68, 119, 0.65);
+}
+
+.wave-chart p {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.label {
+  font-size: 2px;
 }
