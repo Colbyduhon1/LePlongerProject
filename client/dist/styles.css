@@ -19,10 +19,6 @@ body {
   background-size: 100%;
 }
 
-.col-headers {
-  color: #082d8e;
-}
-
 .app-container {
   background-image: url('logo.png');
   background-repeat: no-repeat;
@@ -31,7 +27,6 @@ body {
   background-size: 9%;
 }
 .panel-text p, h1, h2, h3, h4, h5, h6, tr, td {
-
   color: black;
 }
 
@@ -57,7 +52,7 @@ body {
   text-align: center;
   outline: none;
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(63, 68, 119, 0.65);
   transition: background-color 0.2s ease-out,
   border-color 0.2s ease-out;
 }
@@ -79,11 +74,8 @@ WEATHER BOXES
 .left-col {
   max-height: 600px;
   overflow: scroll;
-<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.25);
   margin: 0 5px 0 -6px;
-=======
->>>>>>> added better icons to the weater pannel
 }
 
 .weather-section {
@@ -124,6 +116,9 @@ WEATHER BOXES
     padding: 0px;
     line-height:
 }
+.info {
+  color: #a4b9f3;
+}
 /*
 ================================================================================================
 CENTRAL MAP
@@ -157,7 +152,9 @@ LOGIN FORMS
   padding: 20px;
   border: none;
 }
-
+.btn-ctr {
+  margin-top: 20px;
+}
 /*
 ================================================================================================
 SIGNUP FORMS
@@ -190,9 +187,6 @@ SIGNUP FORMS
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.junk {
-  background-color: red;
-}
 
 /*
 ================================================================================================
@@ -221,7 +215,9 @@ COMMENTS
   padding: 10px 5px;
 }
 
-
+.no-comment {
+  padding-left: 20px;
+}
 .skill {
   font-weight: bold;
   color: #f94040;

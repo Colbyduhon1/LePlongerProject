@@ -28,7 +28,7 @@ import sampleDarkSky from '../../server/db/sampledata/weatherDarkCloud.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       currentsite: null,
       sites: [],
@@ -172,7 +172,7 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        console.log(result.data);
+        //console.log(result.data);
         let max = 0;
         result.data.heights.forEach( (value) => {
           if (value.y > max) {
@@ -259,7 +259,7 @@ class App extends React.Component {
 
     return (
       <div className='container-fluid '>
-        
+
         <div className='row app-container'>
           <div>
             <TopBar
@@ -293,10 +293,10 @@ class App extends React.Component {
           />
 
           <div className='col-md-3 reviews-section'>
-            {this.state.diveview ? <CommentContainer user={this.state.user} 
-                                                     userPresent={this.state.user} 
-                                                     currentsite={this.state.currentsite} 
-                                                     comments={this.state.commentdata} 
+            {this.state.diveview ? <CommentContainer user={this.state.user}
+                                                     userPresent={this.state.user}
+                                                     currentsite={this.state.currentsite}
+                                                     comments={this.state.commentdata}
                                                      addNewComment={this.addNewDiveSiteComment.bind(this)}/>
                                                     : null}
           </div>

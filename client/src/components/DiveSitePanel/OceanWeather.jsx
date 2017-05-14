@@ -14,8 +14,8 @@ class OceanWeather extends React.Component {
   render() {
 
      return(
-      <div className='col-md-12 weather-section panel-text'>
-        <h4 className='col-headers'>Wave Height: 12 Hr History</h4>
+      <div className='col-md-12 weather-section panel-text comment'>
+        <h3>Wave Height: 12 Hr History</h3>
         <p>Data for this dive site provided by NDBC Bouy: {this.props.bouy}</p>
         <AreaChart
           axes

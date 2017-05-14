@@ -18,23 +18,10 @@ const TableRow = (props) => {
       {props.darksky.icon === 'sleet' ? <img className='weather-img' width='39px' src='sleet.png'/> : ''}
       {props.darksky.icon === 'fog' ? <img className='weather-img' width='39px' src='fog.png'/> : ''}
       <span className='weather-box'>Temp</span>
-      <span className='weather-box skill'>{props.darksky.temperatureMax}&#176;</span>
+      <span className='weather-box info'>{props.darksky.temperatureMax}&#176;</span>
       <span className='weather-box'>Wind Speed</span>
-      <span className='weather-box skill'>{props.darksky.windSpeed} mph</span>
+      <span className='weather-box info'>{props.darksky.windSpeed} mph</span>
     </td>
   )
 }
 export default TableRow;
-
-// var myDate = 1389118292950;
-
-// var Hello = React.createClass({
-//     render: function() {
-//         return <div>Hello {this.props.name} from {moment(myDate).fromNow()}</div>;
-//     }
-// });
-
-      // <td>{props.darksky.icon}</td>
-      // <td>Possibility of Rain: {props.darksky.precipProbability}</td>
-      // <td>Temp: min {props.darksky.temperatureMin} max {props.darksky.temperatureMax}</td>
-      // <td>Wind Speed {props.darksky.windSpeed}</td>

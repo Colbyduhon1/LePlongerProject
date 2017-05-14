@@ -127,6 +127,7 @@ class Signup extends React.Component {
 
       <div className='col-md-12'>
 		    <button
+		    className='cool-button'
 		    onClick={() => this.props.new_users(this.state.username,
 		    this.state.newPassword,
 		    this.state.repeated,
