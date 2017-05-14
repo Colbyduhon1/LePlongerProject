@@ -10,7 +10,7 @@ const DiveSiteInfoContainer = (props) => {
 	    <OceanWeather bouy={props.bouy} graphHeight={props.graphHeight + 1} data={props.data}/>
 	    <SurfaceWeather weatherdata={props.weatherdata} />
 	    <SiteDescription description={props.description}/>
-	  </div>
+    </div>
 	)
 }
 

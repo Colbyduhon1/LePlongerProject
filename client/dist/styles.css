@@ -279,9 +279,6 @@ INFO-WINDOW
   margin-top: 10px;
 }
 
-.site-location {
-
-}
 
 .more {
   display: inline;
@@ -291,3 +288,14 @@ INFO-WINDOW
   text-decoration: underline;
   cursor: pointer;
 }
+
+/*
+================================================================================================
+Dive Site DIVE SITE INFO
+================================================================================================
+*/
+
+.wave-chart {
+  
+}
+
