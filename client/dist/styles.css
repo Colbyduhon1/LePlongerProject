@@ -32,7 +32,7 @@ body {
 }
 .panel-text p, h1, h2, h3, h4, h5, h6, tr, td {
 
-  color: #ffffff;
+  color: black;
 }
 
 #myiframe {
@@ -80,6 +80,7 @@ WEATHER BOXES
   max-height: 600px;
   overflow: scroll;
   background-color: rgba(255, 255, 255, 0.25);
+  margin: 0 5px 0 -6px;
 }
 .weather-section {
 	min-height: 200px;
@@ -126,16 +127,6 @@ CENTRAL MAP
 }
 
 
-
-/*
-================================================================================================
-COMMMENTS SECTION
-================================================================================================
-*/
-.reviews-section {
-  height: 600px;
-  overflow: auto;
-}
 
 /*
 ================================================================================================
@@ -203,6 +194,18 @@ svg {
 COMMENTS
 ================================================================================================
 */
+
+.comment-container {
+  width: 100%;
+}
+
+.review-title {
+  background-color: rgba(63, 68, 119, 0.65);
+  margin: 0;
+  padding: 10px 5px;
+}
+
+
 .skill {
   font-weight: bold;
   color: #f94040;
@@ -214,9 +217,31 @@ COMMENTS
 }
 
 .new-dive-site {
-  
   text-align: center;
   margin: 0 auto;
+}
+
+.media-middle {
+  float: right;
+  width: 25%;
+}
+
+.media-body {
+  width: 75%;
+}
+
+.reviews-section {
+  height: 600px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 0 -6px 0 5px;
+  padding: 0px;
+}
+
+.comment {
+  background-color: rgba(63, 68, 119, 0.65);
+  padding: 7px;
+  margin: 5px 0;
 }
 
 
