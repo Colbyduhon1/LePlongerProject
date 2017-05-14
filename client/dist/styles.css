@@ -218,3 +218,37 @@ COMMENTS
   text-align: center;
   margin: 0 auto;
 }
+
+
+/*
+================================================================================================
+INFO-WINDOW
+================================================================================================
+*/
+
+.gm-style-iw p {
+  margin-bottom: 2px;
+}
+
+.site-name {
+  font-size: 140%;
+  text-decoration: underline;
+}
+
+.site-description {
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.site-location {
+
+}
+
+.more {
+  display: inline;
+}
+.more:hover {
+  color: #2a3e73;
+  text-decoration: underline;
+  cursor: pointer;
+}
