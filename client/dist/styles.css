@@ -73,6 +73,7 @@ WEATHER BOXES
 ================================================================================================
 */
 .left-col {
+  height: 600px;
   overflow: scroll;
   background-color: rgba(255, 255, 255, 0.25);
   margin: 0 5px 0 -6px;
@@ -126,6 +127,8 @@ CENTRAL MAP
 */
 
 .map-section {
+  min-height: 600px;
+	height: 600px;
   height: 100%;
   padding: 0;
 }
