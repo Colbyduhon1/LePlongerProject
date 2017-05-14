@@ -1,17 +1,17 @@
 import React from 'react';
 import TableRow from './TableRow.jsx'
 
-const NorthWeatherTable = (props) => {
+const SouthernWeatherTable = (props) => {
   return (
 		<table className="table">
 		  <tbody>
-		    <tr>
-	        {props.darksky[0].daily.data.map((item, idx) => {
+		  <tr className='table-row'>
+	        {props.darksky[2].daily.data.map((item, idx) => {
 	          return <TableRow key={idx} darksky={item} />
 	        })}
-        </tr>
+      </tr>
 		  </tbody>
 		</table>
   )
 }
-export default NorthWeatherTable;
+export default SouthernWeatherTable;

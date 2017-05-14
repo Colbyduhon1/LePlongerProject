@@ -4,7 +4,7 @@ const SurfaceWeather = (props) => {
 	//console.log(props)
 	return (
 		<div className='col-md-12 weather-section'>
-			<img src={props.weatherdata.current_observation.icon_url} /><span className='forecast'>{props.weatherdata.current_observation.icon}</span><span className='temp'>{props.weatherdata.current_observation.temp_f} deg</span>
+			<img src={props.weatherdata.current_observation.icon_url} /><span className='forecast'>{props.weatherdata.current_observation.icon}</span><span className='temp'>{props.weatherdata.current_observation.temp_f}&#176;</span>
 			<table className="table">
 			  <tbody>
 				  <tr><td>Gusts <span className='data'>{props.weatherdata.current_observation.wind_gust_mph}</span></td><td>Wind from <span className='data'>{props.weatherdata.current_observation.wind_dir}</span></td></tr>

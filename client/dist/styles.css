@@ -105,6 +105,19 @@ WEATHER BOXES
   color: #f94040;
   font-weight: bold;
 }
+
+.weather-box {
+  vertical-align: top;
+  display: block;
+  font-size: 10px;
+}
+.weather-img {
+  display: block;
+}
+.table> tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 0px;
+    line-height:
+}
 /*
 ================================================================================================
 CENTRAL MAP
@@ -214,7 +227,7 @@ COMMENTS
 }
 
 .new-dive-site {
-  
+
   text-align: center;
   margin: 0 auto;
 }
