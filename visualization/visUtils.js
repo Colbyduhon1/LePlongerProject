@@ -33,7 +33,7 @@ const formatBouyData = (data, field) => {
   let colIndex = rows[0].indexOf(field);
 
   for (let i = rows.length -1; i > 1; i--) {
-    let position = {x: (rows.length - (i)), y: +rows[i][colIndex] }
+    let position = {x: (rows.length - (i)), y: +rows[i][colIndex] || 0 }
     formatted.push(position);
   }
   
