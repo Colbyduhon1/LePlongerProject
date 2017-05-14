@@ -57,7 +57,7 @@ body {
   text-align: center;
   outline: none;
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.4);
   transition: background-color 0.2s ease-out,
   border-color 0.2s ease-out;
 }
@@ -79,9 +79,13 @@ WEATHER BOXES
 .left-col {
   max-height: 600px;
   overflow: scroll;
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.25);
   margin: 0 5px 0 -6px;
+=======
+>>>>>>> added better icons to the weater pannel
 }
+
 .weather-section {
 	min-height: 200px;
   overflow: hidden;
@@ -111,6 +115,7 @@ WEATHER BOXES
   vertical-align: top;
   display: block;
   font-size: 10px;
+  text-align: center;
 }
 .weather-img {
   display: block;
@@ -188,8 +193,6 @@ SIGNUP FORMS
 .junk {
   background-color: red;
 }
-
-
 
 /*
 ================================================================================================

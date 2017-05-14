@@ -6,6 +6,7 @@ const CommentContainer = (props) => {
 
  return (
  	<div class="comment-container left-col">
+
  	{props.comments.length > 0 ? <h2 className="review-title">Reviews for {props.currentsite.name}</h2> : <h4>No reviews for {props.currentsite.name} yet</h4>}
 
  	 {props.comments.map((item, idx) => {
