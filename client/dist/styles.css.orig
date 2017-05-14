@@ -230,6 +230,10 @@ COMMENTS
 }
 
 .new-dive-site {
+<<<<<<< HEAD
+
+=======
+>>>>>>> Styling for comment container
   text-align: center;
   margin: 0 auto;
 }
