@@ -5,9 +5,11 @@ const NorthWeatherTable = (props) => {
   return (
 		<table className="table">
 		  <tbody>
-        {props.darksky[0].daily.data.map((item, idx) => {
-          return <TableRow key={idx} darksky={item} />
-        })}
+		    <tr>
+	        {props.darksky[0].daily.data.map((item, idx) => {
+	          return <TableRow key={idx} darksky={item} />
+	        })}
+        </tr>
 		  </tbody>
 		</table>
   )
