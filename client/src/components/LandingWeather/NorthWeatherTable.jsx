@@ -12,6 +12,7 @@ const NorthWeatherTable = (props) => {
         </tr>
 		  </tbody>
 		</table>
-  )
-}
+  );
+};
+
 export default NorthWeatherTable;

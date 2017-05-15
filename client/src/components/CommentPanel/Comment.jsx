@@ -5,7 +5,6 @@ var Comment = (props) => {
 
   let wasDate = new Date(props.comments.date_1)
   let time = props.comments.date_1.slice(11, 16);
-  //console.log('this', props)
 
  return(
 

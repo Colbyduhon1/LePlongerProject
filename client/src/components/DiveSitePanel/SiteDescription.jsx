@@ -6,7 +6,7 @@ const SiteDescription = (props) => {
 	    <h3>About {props.description.name}</h3>
 	    <p>{props.description.description}</p>
     </div>
-	)
+	);
 }
 
 export default SiteDescription;

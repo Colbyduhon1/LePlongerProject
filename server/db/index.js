@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-// const password = require('./config.js');
 const Promise = require('bluebird');
 const keys = require('../../keys.js');
 // Create a database connection and export it from this file.
@@ -13,6 +12,9 @@ const keys = require('../../keys.js');
 //   password: keys.dbpass,
 //   database: 'dive_team'
 // });
+/*-----------DEPLOYMENT---------------------*/
+
+
 
 /*-----------DEVELOPMENT---------------------*/
 const connection = mysql.createConnection({
@@ -21,6 +23,7 @@ const connection = mysql.createConnection({
   password: '',
   database: 'dive_team'
 });
+/*-----------DEVELOPMENT---------------------*/
 
 Promise.promisifyAll(connection);
 
@@ -30,9 +33,7 @@ connection.connect(function(err) {
     console.error('Error connecting: ' + err.stack);
     return;
   }
- 
   console.log('Connected to SQL as id ' + connection.threadId);
 });
-
 
 module.exports = connection;

@@ -5,25 +5,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
-import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
-
-
 import $ from 'jquery';
 import _ from 'underscore';
-/*--Landing Page Weather/Wave Components--*/
+
 import LandingInfoContainer from './components/LandingWeather/LandingInfoContainer.jsx';
 import DiveSiteInfoContainer from './components/DiveSitePanel/DiveSiteInfoContainer.jsx';
 import CommentContainer from './components/CommentPanel/CommentContainer.jsx'
-import TopBar from './components/Menu/TopBar.jsx'
 
+import TopBar from './components/Menu/TopBar.jsx'
 import Login from './components/Menu/Login.jsx';
 import Signup from './components/Menu/Signup.jsx';
 import NewDiveSite from './components/Menu/NewDiveSite.jsx';
-/*--Map and subsequent components--*/
+
 import DiveMap from './components/Map/DiveMap.jsx';
 import mapstyles from './components/Map/mapStyles.json';
 
 import sampleDarkSky from '../../server/db/sampledata/weatherDarkCloud.js';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -58,7 +56,6 @@ class App extends React.Component {
     this.getDiveSiteInfo = this.getDiveSiteInfo.bind(this);
     this.LogOut = this.LogOut.bind(this);
   }
-
 
   logIn (user, pass) {
     let loginInfo = {
@@ -151,7 +148,6 @@ class App extends React.Component {
 
     axios.post('/comments',{diveSite_id : site.id})
       .then((response) => {
-
         this.setState({
           commentdata: response.data
         })
@@ -172,7 +168,6 @@ class App extends React.Component {
 
     axios.post('/ocean', {location: site.position})
       .then( (result) => {
-        //console.log(result.data);
         let max = 0;
         result.data.heights.forEach( (value) => {
           if (value.y > max) {
@@ -192,15 +187,15 @@ class App extends React.Component {
   }
 
   addNewDiveSite (name, longitude, latitude, rating, description) {
-      let data = {
-        name: name,
-        longitude: longitude,
-        latitude: latitude,
-        rating: rating,
-        description: description
-      }
+    let data = {
+      name: name,
+      longitude: longitude,
+      latitude: latitude,
+      rating: rating,
+      description: description
+    }
 
-     axios.post('/new_sites', data)
+    axios.post('/new_sites', data)
      .then(result => {
       console.log('result', result)
 
@@ -208,8 +203,6 @@ class App extends React.Component {
      .catch(err => {
       console.log('err', err)
      })
-
-
   }
 
   addNewDiveSiteComment (divesite_id, message ,user_id) {
@@ -240,7 +233,6 @@ class App extends React.Component {
         })
   }
 
-  //toggles the view on the left side of index.html
   showConditions (bool) {
     this.setState({
       diveview: bool
@@ -254,9 +246,7 @@ class App extends React.Component {
   }
 
 
-
   render() {
-
     return (
       <div className='container-fluid '>
 

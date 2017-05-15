@@ -10,7 +10,7 @@ const LandingInfoContainer = (props) => {
 	    <LandingInfoCentral  darksky={props.darksky} />
 	    <LandingInfoSouth darksky={props.darksky} />
 	  </div>
-	)
+	);
 };
 
 export default LandingInfoContainer;

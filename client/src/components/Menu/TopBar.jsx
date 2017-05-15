@@ -4,7 +4,6 @@ import Login from './Login.jsx';
 import Signup from './Signup.jsx';
 import NewDiveSite from './NewDiveSite.jsx';
 
-
 class TopBar extends React.Component {
 	constructor(props) {
 		super(props)
@@ -13,21 +12,20 @@ class TopBar extends React.Component {
 		}
 
     this.openModal = this.openModal.bind(this);
-
     this.closeModal = this.closeModal.bind(this);
-    this.openLoginModal = this.openLoginModal.bind(this);
 
+    this.openLoginModal = this.openLoginModal.bind(this);
     this.closeLoginModal = this.closeLoginModal.bind(this);
+
     this.openSignupModal = this.openSignupModal.bind(this);
-    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
     this.closeSignupModal = this.closeSignupModal.bind(this);
+    
+    this.afterOpenSignupModal = this.afterOpenSignupModal.bind(this);
   }
 
-  //Can these be moved to the modal component??
   openModal() {
     this.setState({modalIsOpen: true});
   }
-
 
   closeModal() {
     this.setState({modalIsOpen: false});
@@ -37,19 +35,15 @@ class TopBar extends React.Component {
     this.setState({modalLogin: true});
   }
 
-
   closeLoginModal() {
-
     this.setState({modalLogin: false});
   }
-
 
   openSignupModal() {
     this.setState({modalSignup: true});
   }
 
   afterOpenSignupModal() {
-    // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#777';
   }
 
@@ -66,7 +60,6 @@ class TopBar extends React.Component {
 	render() {
 		return(
 		   <div>
-
            { this.props.user ?
             <div className="loginForm">
                 <button className="cool-button"
@@ -170,8 +163,3 @@ class TopBar extends React.Component {
 
 
 export default TopBar;
-
-
-
-
-

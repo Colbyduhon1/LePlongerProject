@@ -12,6 +12,7 @@ const SouthernWeatherTable = (props) => {
       </tr>
 		  </tbody>
 		</table>
-  )
-}
+  );
+};
+
 export default SouthernWeatherTable;
