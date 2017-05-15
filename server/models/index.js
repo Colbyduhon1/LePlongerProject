@@ -75,6 +75,7 @@ module.exports = {
 
       return connection.queryAsync(
         queryString
+
       );
     },
 

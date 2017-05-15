@@ -24,7 +24,7 @@ describe('server', function() {
     });
   });
 
-  it('should be able to add user', function(done) {
+  it('should be able to add dive site', function(done) {
     var requestParams = {
       method: 'POST',
       uri: 'http://127.0.0.1:8080/new_sites',
@@ -103,7 +103,7 @@ describe('server', function() {
     };
 
     request(requestParams, function(error, response, body) {
-      console.log(body)
+      //console.log(body)
       expect(JSON.parse(body).results.length > 1).to.equal(true);
       done();
     });
@@ -111,18 +111,33 @@ describe('server', function() {
 
   xit('Should populate new comments when user posts about a site', function(done) {
     var requestParams = {method: 'POST',
-      uri: 'http://127.0.0.1:8080/comments',
+      uri: 'http://127.0.0.1:8080/newcomment',
       new_comment: { 
-        divesite_id:  1,
+        divesite_id:  2,
         user_id: 2,
         message:'Carmel Point had terrible viability!',
-        date_1: new Date()  
+        date_1: new Date(), 
       }
     };
 
     request(requestParams, function(error, response, body) {
       console.log(body)
-      var message = JSON.parse(body).results[0];
+      var message = JSON.parse(body);
+      console.log(message)
+      expect(typeof message === 'object').to.equal(true);
+      done();
+    });
+  });
+
+  it('Should render comments when user selects a site', function(done) {
+    var requestParams = {method: 'POST',
+      uri: 'http://127.0.0.1:8080/comments',
+      divesite_id: 1
+    };
+
+    request(requestParams, function(error, response, body) {
+      console.log(response.body)
+      var message = JSON.parse(body).results;
       expect(typeof message === 'object').to.equal(true);
       done();
     });
