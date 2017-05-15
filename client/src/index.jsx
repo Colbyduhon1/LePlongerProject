@@ -98,6 +98,7 @@ class App extends React.Component {
 
     axios.post('/new_users', signUpInfo)
       .then( (response) => {
+        console.log(response.data)
         this.setState({
           user: response.data,
           dive_site: !this.state.dive_site
@@ -219,11 +220,13 @@ class App extends React.Component {
         message: message,
         user_id: user_id,
         date_1: date,
-        name: this.state.user.name
+        name: this.state.user.name,
+        skill: this.state.user.skill
       };
 
       axios.post('/newcomment', data)
         .then( (response) => {
+          console.log('new comment added: ', response.data);
           this.setState({
             commentdata: this.state.commentdata.concat(response.data)
           })
