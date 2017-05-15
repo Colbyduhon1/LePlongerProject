@@ -27,7 +27,7 @@ user_data.users.forEach(function(user) {
 comment_data.comments.forEach(function (comment) {
 	models.comments.post(comment, function(err, data) {
 		if( err ) {
-			console.log('Error in posting comment to database from worker');
+			console.log('Error in posting comment to database from worker: ', err);
 		} else {
 			console.log('Saved comment to database');
 		}

@@ -25,7 +25,8 @@ module.exports = {
 							
 							let userInfo = {
 								name: data[0].name,
-								id: data[0].id
+								id: data[0].id,
+								skill: data[0].skill
 							};
 
 						  res.send(userInfo);
@@ -54,11 +55,11 @@ module.exports = {
 			} else {
 				let newComment = {};
 				//Refactor name for user
+				console.log('REQBODYSKILL: ', req.body.skill);
 				newComment.name = req.body.name;
 				newComment.date_1 = req.body.date_1;
 				newComment.message = req.body.message;
-				//Refactor Skill//why are we saying the skill is experienced by default?
-				newComment.skill = "Experienced"
+				newComment.skill = req.body.skill;
 				res.send(newComment);
 			}
 		})
@@ -93,7 +94,15 @@ module.exports = {
 				if (err) {
 					res.send('could not save user');
 				} else {
-					res.send(newUser.name);
+					console.log('added user: ', data);
+
+					let userInfo = {
+						name: req.body.user,
+						id: data.insertId,
+						skill: req.body.skill
+					};
+
+					res.send(userInfo);
 				}
 			})
 		}
