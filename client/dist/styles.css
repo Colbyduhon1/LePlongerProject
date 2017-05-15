@@ -30,8 +30,7 @@ body {
   background-attachment: fixed;
   background-size: 9%;
 }
-.panel-text p, h1, h2, h3, h4, h5, h6, tr, td {
-
+.panel-text h1, h2, h3, h4, h5, h6, tr, td {
   color: black;
 }
 
@@ -84,7 +83,7 @@ WEATHER BOXES
   padding-left: 0;
 }
 .weather-section {
-  background-color: rgba(63, 68, 119, 0.65);
+  background-color: rgba(63, 68, 119, 0.75);
 	min-height: 200px;
   overflow: hidden;
   margin: 0 0 5px 0;
@@ -96,6 +95,12 @@ WEATHER BOXES
 .weather-section h3 {
   margin: 2px 0 5px 0;
   padding: 0;
+}
+
+
+
+.weather-section p {
+  color: #dfdbdb;
 }
 
 .pannel img {
@@ -115,7 +120,7 @@ WEATHER BOXES
   background-color: none;
 }
 .data {
-  color: #f94040;
+  color: #a4b9f3;
   font-weight: bold;
 }
 
@@ -169,6 +174,9 @@ LOGIN FORMS
   border: none;
 }
 
+input {
+  color: black;
+}
 /*
 ================================================================================================
 SIGNUP FORMS
@@ -229,15 +237,16 @@ COMMENTS
 }
 
 .review-title {
-  background-color: rgba(63, 68, 119, 0.65);
+  background-color: rgba(63, 68, 119, 0.75);
   margin: 0;
   padding: 10px 5px;
+  text-align: center;
 }
 
 
 .skill {
   font-weight: bold;
-  color: #f94040;
+  color: #a4b9f3;
 }
 
 .dive-title {
@@ -268,9 +277,16 @@ COMMENTS
 }
 
 .comment {
-  background-color: rgba(63, 68, 119, 0.65);
+  background-color: rgba(63, 68, 119, 0.75);
   padding: 7px;
   margin: 5px 0;
+}
+
+.comment-right p {
+  color: #dfdbdb;
+}
+.comment-right h4 {
+  color: #a4b9f3;
 }
 
 .no-comment {
@@ -315,7 +331,7 @@ Dive Site DIVE SITE INFO
 */
 
 .wave-chart {
-  background-color: rgba(63, 68, 119, 0.65);
+  background-color: rgba(63, 68, 119, 0.75);
 }
 
 .wave-chart p {
@@ -327,3 +343,24 @@ Dive Site DIVE SITE INFO
 .label {
   font-size: 2px;
 }
+
+.about {
+  color: #a4b9f3;
+}
+
+.chart-title {
+  color: red;
+  background-color: rgba(63, 68, 119, 0.75);
+}
+
+.leplonger {
+  width: 107%;
+  background-color: rgba(63, 68, 119, 0.75);
+  color: #a4b9f3;
+  margin: 0 0 5px 0;
+  text-align: center;
+  margin-left: -6px;
+  padding: 10px 5px;
+}
+
+

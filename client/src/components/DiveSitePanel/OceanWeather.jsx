@@ -31,21 +31,20 @@ class OceanWeather extends React.Component {
   render() {
 
      return(
-      <div className='wave-chart col-md-12 weather-section panel-text'>
-        <h4 className='col-headers'>Wave Height(m): 12 Hr History</h4>
-        <AreaChart
-          axes
-          grid
-          noAreaGradient
-          width={this.state.componentWidth}
-          height={this.state.componentWidth / 2}
-          areaColors={['#082d8e']}
-          yDomainRange={[0, this.props.graphHeight]}
-          interpolate={'cardinal'}
-          data={this.props.data}
-        />
-        <p>Data for this dive site provided by NDBC Bouy: #{this.props.bouy}</p>
-      </div>
+        <div className='wave-chart col-md-12 weather-section panel-text'>
+          <AreaChart
+            axes
+            grid
+            noAreaGradient
+            width={this.state.componentWidth}
+            height={this.state.componentWidth / 2}
+            areaColors={['#082d8e']}
+            yDomainRange={[0, this.props.graphHeight]}
+            interpolate={'cardinal'}
+            data={this.props.data}
+          />
+          <p>Data for this dive site provided by NDBC Bouy: #{this.props.bouy}</p>
+        </div>
     );
   }
 }
