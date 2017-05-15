@@ -6,9 +6,6 @@ const axios = require('axios');
 const sha1 = require('sha1');
 const visUtils = require('../../visualization/visUtils.js');
 
-//I(John) think these should be named relating to what theyre doing
-//this is the interface that interacts with the database, abstracting to get or post
-//isn't clear, in my opinion
 module.exports = {
   users: {
     get: (user, callback) => {
