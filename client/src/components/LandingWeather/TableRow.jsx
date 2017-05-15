@@ -2,8 +2,8 @@ import React from 'react';
 import moment from 'moment';
 
 const TableRow = (props) => {
-	var day = moment.unix(props.darksky.time);
-	var dayString = day._d.toString().slice(0, 4);
+	let day = moment.unix(props.darksky.time);
+	let dayString = day._d.toString().slice(0, 4);
   return (
     <td>
       <span className='weather-box'>{dayString}</span>
@@ -22,6 +22,7 @@ const TableRow = (props) => {
       <span className='weather-box'>Wind Speed</span>
       <span className='weather-box info'>{props.darksky.windSpeed} mph</span>
     </td>
-  )
-}
+  );
+};
+
 export default TableRow;

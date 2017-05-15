@@ -44,7 +44,7 @@ class OceanWeather extends React.Component {
           interpolate={'cardinal'}
           data={this.props.data}
         />
-        <p>Data for this dive site provided by NDBC Bouy: {this.props.bouy}</p>
+        <p>Data for this dive site provided by NDBC Bouy: #{this.props.bouy}</p>
       </div>
     );
   }

@@ -14,7 +14,7 @@ const SurfaceWeather = (props) => {
 			  </tbody>
 				</table>
 		</div>
-	)
+	);
 };
 
 export default SurfaceWeather;

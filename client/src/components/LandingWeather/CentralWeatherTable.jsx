@@ -12,6 +12,6 @@ const CentralWeatherTable = (props) => {
         </tr>
 		  </tbody>
 		</table>
-  )
+  );
 }
 export default CentralWeatherTable;

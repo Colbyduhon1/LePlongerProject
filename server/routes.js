@@ -7,8 +7,10 @@ router.route('/dives')
   .post(controller.dives.post)
 
 router.route('/users')
-  .get(controller.users.get)
   .post(controller.users.post)
+
+router.route('/new_users')
+  .post(controller.new_users.post)
 
 router.route('/comments')
   .post(controller.comments.get)
@@ -27,11 +29,6 @@ router.route('/ocean')
   .post(controller.ocean.get);
 
 router.route('/new_sites')
-  .get(controller.new_sites.get)
   .post(controller.new_sites.post)
-
-router.route('/new_users')
-  .post(controller.new_users.post)
-
 
 module.exports = router;
