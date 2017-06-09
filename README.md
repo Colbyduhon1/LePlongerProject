@@ -1,6 +1,6 @@
-# Project Name
+# LePlonger
 
-> Pithy project description
+Informational website for divers that consolidates relevant information needed for a successful dive.
 
 ## Team
 
